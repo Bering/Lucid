@@ -1,0 +1,31 @@
+<h1>%username%</h1>
+<hr />
+<div id="projectsList"></div>
+
+<script type="text/javascript">
+var projects = %projects%;
+
+window.onload = function() {
+	var container = document.getElementById("projectsList");
+	for (const [project_name, project] of Object.entries(projects)) {
+		var div = document.createElement("div");
+
+		var el = document.createElement("h3");
+		var text = document.createTextNode(project.name);
+		el.appendChild(text);
+		div.appendChild(el);
+
+		el = document.createElement("p");
+		text = document.createTextNode(project.description);
+		el.appendChild(text);
+		div.appendChild(el);
+
+		var a = document.createElement("a");
+		a.classList.add("ProjectDiv");
+		a.setAttribute("href", "/" + project.username + "/" + project_name);
+		a.appendChild(div)
+
+		container.appendChild(a);	
+	}
+}
+</script>

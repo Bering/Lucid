@@ -3,7 +3,45 @@ html {
 	background-color: DarkOliveGreen;
 }
 
-img {
+#header img {
 	vertical-align: -11px;
 	padding: 5px;
 }
+
+#content h1 {
+	margin-bottom: 0;
+}
+
+#content hr {
+	color: yellow;
+}
+
+#content a.UserDiv,
+#content a.ProjectDiv {
+	text-decoration: none;
+}
+
+	#content a.UserDiv div,
+	#content a.ProjectDiv div {
+		display: inline-block;
+		border: solid 1px gold;
+		border-radius: 5px;
+		background-color: yellow;
+		color: black;
+		width: 200px;
+		height: 100px;
+		padding: 10px;
+		margin: 10px;
+	}
+
+	#content a.UserDiv h3,
+	#content a.ProjectDiv h3 {
+		padding: 0;
+		margin: 0;
+	}
+
+	#content a.UserDiv p,
+	#content a.ProjectDiv p {
+		padding: 0;
+		margin: 0;
+	}

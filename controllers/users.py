@@ -1,7 +1,6 @@
 import json
 import response
 from dao.user import UserDAO
-from models.user import UsersModel
 from controllers.base import Controller
 
 class UsersController(Controller):
@@ -18,10 +17,11 @@ class UsersController(Controller):
 
 	def index(self):
 		dao = UserDAO()
+		users = dao.load_all()
 		return response.ResponseView(
 			"users",
 			{
-				"%users%" : json.dumps(dao.load_all())
+				"%users%" : json.dumps(users)
 			}
 		)
 

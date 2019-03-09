@@ -8,6 +8,10 @@ class UserDAO:
 			"bering" : {
 				"username" : "bering",
 				"email" : "bering@ringlogic.com"
+			},
+			"phil" : {
+				"username" : "phil",
+				"email" : "bering@ringlogic.com"
 			}
 		}
 

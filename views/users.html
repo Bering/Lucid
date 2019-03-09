@@ -1,8 +1,31 @@
-<h2>Users:</h2>
-<ul id="usersList"></ul>
+<h1>Users:</h1>
+<hr />
+<div id="usersList"></div>
 
 <script type="text/javascript">
 var users = %users%;
-</script>
 
-<script src="js/users.js"></script>
+window.onload = function() {
+	var container = document.getElementById("usersList");
+	for (const [username, user] of Object.entries(users)) {
+		var div = document.createElement("div");
+
+		var el = document.createElement("h3");
+		var text = document.createTextNode(username);
+		el.appendChild(text);
+		div.appendChild(el);
+
+		el = document.createElement("p");
+		text = document.createTextNode(user.email);
+		el.appendChild(text);
+		div.appendChild(el);
+
+		var a = document.createElement("a");
+		a.classList.add("UserDiv");
+		a.setAttribute("href", "/users/" + username);
+		a.appendChild(div)
+
+		container.appendChild(a);	
+	}
+}
+</script>
