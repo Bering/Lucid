@@ -1,8 +1,7 @@
 import os
+import router
 from http.server import BaseHTTPRequestHandler
 from response import Response
-from response_404 import Response404NotFound
-from response_file import ResponseFile
 
 class LucidServer(BaseHTTPRequestHandler):
 
@@ -10,11 +9,7 @@ class LucidServer(BaseHTTPRequestHandler):
 		return
 
 	def do_GET(self):
-		filepath = "public" + self.path
-		if not os.path.isfile(filepath):
-			response = Response404NotFound()
-		else:
-			response = ResponseFile(filepath)
+		response = router.get_response(self.path)
 		self.respond(response)
 	
 	def do_POST(self):
