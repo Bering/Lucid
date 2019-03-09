@@ -1,7 +1,5 @@
-import os
 import router
 from http.server import BaseHTTPRequestHandler
-from response import Response
 
 class LucidServer(BaseHTTPRequestHandler):
 
