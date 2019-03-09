@@ -8,7 +8,6 @@ from controllers.cards import CardsController
 def get_response(path):
 	filepath = "public" + path
 	if os.path.isfile(filepath):
-		# TODO: Check date and return 304 Not Modified?
 		return response.ResponseFile(filepath)
 	else:
 		user = None

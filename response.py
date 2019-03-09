@@ -48,6 +48,11 @@ class ResponseJSON(Response):
 class ResponseFile(Response):
 	def __init__(self, filepath):
 
+		# TODO: Check request headers for "If-Modified-Since"
+		# TODO: Check file last modified date
+		# TODO: Compare dates and times
+		# TODO: Return 304 Not Modified if not modified
+
 		filetypes = {
 			"html" : ["text/html", "r"],
 			"css" : ["text/css", "r"],
@@ -66,6 +71,7 @@ class ResponseFile(Response):
 
 		headers = {
 			"Content-type" : content_type
+			#TODO: "Last-Modified" : <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 		}
 
 		fh = open(filepath, mode)
