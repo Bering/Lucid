@@ -21,10 +21,19 @@ class ResponseFile(Response):
 			content_type = "text/plain"
 			mode = "r"
 
-		f = open(filepath, mode)
-		content = f.read()
+
+		headers = {
+			"Content-type" : content_type
+		}
+
+
+		fh = open(filepath, mode)
+		file_contents = fh.read()
 
 		if mode == "rb":
-			super().__init__(200, content_type, content)
+			content = file_contents
 		else:
-			super().__init__(200, content_type, bytes(content, "UTF-8"))
+			content = bytes(file_contents, "UTF-8")
+
+
+		super().__init__(200, headers, content)

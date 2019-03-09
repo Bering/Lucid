@@ -1,6 +1,6 @@
 class Response:
 
-	def __init__(self, status, content_type, content):
+	def __init__(self, status, headers, content):
 		self.status = status
-		self.content_type = content_type
+		self.headers = headers
 		self.content = content

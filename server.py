@@ -17,6 +17,10 @@ class LucidServer(BaseHTTPRequestHandler):
 
 	def respond(self, response):
 		self.send_response(response.status)
-		self.send_header("Content-type", response.content_type)
+	
+		for header, value in response.headers.items():
+			self.send_header(header, value)
 		self.end_headers()
-		self.wfile.write(response.content)
+	
+		if response.content:
+			self.wfile.write(response.content)
