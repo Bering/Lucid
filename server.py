@@ -1,5 +1,8 @@
+import os
 from http.server import BaseHTTPRequestHandler
 from response import Response
+from response_404 import Response404NotFound
+from response_file import ResponseFile
 
 class LucidServer(BaseHTTPRequestHandler):
 
@@ -7,12 +10,11 @@ class LucidServer(BaseHTTPRequestHandler):
 		return
 
 	def do_GET(self):
-		self.respond()
-		response = Response(
-			200,
-			"text/html",
-			bytes("Hello, world!", "UTF-8")
-		)
+		filepath = "public" + self.path
+		if not os.path.isfile(filepath):
+			response = Response404NotFound()
+		else:
+			response = ResponseStaticFile(filepath)
 		self.respond(response)
 	
 	def do_POST(self):
@@ -22,4 +24,4 @@ class LucidServer(BaseHTTPRequestHandler):
 		self.send_response(response.status)
 		self.send_header("Content-type", response.content_type)
 		self.end_headers()
-		self.wfile.write(response.content)
+		self.wfile.write(bytes(response.content, "UTF-8"))

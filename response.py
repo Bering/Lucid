@@ -4,4 +4,3 @@ class Response:
 		self.status = status
 		self.content_type = content_type
 		self.content = content
-	
