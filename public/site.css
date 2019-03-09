@@ -16,13 +16,14 @@ html {
 	color: yellow;
 }
 
-#content a.UserDiv,
-#content a.ProjectDiv {
+/* todo those are a not divs ... */
+a.UserDiv,
+a.ProjectDiv {
 	text-decoration: none;
 }
 
-	#content a.UserDiv div,
-	#content a.ProjectDiv div {
+	a.UserDiv div,
+	a.ProjectDiv div {
 		display: inline-block;
 		border: solid 1px gold;
 		border-radius: 5px;
@@ -34,14 +35,46 @@ html {
 		margin: 10px;
 	}
 
-	#content a.UserDiv h3,
-	#content a.ProjectDiv h3 {
+	a.UserDiv h3,
+	a.ProjectDiv h3 {
 		padding: 0;
 		margin: 0;
 	}
 
-	#content a.UserDiv p,
-	#content a.ProjectDiv p {
+	a.UserDiv p,
+	a.ProjectDiv p {
 		padding: 0;
 		margin: 0;
+	}
+
+div.ListDiv {
+	float: left;
+	border: solid 1px khaki;
+	border-radius: 5px;
+	background-color: khaki;
+	color: black;
+	width: 200px;
+	min-height: 100px;
+	padding: 10px;
+	margin: 10px;
+}
+
+	div.ListDiv h2 {
+		padding: 0;
+		margin: 0;
+	}
+
+a.CardDiv {
+	text-decoration: none;
+}
+
+	a.CardDiv div {
+		display: inline-block;
+		border: solid 1px lightyellow;
+		border-radius: 5px;
+		background-color: lightyellow;
+		color: black;
+		width: 180px;
+		padding: 5px;
+		margin: 5px;
 	}

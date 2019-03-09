@@ -1,0 +1,40 @@
+<h1 id="project_name"></h1>
+<hr />
+<div id="listsDiv"></div>
+
+<script type="text/javascript">
+var user = %user%;
+var project = %project%;
+
+window.onload = function() {
+	var el = document.getElementById("project_name");
+	var text = document.createTextNode(project.name)
+	el.appendChild(text);
+
+	var listsDiv = document.getElementById("listsDiv");
+	project.lists.forEach(function(list_name, list_index) {
+		var list = document.createElement("div");
+		list.classList.add("ListDiv");
+
+		el = document.createElement("h2");
+		text = document.createTextNode(list_name);
+		el.appendChild(text);
+		list.appendChild(el);
+
+		for (const [card_id, card] of Object.entries(project.cards[list_index])) {
+			var a = document.createElement("a");
+			a.classList.add("CardDiv");
+			a.setAttribute("onclick", "showCard(" + card.id + ")");
+
+			el = document.createElement("div");
+			text = document.createTextNode(card.title);
+			el.appendChild(text);
+
+			a.appendChild(el)
+			list.appendChild(a);
+		}
+
+		listsDiv.appendChild(list);	
+	});
+}
+</script>
