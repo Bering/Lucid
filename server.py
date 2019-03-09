@@ -19,4 +19,4 @@ class LucidServer(BaseHTTPRequestHandler):
 		self.send_response(response.status)
 		self.send_header("Content-type", response.content_type)
 		self.end_headers()
-		self.wfile.write(bytes(response.content, "UTF-8"))
+		self.wfile.write(response.content)

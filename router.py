@@ -7,4 +7,5 @@ def get_response(path):
 	if not os.path.isfile(filepath):
 		return Response404NotFound()
 	else:
+		# TODO: Check date and return 304 Not Modified?
 		return ResponseFile(filepath)
