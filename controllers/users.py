@@ -17,7 +17,13 @@ class UsersController(Controller):
 			return self.get(parts[1])
 
 	def index(self):
-		return response.ResponseView("users")
+		dao = UserDAO()
+		return response.ResponseView(
+			"users",
+			{
+				"%users%" : json.dumps(dao.load_all())
+			}
+		)
 
 	def get(self, username):
 		dao = UserDAO()
