@@ -34,6 +34,45 @@ class ProjectDAO:
 								"title" : "SQLite",
 								"description" : "",
 								"labels" : []
+							},
+							"3" : {
+								"id" : 3,
+								"list_index" : 0,
+								"position" : 3,
+								"title" : "Users Interface",
+								"description" : """
+									- [x] user list
+									- [ ] user add
+									- [ ] user edit
+									- [ ] user delete
+								""",
+								"labels" : []
+							},
+							"4" : {
+								"id" : 4,
+								"list_index" : 0,
+								"position" : 4,
+								"title" : "Projects Interface",
+								"description" : """
+									- [x] project list
+									- [ ] project add
+									- [ ] project delete
+								""",
+								"labels" : []
+							},
+							"5" : {
+								"id" : 5,
+								"list_index" : 0,
+								"position" : 5,
+								"title" : "Card Interface",
+								"description" : """
+									- [ ] card title
+									- [ ] card description
+									- [ ] card markdown
+									- [ ] card labels
+									- [ ] card checklists
+								""",
+								"labels" : []
 							}
 						},
 						"1" : { # list index 1
@@ -42,32 +81,41 @@ class ProjectDAO:
 								"list_index" : 0,
 								"position" : 1,
 								"title" : "Project interface",
-								"description" : """- [x] project list
-	- [ ] Username
-	- [ ] project renaming
-	- [ ] project switcher
-	- [ ] display lists
-	- [ ] renaming lists
-	- [ ] adding lists
-	- [ ] removing lists
-	- [ ] adding cards
-	- [ ] card title
-	- [ ] card description
-	- [ ] drag and dropping cards between lists
-	- [ ] drag and dropping card in same list
-	- [ ] project add
-	- [ ] project delete
-	- [ ] user add
-	- [ ] user edit
-	- [ ] user delete
-	- [ ] card labels
-	- [ ] card markdown
-	- [ ] card checklists
-	""",
+								"description" : """
+									- [ ] Username?
+									- [ ] project renaming
+									- [ ] project switcher
+									- [x] display lists
+									- [ ] renaming lists
+									- [ ] adding lists
+									- [ ] removing lists
+									- [x] display cards
+									- [ ] adding cards near top
+									- [ ] adding cards near bottom
+									- [ ] drag and dropping cards between lists
+									- [ ] drag and dropping card in same list
+									- [ ] card icons
+									- [ ] card labels
+								""",
 								"labels" : []
 							}
 						},
-						"2" : {}
+						"2" : {
+							"6" : {
+								"id" : 6,
+								"list_index" : 2,
+								"position" : 0,
+								"title" : "Web Server",
+								"description" : """
+									- [x] Hello world
+									- [x] Response classes
+									- [x] Router class
+									- [x] Controller classes
+									- [x] View basics
+								""",
+								"labels" : []
+							}
+						}
 					}
 				},
 				"Master-of-Stars" : {
