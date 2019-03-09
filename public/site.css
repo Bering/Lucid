@@ -23,43 +23,28 @@ a.ProjectDiv {
 }
 
 	a.UserDiv div,
-	a.ProjectDiv div {
-		display: inline-block;
+	a.ProjectDiv div,
+	div.ListDiv {
+		float: left;
 		border: solid 1px gold;
 		border-radius: 5px;
-		background-color: yellow;
+		background-color: khaki;
 		color: black;
 		width: 200px;
-		height: 100px;
+		min-height: 100px;
 		padding: 10px;
 		margin: 10px;
 	}
 
 	a.UserDiv h3,
-	a.ProjectDiv h3 {
+	a.ProjectDiv h3,
+	div.ListDiv h2 {
 		padding: 0;
 		margin: 0;
 	}
 
 	a.UserDiv p,
 	a.ProjectDiv p {
-		padding: 0;
-		margin: 0;
-	}
-
-div.ListDiv {
-	float: left;
-	border: solid 1px khaki;
-	border-radius: 5px;
-	background-color: khaki;
-	color: black;
-	width: 200px;
-	min-height: 100px;
-	padding: 10px;
-	margin: 10px;
-}
-
-	div.ListDiv h2 {
 		padding: 0;
 		margin: 0;
 	}

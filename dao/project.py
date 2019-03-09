@@ -10,12 +10,14 @@ class ProjectDAO:
 				"Asteroids" : {
 					"username" : "bering",
 					"name" : "Asteroids",
+					"description" : "Asteroids clone made in Python 3 using the PyGame library",
 					"lists" : [],
 					"cards" : {}
 				},
 				"LUCID" : {
 					"username" : "bering",
 					"name" : "LUCID",
+					"description" : "Ultra-light Python web server hosting a web interface to manage your Kanban-style lists and cards.",
 					"lists" : [ "TODO", "Doing", "Done" ],
 					"cards" : {
 						"0" : { # list index 0
@@ -121,6 +123,7 @@ class ProjectDAO:
 				"Master-of-Stars" : {
 					"username" : "bering",
 					"name" : "Master-of-Stars",
+					"description" : "4x game made in Python 3 with the PyGame library",
 					"lists" : [ "TODO", "Doing", "Done" ],
 					"cards" : {}
 				},
