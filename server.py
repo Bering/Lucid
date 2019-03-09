@@ -14,7 +14,7 @@ class LucidServer(BaseHTTPRequestHandler):
 		if not os.path.isfile(filepath):
 			response = Response404NotFound()
 		else:
-			response = ResponseStaticFile(filepath)
+			response = ResponseFile(filepath)
 		self.respond(response)
 	
 	def do_POST(self):
