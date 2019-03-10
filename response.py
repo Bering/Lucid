@@ -22,7 +22,7 @@ class Response304NotModified(Response):
 		)
 
 class Response400BadRequest(Response):
-	def __init__(self, location):
+	def __init__(self):
 		super().__init__(
 			400,
 			{ "Content-type" : "text/plain" },
