@@ -4,8 +4,8 @@ from dao.user import UserDAO
 from controllers.base import Controller
 
 class UsersController(Controller):
-	def __init__(self):
-		pass
+	def __init__(self, form_fields):
+		super().__init__(form_fields)
 
 	def do_GET(self, parts):
 		if len(parts) == 1:

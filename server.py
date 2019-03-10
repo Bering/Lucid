@@ -7,11 +7,10 @@ class LucidServer(BaseHTTPRequestHandler):
 		return
 
 	def do_GET(self):
-		response = router.get_response(self.path)
-		self.respond(response)
-	
+		self.respond(router.get_response("get", self.path))
+
 	def do_POST(self):
-		return
+		self.respond(router.get_response("post", self.path))
 
 	def respond(self, response):
 		self.send_response(response.status)
