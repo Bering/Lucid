@@ -76,7 +76,7 @@ a.card {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
-#card_zoom {
+#modal_dialog {
 	width: 50%;
 	max-width: 500px;
 	margin: 20% auto;
@@ -86,25 +86,25 @@ a.card {
 	border-radius: 9px;
 }
 
-	#card_zoom input[type="text"],
-	#card_zoom textarea {
+	#modal_dialog input[type="text"],
+	#modal_dialog textarea {
 		width: 100%;
 		font-size: large;
 	}
-	#card_zoom input[type="text"] {
+	#modal_dialog input[type="text"] {
 		height: 30px;
 	}
-	#card_zoom textarea {
+	#modal_dialog textarea {
 		height: 100px;
 	}
-	#card_zoom input[type="submit"],
-	#card_zoom input[type="button"] {
+	#modal_dialog input[type="submit"],
+	#modal_dialog input[type="button"] {
 		margin-top: 20px;
 		width: 100px;
 		height: 40px;
 	}
 
-	#card_zoom div.buttons {
+	#modal_dialog div.buttons {
 		text-align: center;
 		width: 100%;
 	}

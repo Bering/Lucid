@@ -1,9 +1,32 @@
-<h1>Users:</h1>
+<h1>Users</h1>
 <hr />
-<div id="usersList"></div>
+<div id="usersList">
+<a id="create" class="user" onclick="showModal()">
+	<div>
+		<h3>&lt; Create &gt;</h3>
+		<p>Click here to create a user</p>
+	</div>
+</a>
+</div>
+<div id="modal">
+	<form action="/users" method="post">
+		<div id="modal_dialog">
+			<input type="text" name="username" placeholder="Username" required /><br /><br />
+			<input type="text" name="email" placeholder="Email" /><br />
+			<div class="buttons">
+				<input type="submit" value="Save" /> 
+				<input type="button" value="Cancel" onclick="onCancel()" />
+			</div>
+		</div>
+	</form>
+</div>
 
 <script type="text/javascript">
 var users = %users%;
+var modal = document.getElementById("modal");
+var create = document.getElementById("create");
+var form = document.querySelector("form");
+var username = document.getElementsByName("username")[0];
 
 window.onload = function() {
 	var container = document.getElementById("usersList");
@@ -25,7 +48,20 @@ window.onload = function() {
 		a.setAttribute("href", "/" + username);
 		a.appendChild(div)
 
-		container.appendChild(a);	
+		container.removeChild(create);
+		container.appendChild(a);
+		container.appendChild(create);
 	}
 }
+
+function showModal(id) {
+	modal.style.display = "block";
+	username.focus();
+}
+
+function onCancel() {
+	form.reset();
+	modal.style.display = "none";
+}
+
 </script>

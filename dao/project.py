@@ -33,8 +33,8 @@ class ProjectDAO:
 								"id" : 2,
 								"list_index" : 0,
 								"position" : 2,
-								"title" : "SQLite",
-								"description" : "",
+								"title" : "Storage",
+								"description" : "SQLite? XML? JSON?",
 								"labels" : []
 							},
 							"3" : {
@@ -68,12 +68,20 @@ class ProjectDAO:
 								"position" : 5,
 								"title" : "Card Interface",
 								"description" : """
-- [ ] card title
-- [ ] card description
+- [x] card title
+- [x] card description
 - [ ] card markdown
 - [ ] card labels
 - [ ] card checklists
 								""",
+								"labels" : []
+							},
+							"7" : {
+								"id" : 7,
+								"list_index" : 0,
+								"position" : 6,
+								"title" : "Start Browser",
+								"description" : "Start user's browser after starting the server, just like Jupyter Notebook",
 								"labels" : []
 							}
 						},

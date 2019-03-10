@@ -23,19 +23,25 @@ class UsersController(Controller):
 			}
 		)
 
-	def get(self, username):
+	def save(self):
+		if "username" not in self.form_fields:
+			return response.Response400BadRequest()
+
+		username = self.form_fields["username"]
+		
+		if "email" not in self.form_fields:
+			email = ""
+		else:
+			email = self.form_fields["email"]
+		
 		dao = UserDAO()
 		if not dao.exists(username):
-			return response.Response404NotFound()
+			user = dao.get_new()
+		else:
+			user = dao.load(username)
 
-		user = dao.load(username)
-		return response.ResponseView(
-			"user",
-			{
-				"%username%" : user["username"],
-				"%email%" : user["email"]
-			}
-		)
+		user["username"] = username
+		user["email"] = email
+		dao.save(user)
 
-	def do_POST(self):
-		pass
+		return response.Response301Redirect("/users")
