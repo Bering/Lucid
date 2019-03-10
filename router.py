@@ -15,6 +15,9 @@ def get_response(path):
 		card = None
 		parts = path[1:].split("/")
 
+		if parts[0] == "":
+			return response.Response301Redirect("/users")
+
 		command = parts[0]
 		if command == "config":
 			c = ConfigController()

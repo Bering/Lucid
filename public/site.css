@@ -16,15 +16,14 @@ html {
 	color: yellow;
 }
 
-/* todo those are a not divs ... */
-a.UserDiv,
-a.ProjectDiv {
+a.user,
+a.project {
 	text-decoration: none;
 }
 
-	a.UserDiv div,
-	a.ProjectDiv div,
-	div.ListDiv {
+	a.user div,
+	a.project div,
+	div.list {
 		float: left;
 		border: solid 1px gold;
 		border-radius: 5px;
@@ -34,26 +33,27 @@ a.ProjectDiv {
 		min-height: 100px;
 		padding: 10px;
 		margin: 10px;
+		box-shadow: 2px 2px;
 	}
 
-	a.UserDiv h3,
-	a.ProjectDiv h3,
-	div.ListDiv h2 {
+	a.user h3,
+	a.project h3,
+	div.list h2 {
 		padding: 0;
 		margin: 0;
 	}
 
-	a.UserDiv p,
-	a.ProjectDiv p {
+	a.user p,
+	a.project p {
 		padding: 0;
 		margin: 0;
 	}
 
-a.CardDiv {
+a.card {
 	text-decoration: none;
 }
 
-	a.CardDiv div {
+	a.card div {
 		display: inline-block;
 		border: solid 1px lightyellow;
 		border-radius: 5px;

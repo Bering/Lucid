@@ -31,7 +31,7 @@ class ProjectsController(Controller):
 		dao = ProjectDAO()
 		projects = dao.load_all(username)
 		return response.ResponseView(
-			"projects", 
+			"projects",
 			{
 				"%username%" : username,
 				"%projects%" : json.dumps(projects)

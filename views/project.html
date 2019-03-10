@@ -14,7 +14,7 @@ window.onload = function() {
 	var listsDiv = document.getElementById("listsDiv");
 	project.lists.forEach(function(list_name, list_index) {
 		var list = document.createElement("div");
-		list.classList.add("ListDiv");
+		list.classList.add("list");
 
 		el = document.createElement("h2");
 		text = document.createTextNode(list_name);
@@ -23,7 +23,7 @@ window.onload = function() {
 
 		for (const [card_id, card] of Object.entries(project.cards[list_index])) {
 			var a = document.createElement("a");
-			a.classList.add("CardDiv");
+			a.classList.add("card");
 			a.setAttribute("onclick", "showCard(" + card.id + ")");
 
 			el = document.createElement("div");

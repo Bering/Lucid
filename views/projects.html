@@ -1,4 +1,4 @@
-<h1>%username%</h1>
+<h1>%username%'s projects</h1>
 <hr />
 <div id="projectsList"></div>
 
@@ -21,7 +21,7 @@ window.onload = function() {
 		div.appendChild(el);
 
 		var a = document.createElement("a");
-		a.classList.add("ProjectDiv");
+		a.classList.add("project");
 		a.setAttribute("href", "/" + project.username + "/" + project_name);
 		a.appendChild(div)
 
