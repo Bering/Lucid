@@ -1,12 +1,26 @@
 <h1 id="project_name"></h1>
 <hr />
 <div id="listsDiv"></div>
+<div id="modal">
+	<form action="/" method="post">
+		<div id="card_zoom">
+			<input type="text" name="title" placeholder="Title" /><br />
+			<textarea name="description" placeholder="Description"></textarea><br />
+			<div class="buttons">
+				<input type="submit" value="Save" /> 
+				<input type="button" value="Cancel" onclick="onCancel()" />
+			</div>
+		</div>
+	</form>
+</div>
 
 <script type="text/javascript">
 var user = %user%;
 var project = %project%;
+var zoomed_card = null;
 
 window.onload = function() {
+
 	var el = document.getElementById("project_name");
 	var text = document.createTextNode(project.name)
 	el.appendChild(text);
@@ -37,4 +51,41 @@ window.onload = function() {
 		listsDiv.appendChild(list);	
 	});
 }
+
+function showCard(card_id) {
+	var modal = document.getElementById("modal");
+	modal.style.display = "block";
+
+	zoomed_card = findCard(card_id);
+
+	var form = document.querySelector("form");
+	form.action = "/" + user.username + "/" + project.name + "/" + zoomed_card.id;
+
+	var title = document.getElementsByName("title")[0];
+	title.value = zoomed_card.title;
+
+	var description = document.getElementsByName("description")[0];
+	description.value = zoomed_card.description;
+}
+
+// Because cards are grouped by list, we need this function to find the card by id
+function findCard(id_of_card_to_find) {
+	for (const [list_index, list] of Object.entries(project.cards)) {
+		for (const [card_id, card] of Object.entries(list)) {
+			if (card_id == id_of_card_to_find) return card;
+		}
+	}
+	return null;
+}
+
+function onCancel() {
+	var form = document.querySelector("form");
+	form.reset();
+
+	zoomed_card = null;
+
+	var modal = document.getElementById("modal");
+	modal.style.display = "none";
+}
+
 </script>

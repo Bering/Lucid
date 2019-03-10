@@ -43,10 +43,10 @@ class ProjectDAO:
 								"position" : 3,
 								"title" : "Users Interface",
 								"description" : """
-									- [x] user list
-									- [ ] user add
-									- [ ] user edit
-									- [ ] user delete
+- [x] user list
+- [ ] user add
+- [ ] user edit
+- [ ] user delete
 								""",
 								"labels" : []
 							},
@@ -56,9 +56,9 @@ class ProjectDAO:
 								"position" : 4,
 								"title" : "Projects Interface",
 								"description" : """
-									- [x] project list
-									- [ ] project add
-									- [ ] project delete
+- [x] project list
+- [ ] project add
+- [ ] project delete
 								""",
 								"labels" : []
 							},
@@ -68,11 +68,11 @@ class ProjectDAO:
 								"position" : 5,
 								"title" : "Card Interface",
 								"description" : """
-									- [ ] card title
-									- [ ] card description
-									- [ ] card markdown
-									- [ ] card labels
-									- [ ] card checklists
+- [ ] card title
+- [ ] card description
+- [ ] card markdown
+- [ ] card labels
+- [ ] card checklists
 								""",
 								"labels" : []
 							}
@@ -84,20 +84,20 @@ class ProjectDAO:
 								"position" : 1,
 								"title" : "Project interface",
 								"description" : """
-									- [ ] Username?
-									- [ ] project renaming
-									- [ ] project switcher
-									- [x] display lists
-									- [ ] renaming lists
-									- [ ] adding lists
-									- [ ] removing lists
-									- [x] display cards
-									- [ ] adding cards near top
-									- [ ] adding cards near bottom
-									- [ ] drag and dropping cards between lists
-									- [ ] drag and dropping card in same list
-									- [ ] card icons
-									- [ ] card labels
+- [ ] Username?
+- [ ] project renaming
+- [ ] project switcher
+- [x] display lists
+- [ ] renaming lists
+- [ ] adding lists
+- [ ] removing lists
+- [x] display cards
+- [ ] adding cards near top
+- [ ] adding cards near bottom
+- [ ] drag and dropping cards between lists
+- [ ] drag and dropping card in same list
+- [ ] card icons
+- [ ] card labels
 								""",
 								"labels" : []
 							}
@@ -109,11 +109,11 @@ class ProjectDAO:
 								"position" : 0,
 								"title" : "Web Server",
 								"description" : """
-									- [x] Hello world
-									- [x] Response classes
-									- [x] Router class
-									- [x] Controller classes
-									- [x] View basics
+- [x] Hello world
+- [x] Response classes
+- [x] Router class
+- [x] Controller classes
+- [x] View basics
 								""",
 								"labels" : []
 							}
