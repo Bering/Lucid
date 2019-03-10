@@ -7,13 +7,11 @@ class UsersController(Controller):
 	def __init__(self, form_fields):
 		super().__init__(form_fields)
 
-	def do_GET(self, parts):
-		if len(parts) == 1:
-			# /users = index of all users
+	def handle_request(self, method, parts):
+		if method == "get":
 			return self.index()
 		else:
-			# /users/<username> = <username>'s settings
-			return self.get(parts[1])
+			return self.save()
 
 	def index(self):
 		dao = UserDAO()
