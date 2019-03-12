@@ -20,7 +20,6 @@ def get_response(method, path, form):
 			c = ProjectController(form)
 			return c.handle_request(method, parts)
 
-		# GET /<card_id> = get card's info
 		# POST /<card_id> = save card's info
 		c = CardsController(form)
 		return c.handle_request(method, parts)

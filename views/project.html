@@ -1,17 +1,18 @@
 <style type="text/css">
 	.list img { float: right;}
 </style>
-<h1 id="project_name"></h1>
+<h1>%project_name%</h1>
 <hr />
 <div id="listsDiv"></div>
 <div id="modal">
 	<form action="/" method="post">
 		<div id="modal_dialog">
+			<input type="hidden" name="list_index" />
 			<input type="text" name="title" placeholder="Title" /><br />
 			<textarea name="description" placeholder="Description"></textarea><br />
 			<div class="buttons">
 				<input type="submit" value="Save" /> 
-#todo: ajax	<input type="button" value="Cancel" onclick="onCancel()" />
+				<input type="button" value="Cancel" onclick="onCancel()" />
 			</div>
 		</div>
 	</form>
@@ -19,19 +20,18 @@
 
 <script type="text/javascript">
 var project = %project%;
-var zoomed_card = null;
 var modal = document.getElementById("modal");
 var form = document.querySelector("form");
+var list_index = document.getElementsByName("list_index")[0];
 var title = document.getElementsByName("title")[0];
 var description = document.getElementsByName("description")[0];
 
 window.onload = function() {
 
-	var el = document.getElementById("project_name");
-	var text = document.createTextNode(project.name)
-	el.appendChild(text);
-
+	var el;
+	var text;
 	var listsDiv = document.getElementById("listsDiv");
+
 	project.lists.forEach(function(list_name, list_index) {
 		var list = document.createElement("div");
 		list.setAttribute("id", "list_"+list_index);
@@ -39,7 +39,7 @@ window.onload = function() {
 
 		el = document.createElement("img");
 		el.setAttribute("src", "/plus.png");
-		el.setAttribute("onclick", "addCard(" + list_index + ")");
+		el.setAttribute("onclick", "createCard(" + list_index + ")");
 		list.appendChild(el);
 
 		el = document.createElement("h2");
@@ -47,47 +47,60 @@ window.onload = function() {
 		el.appendChild(text);
 		list.appendChild(el);
 
-		for (const [card_id, card] of Object.entries(project.cards[list_index])) {
-			var a = document.createElement("a");
-			a.classList.add("card");
-			a.setAttribute("id", "card_"+card_id);
-			a.setAttribute("onclick", "showCard(" + card.id + ")");
-
-			el = document.createElement("div");
-			text = document.createTextNode(card.title);
-			el.appendChild(text);
-
-			a.appendChild(el)
-			list.appendChild(a);
+		for (const card of project.cards) {
+			if (card.list_index != list_index) continue;
+			var c = makeCard(card);
+			list.appendChild(c);
 		}
 
 		listsDiv.appendChild(list);	
 	});
 }
 
-function showCard(card_id) {
-	zoomed_card = findCard(card_id);
+function makeCard(card) {
+	var a = document.createElement("a");
+	a.classList.add("card");
+	a.setAttribute("id", "card_" + card.id);
+	a.setAttribute("onclick", "zoomOnCard(findCard(" + card.id + "))");
 
-	form.action = "/" + zoomed_card.id;
-	title.value = zoomed_card.title;
-	description.value = zoomed_card.description;
+	var el = document.createElement("div");
+	var text = document.createTextNode(card.title);
+	el.appendChild(text);
+
+	a.appendChild(el);
+
+	return a;
+}
+
+function findCard(id_of_card_to_find) {
+	for (const card of project.cards) {
+		if (card.id == id_of_card_to_find) return card;
+	}
+	return null;
+}
+
+function zoomOnCard(card) {
+	form.action = "/" + card.id;
+	list_index.value = card.list_index;
+	title.value = card.title;
+	description.value = card.description;
 
 	modal.style.display = "block";
 	title.focus();
 }
 
-// Because cards are grouped by list, we need this function to find the card by id
-function findCard(id_of_card_to_find) {
-	for (const [list_index, cards] of Object.entries(project.cards)) {
-		for (const card of cards) {
-			if (card.id == id_of_card_to_find) return card;
-		}
-	}
-	return null;
-}
+function createCard(list_index) {
 
-function addCard(list_index) {
-	console.log(list_index);
+	var card = {
+		"id" : 0,
+		"list_index" : list_index,
+		"position" : 0,
+		"title" : "",
+		"description" : "",
+		"labels" : []
+	};
+
+	zoomOnCard(card);
 }
 
 function onCancel() {

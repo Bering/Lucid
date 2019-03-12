@@ -10,11 +10,11 @@ class ProjectController(Controller):
 
 	def handle_request(self, method, parts):
 		dao = ProjectDAO()
-		project = dao.load()
 
 		return response.ResponseView(
 			"project",
 			{
-				"%project%" : json.dumps(project)
+				"%project_name%" : dao.project["name"],
+				"%project%" : json.dumps(dao.project)
 			}
 		)
