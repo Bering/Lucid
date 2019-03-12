@@ -1,3 +1,6 @@
+import os
+import config
+
 class Response:
 
 	def __init__(self, status, headers, content):
@@ -98,6 +101,6 @@ class ResponseView(Response):
 		super().__init__(200, headers, content)
 
 	def load_view(self, viewname):
-		filepath = "views/" + viewname + ".html"
+		filepath = os.path.join(config.path, "views", viewname + ".html")
 		fh = open(filepath, "r")
 		return fh.read()

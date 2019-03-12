@@ -1,9 +1,7 @@
-class CardDAO:
-	def __init__(self):
-		pass
 
+class CardsDAO():
+	
 	def load_all(self):
-		# TODO: SQLite
 		return {
 			"0" : { # card id 0
 				"id" : 0,
@@ -15,10 +13,10 @@ class CardDAO:
 			},
 			"2" : {
 				"id" : 2,
-				"list_index" : 0,
-				"position" : 2,
-				"title" : "SQLite",
-				"description" : "",
+				"list_index" : 1,
+				"position" : 1,
+				"title" : "Data Storage",
+				"description" : "SQLite? XML? JSON?",
 				"labels" : []
 			},
 			"3" : {
@@ -28,7 +26,7 @@ class CardDAO:
 				"title" : "Users Interface",
 				"description" : """
 - [x] user list
-- [ ] user add
+- [x] user add
 - [ ] user edit
 - [ ] user delete
 				""",
@@ -62,8 +60,8 @@ class CardDAO:
 			},
 			"1" : { # card id 1
 				"id" : 1,
-				"list_index" : 0,
-				"position" : 1,
+				"list_index" : 1,
+				"position" : 0,
 				"title" : "Project interface",
 				"description" : """
 - [ ] Username?
@@ -95,6 +93,22 @@ class CardDAO:
 - [x] Controller classes
 - [x] View basics
 				""",
+				"labels" : []
+			},
+			"7" : {
+				"id" : 7,
+				"list_index" : 0,
+				"position" : 6,
+				"title" : "Start Browser",
+				"description" : "Start user's browser after starting the server, just like Jupyter Notebook",
+				"labels" : []
+			},
+			"8" : {
+				"id" : 8,
+				"list_index" : 0,
+				"position" : 7,
+				"title" : "Command line interface",
+				"description" : "To setup the hostname and port without editing the JSON config",
 				"labels" : []
 			}
 		}

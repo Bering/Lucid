@@ -1,3 +1,6 @@
+<style type="text/css">
+	.list img { float: right;}
+</style>
 <h1 id="project_name"></h1>
 <hr />
 <div id="listsDiv"></div>
@@ -8,16 +11,19 @@
 			<textarea name="description" placeholder="Description"></textarea><br />
 			<div class="buttons">
 				<input type="submit" value="Save" /> 
-				<input type="button" value="Cancel" onclick="onCancel()" />
+#todo: ajax	<input type="button" value="Cancel" onclick="onCancel()" />
 			</div>
 		</div>
 	</form>
 </div>
 
 <script type="text/javascript">
-var user = %user%;
 var project = %project%;
 var zoomed_card = null;
+var modal = document.getElementById("modal");
+var form = document.querySelector("form");
+var title = document.getElementsByName("title")[0];
+var description = document.getElementsByName("description")[0];
 
 window.onload = function() {
 
@@ -28,7 +34,13 @@ window.onload = function() {
 	var listsDiv = document.getElementById("listsDiv");
 	project.lists.forEach(function(list_name, list_index) {
 		var list = document.createElement("div");
+		list.setAttribute("id", "list_"+list_index);
 		list.classList.add("list");
+
+		el = document.createElement("img");
+		el.setAttribute("src", "/plus.png");
+		el.setAttribute("onclick", "addCard(" + list_index + ")");
+		list.appendChild(el);
 
 		el = document.createElement("h2");
 		text = document.createTextNode(list_name);
@@ -38,6 +50,7 @@ window.onload = function() {
 		for (const [card_id, card] of Object.entries(project.cards[list_index])) {
 			var a = document.createElement("a");
 			a.classList.add("card");
+			a.setAttribute("id", "card_"+card_id);
 			a.setAttribute("onclick", "showCard(" + card.id + ")");
 
 			el = document.createElement("div");
@@ -53,41 +66,34 @@ window.onload = function() {
 }
 
 function showCard(card_id) {
-	var modal = document.getElementById("modal");
-	modal.style.display = "block";
-
 	zoomed_card = findCard(card_id);
 
-	var form = document.querySelector("form");
-	form.action = "/" + user.username + "/" + project.name + "/" + zoomed_card.id;
-
-	var title = document.getElementsByName("title")[0];
+	form.action = "/" + zoomed_card.id;
 	title.value = zoomed_card.title;
-
-	var description = document.getElementsByName("description")[0];
 	description.value = zoomed_card.description;
-	
+
+	modal.style.display = "block";
 	title.focus();
 }
 
 // Because cards are grouped by list, we need this function to find the card by id
 function findCard(id_of_card_to_find) {
-	for (const [list_index, list] of Object.entries(project.cards)) {
-		for (const [card_id, card] of Object.entries(list)) {
-			if (card_id == id_of_card_to_find) return card;
+	for (const [list_index, cards] of Object.entries(project.cards)) {
+		for (const card of cards) {
+			if (card.id == id_of_card_to_find) return card;
 		}
 	}
 	return null;
 }
 
+function addCard(list_index) {
+	console.log(list_index);
+}
+
 function onCancel() {
-	var form = document.querySelector("form");
-	form.reset();
-
-	zoomed_card = null;
-
-	var modal = document.getElementById("modal");
 	modal.style.display = "none";
+	form.reset();
+	zoomed_card = null;
 }
 
 </script>
