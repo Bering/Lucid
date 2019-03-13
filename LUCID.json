@@ -18,17 +18,17 @@
         },
         {
             "id": 10,
-            "list_index": 1,
+            "list_index": "2",
             "position": 0,
-            "title": "Adding cards [Done]",
+            "title": "Adding cards",
             "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
             "labels": []
         },
         {
             "id": 12,
-            "list_index": 1,
+            "list_index": "2",
             "position": 0,
-            "title": "Updating cards [Done]",
+            "title": "Updating cards",
             "description": "Testing...\r\nWORKS!",
             "labels": []
         },
@@ -42,7 +42,7 @@
         },
         {
             "id": 14,
-            "list_index": 2,
+            "list_index": "2",
             "position": 0,
             "title": "Data Storage",
             "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?",
@@ -101,7 +101,7 @@
             "list_index": 0,
             "position": 0,
             "title": "Project Interface",
-            "description": "- [ ] Renaming\r\n- [ ] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [ ] Drag and Drop between lists\r\n- [ ] Drag and Drop in the same list\r\n- [ ] Show list's card count",
+            "description": "- [ ] Renaming\r\n- [ ] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [x] Drag and Drop between lists\r\n- [ ] Drag and Drop in the same list\r\n- [ ] Show list's card count",
             "labels": []
         },
         {

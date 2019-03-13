@@ -8,6 +8,15 @@ class Response:
 		self.headers = headers
 		self.content = content
 
+
+class Response204NoContent(Response):
+	def __init__(self):
+		super().__init__(
+			204,
+			{},
+			""
+		)
+
 class Response301Redirect(Response):
 	def __init__(self, location):
 		super().__init__(

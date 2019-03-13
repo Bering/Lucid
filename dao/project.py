@@ -57,9 +57,6 @@ class ProjectDAO():
 		return None
 
 	def save_card(self, new_card):
-
-		# TODO: update position
-
 		if new_card["id"] == 0:
 			new_card["id"] = self.project["next_id"]
 			self.project["next_id"] += 1

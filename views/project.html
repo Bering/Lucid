@@ -125,12 +125,36 @@ function drop(ev) {
 	ev.preventDefault();
 	var id = ev.dataTransfer.getData("text");
 
+	// Drop on the list, not the header, icon or other cards
 	var list = ev.target;
 	while (!list.classList.contains("list")) {
 		list = list.parentNode;
 	}
 
-	list.appendChild(document.getElementById(id));
+	// drop the card
+	var cardDiv = document.getElementById(id);
+	list.appendChild(cardDiv);
+
+	// update the card in RAM
+	var list_index = list.getAttribute("id").replace("list_", '');
+	var card_id = cardDiv.id.replace("card_", "");
+	var card = findCard(card_id);
+	card.list_index = list_index;
+
+	// update the card on the server
+	var url = "/"+card_id+"/list_index";
+	var data = "list_index="+list_index;
+	ajax(url, data);
+}
+
+function ajax(url, data, callback) {
+	var req = new XMLHttpRequest();
+	req.addEventListener("load", function() {
+		if (callback) callback(this);
+	});
+	req.open("POST", url);
+	req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	req.send(data);
 }
 
 </script>
