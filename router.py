@@ -16,10 +16,11 @@ def get_response(method, path, form):
 
 		if path == "/" or path == "/name":
 			# GET / = project's main page
-			# POST / = save project settings
+			# POST /name = save new project name
 			c = ProjectController(form)
 			return c.handle_request(method, parts)
 
 		# POST /<card_id> = save card's info
+		# POST /<card_id>/drag_drop = move and reorder cards
 		c = CardsController(form)
 		return c.handle_request(method, parts)
