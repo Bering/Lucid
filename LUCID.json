@@ -6,92 +6,100 @@
         "Doing",
         "Done"
     ],
-    "next_id": 25,
+    "next_id": 27,
     "cards": [
         {
-            "id": 6,
-            "list_index": 2,
-            "position": 0,
-            "title": "Web Server",
-            "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
-            "labels": []
-        },
-        {
-            "id": 10,
-            "list_index": "2",
-            "position": 0,
-            "title": "Adding cards",
-            "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
-            "labels": []
-        },
-        {
-            "id": 12,
-            "list_index": "2",
-            "position": 0,
-            "title": "Updating cards",
-            "description": "Testing...\r\nWORKS!",
-            "labels": []
-        },
-        {
             "id": 13,
-            "list_index": 0,
+            "list_index": "0",
             "position": 0,
             "title": "304 Not Modified",
             "description": "",
             "labels": []
         },
         {
-            "id": 14,
+            "id": 6,
             "list_index": "2",
             "position": 0,
+            "title": "Web Server",
+            "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
+            "labels": []
+        },
+        {
+            "id": 14,
+            "list_index": "2",
+            "position": 1,
             "title": "Data Storage",
             "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?",
             "labels": []
         },
         {
             "id": 16,
-            "list_index": 0,
-            "position": 0,
+            "list_index": "0",
+            "position": 1,
             "title": "Delete cards",
             "description": "",
             "labels": []
         },
         {
+            "id": 10,
+            "list_index": "2",
+            "position": 2,
+            "title": "Adding cards",
+            "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
+            "labels": []
+        },
+        {
             "id": 17,
-            "list_index": 0,
-            "position": 0,
+            "list_index": "0",
+            "position": 2,
             "title": "Prepend Card",
             "description": "",
             "labels": []
         },
         {
+            "id": 12,
+            "list_index": "2",
+            "position": 3,
+            "title": "Updating cards",
+            "description": "Testing...\r\nWORKS!",
+            "labels": []
+        },
+        {
             "id": 18,
-            "list_index": 0,
-            "position": 0,
+            "list_index": "0",
+            "position": 3,
             "title": "Card Markdown",
             "description": "",
             "labels": []
         },
         {
+            "id": 25,
+            "list_index": "2",
+            "position": 4,
+            "title": "Drag & Drop",
+            "description": "- [x] Between lists\r\n- [ ] Inside a list",
+            "labels": []
+        },
+        {
             "id": 19,
-            "list_index": 0,
-            "position": 0,
+            "list_index": "0",
+            "position": 4,
             "title": "Card labels",
             "description": "",
             "labels": []
         },
         {
             "id": 20,
-            "list_index": 0,
-            "position": 0,
+            "list_index": "0",
+            "position": 5,
             "title": "Card checklists",
             "description": "",
             "labels": []
         },
         {
             "id": 21,
-            "list_index": 0,
-            "position": 0,
+            "list_index": "0",
+            "position": 6,
             "title": "Card indicator if description is set",
             "description": "",
             "labels": []
@@ -99,25 +107,33 @@
         {
             "id": 22,
             "list_index": 0,
-            "position": 0,
+            "position": 7,
             "title": "Project Interface",
-            "description": "- [ ] Renaming\r\n- [ ] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [x] Drag and Drop between lists\r\n- [ ] Drag and Drop in the same list\r\n- [ ] Show list's card count",
+            "description": "- [ ] Renaming\r\n- [ ] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [x] Drag and Drop between lists\r\n- [x] Drag and Drop in the same list\r\n- [ ] Show list's card count",
             "labels": []
         },
         {
             "id": 23,
-            "list_index": 0,
-            "position": 0,
+            "list_index": "0",
+            "position": 8,
             "title": "Start Browser",
             "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
             "labels": []
         },
         {
             "id": 24,
-            "list_index": 0,
-            "position": 0,
+            "list_index": "0",
+            "position": 9,
             "title": "Command-line parameters",
             "description": "To setup the hostname and port without editing config.json",
+            "labels": []
+        },
+        {
+            "id": 26,
+            "list_index": "0",
+            "position": 10,
+            "title": "Escape to close zoomed card",
+            "description": "",
             "labels": []
         }
     ]

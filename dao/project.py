@@ -31,20 +31,6 @@ class ProjectDAO():
 			"labels" : []
 		}
 
-	def update(
-		self,
-		new_name=None,
-		new_description=None,
-		new_lists=None
-	):
-		if new_name:
-			self.project.name = new_name
-		if new_description:
-			self.project.description = new_description
-		if new_lists:
-			self.project.lists = new_lists
-		self.save()
-
 	def save(self):
 		fh = open(self.file, "w")
 		fh.write(json.dumps(self.project, indent=4))

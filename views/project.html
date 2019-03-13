@@ -125,25 +125,59 @@ function drop(ev) {
 	ev.preventDefault();
 	var id = ev.dataTransfer.getData("text");
 
-	// Drop on the list, not the header, icon or other cards
+	// find which card it was dropped on (if any)
+	var insertBeforeCard = ev.target;
+	while (!insertBeforeCard.classList.contains("card")) {
+		if (insertBeforeCard.classList.contains("list")) {
+			insertBeforeCard = null;
+			break;
+		}
+		else
+			insertBeforeCard = insertBeforeCard.parentNode;
+	}
+
+	// Find the list behind the header, icon or other cards
 	var list = ev.target;
 	while (!list.classList.contains("list")) {
 		list = list.parentNode;
 	}
 
+	// if it wasn't dropped on a card, find the y position in the list
+	if (insertBeforeCard == null) {
+		var cards = document.querySelectorAll("#"+list.getAttribute("id")+" .card");
+		for(var n=0; n < cards.length; n++) {
+			if (cards[n].offsetTop > ev.pageY) {
+				insertBeforeCard = cards[n];
+				break;
+			}
+		}
+	}
+
 	// drop the card
 	var cardDiv = document.getElementById(id);
-	list.appendChild(cardDiv);
+	if(insertBeforeCard)
+		list.insertBefore(cardDiv, insertBeforeCard);
+	else
+		list.appendChild(cardDiv);
 
-	// update the card in RAM
+	// update the card's list_index in RAM
 	var list_index = list.getAttribute("id").replace("list_", '');
 	var card_id = cardDiv.id.replace("card_", "");
 	var card = findCard(card_id);
 	card.list_index = list_index;
 
-	// update the card on the server
-	var url = "/"+card_id+"/list_index";
+	// update the cards position in RAM
+	var cards = document.querySelectorAll("#list_"+list_index+" .card");
+	var positions = [];
+	for (var n=0; n < cards.length; n++) {
+		var card_id = cards[n].getAttribute("id").replace("card_", "");
+		positions.push(parseInt(card_id));
+	}
+
+	// update the cards on the server
+	var url = "/drag_drop";
 	var data = "list_index="+list_index;
+	data += "&ids="+JSON.stringify(positions);
 	ajax(url, data);
 }
 

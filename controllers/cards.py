@@ -1,3 +1,4 @@
+import json
 import response
 from dao.project import ProjectDAO
 from dao.cards import CardsDAO
@@ -13,19 +14,16 @@ class CardsController(Controller):
 
 		self.dao = ProjectDAO()
 
+		if parts[0] == "drag_drop":
+			return self.drag_drop()
+
 		card_id = int(parts[0])
 		if card_id == 0:
 			card = self.dao.get_new()
 		else:
 			card = self.dao.load_card(card_id)
 
-		if not card:
-				return response.Response404NotFound()
-
-		if len(parts) == 1:
-			return self.save_zoomed_card(card)
-		elif parts[1] == "list_index":
-			return self.change_list_index(card)
+		return self.save_zoomed_card(card)
 
 	def save_zoomed_card(self, card):
 		if "title" not in self.form_fields or "list_index" not in self.form_fields:
@@ -40,11 +38,21 @@ class CardsController(Controller):
 
 		return response.Response301Redirect("/")
 
-	def change_list_index(self, card):
-		if "list_index" not in self.form_fields:
+	def drag_drop(self):
+		if "list_index" not in self.form_fields or "ids" not in self.form_fields:
 			return response.Response400BadRequest()
 
-		card["list_index"] = self.form_fields["list_index"]
-		self.dao.save_card(card)
+		list_index = self.form_fields["list_index"]
+		ids = json.loads(self.form_fields["ids"])
+
+		n = 0
+		for card_id in ids:
+			card = self.dao.load_card(card_id)
+			card["list_index"] = list_index
+			card["position"] = n
+			n += 1
+
+		self.dao.project["cards"] = sorted(self.dao.project["cards"], key=lambda x: list(x.values())[2])
+		self.dao.save()
 
 		return response.Response204NoContent()
