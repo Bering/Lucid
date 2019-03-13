@@ -35,6 +35,8 @@ window.onload = function() {
 	project.lists.forEach(function(list_name, list_index) {
 		var list = document.createElement("div");
 		list.setAttribute("id", "list_"+list_index);
+		list.setAttribute("ondrop", "drop(event)");
+		list.setAttribute("ondragover", "allowDrop(event)");
 		list.classList.add("list");
 
 		el = document.createElement("img");
@@ -62,6 +64,8 @@ function makeCard(card) {
 	a.classList.add("card");
 	a.setAttribute("id", "card_" + card.id);
 	a.setAttribute("onclick", "zoomOnCard(findCard(" + card.id + "))");
+	a.setAttribute("draggable", "true");
+	a.setAttribute("ondragstart", "drag(event)");
 
 	var el = document.createElement("div");
 	var text = document.createTextNode(card.title);
@@ -89,6 +93,12 @@ function zoomOnCard(card) {
 	title.focus();
 }
 
+function onCancel() {
+	modal.style.display = "none";
+	form.reset();
+	zoomed_card = null;
+}
+
 function createCard(list_index) {
 
 	var card = {
@@ -103,10 +113,24 @@ function createCard(list_index) {
 	zoomOnCard(card);
 }
 
-function onCancel() {
-	modal.style.display = "none";
-	form.reset();
-	zoomed_card = null;
+function drag(ev) {
+	ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function allowDrop(ev) {
+	ev.preventDefault();
+}
+
+function drop(ev) {
+	ev.preventDefault();
+	var id = ev.dataTransfer.getData("text");
+
+	var list = ev.target;
+	while (!list.classList.contains("list")) {
+		list = list.parentNode;
+	}
+
+	list.appendChild(document.getElementById(id));
 }
 
 </script>
