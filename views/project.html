@@ -217,6 +217,11 @@ function drop(ev) {
 	else
 		list.appendChild(cardDiv);
 
+	// Move the cards counter back to the bottom of the list
+	var cardCount = document.querySelector("#"+list.getAttribute("id")+" div.card_count");
+	list.removeChild(cardCount);
+	list.appendChild(cardCount);
+
 	// update the card's list_index in RAM
 	var list_index = list.getAttribute("id").replace("list_", '');
 	var card_id = cardDiv.id.replace("card_", "");

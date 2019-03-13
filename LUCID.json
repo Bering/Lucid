@@ -17,9 +17,25 @@
             "labels": []
         },
         {
-            "id": 6,
+            "id": 30,
+            "list_index": 0,
+            "position": 0,
+            "title": "EDGE and Chrome",
+            "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
+            "labels": []
+        },
+        {
+            "id": 19,
             "list_index": "2",
             "position": 0,
+            "title": "Card labels",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": 6,
+            "list_index": "2",
+            "position": 1,
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
             "labels": []
@@ -27,7 +43,7 @@
         {
             "id": 14,
             "list_index": "2",
-            "position": 1,
+            "position": 2,
             "title": "Data Storage",
             "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?",
             "labels": []
@@ -43,7 +59,7 @@
         {
             "id": 10,
             "list_index": "2",
-            "position": 2,
+            "position": 3,
             "title": "Adding cards",
             "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
             "labels": []
@@ -59,7 +75,7 @@
         {
             "id": 12,
             "list_index": "2",
-            "position": 3,
+            "position": 4,
             "title": "Updating cards",
             "description": "Testing...\r\nWORKS!",
             "labels": []
@@ -75,7 +91,7 @@
         {
             "id": 25,
             "list_index": "2",
-            "position": 4,
+            "position": 5,
             "title": "Drag & Drop",
             "description": "- [x] Between lists\r\n- [x] Inside a list",
             "labels": []
@@ -91,7 +107,7 @@
         {
             "id": 26,
             "list_index": "2",
-            "position": 5,
+            "position": 6,
             "title": "Escape to close zoomed card",
             "description": "",
             "labels": []
@@ -107,7 +123,7 @@
         {
             "id": 24,
             "list_index": "2",
-            "position": 6,
+            "position": 7,
             "title": "Command-line parameters",
             "description": "To setup the hostname and port without editing config.json",
             "labels": []
@@ -115,23 +131,15 @@
         {
             "id": 20,
             "list_index": "2",
-            "position": 7,
+            "position": 8,
             "title": "Card checklists",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": 19,
-            "list_index": "0",
-            "position": 7,
-            "title": "Card labels",
             "description": "",
             "labels": []
         },
         {
             "id": 27,
             "list_index": "2",
-            "position": 8,
+            "position": 9,
             "title": "Renaming project",
             "description": "",
             "labels": []
@@ -158,14 +166,6 @@
             "position": 11,
             "title": "Start Browser",
             "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
-            "labels": []
-        },
-        {
-            "id": 30,
-            "list_index": 0,
-            "position": 0,
-            "title": "EDGE and Chrome",
-            "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
             "labels": []
         }
     ]
