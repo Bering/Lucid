@@ -146,10 +146,10 @@
         },
         {
             "id": 22,
-            "list_index": "0",
+            "list_index": 0,
             "position": 10,
             "title": "Lists",
-            "description": "- [ ] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [x] Drag and Drop between lists\r\n- [x] Drag and Drop in the same list\r\n- [ ] Show list's card count",
+            "description": "- [ ] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [ ] Drag and Drop list (re-order)\r\n- [x] Drag and Drop cards between lists\r\n- [x] Drag and Drop cards in a list\r\n- [x] Show list's card count",
             "labels": []
         },
         {

@@ -52,11 +52,22 @@ window.onload = function() {
 		el.appendChild(text);
 		list.appendChild(el);
 
+		var cardCount = 0;
 		for (const card of project.cards) {
 			if (card.list_index != list_index) continue;
 			var c = makeCard(card);
 			list.appendChild(c);
+			cardCount++;
 		}
+
+		el = document.createElement("div");
+		el.classList.add("card_count");
+		if (cardCount == 1)
+			text = document.createTextNode(cardCount + " card");
+		else
+			text = document.createTextNode(cardCount + " cards");
+		el.appendChild(text);
+		list.appendChild(el);
 
 		listsDiv.appendChild(list);	
 	});
