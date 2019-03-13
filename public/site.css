@@ -16,38 +16,23 @@ html {
 	color: yellow;
 }
 
-a.user,
-a.project {
-	text-decoration: none;
+div.list {
+	float: left;
+	border: solid 1px gold;
+	border-radius: 5px;
+	background-color: khaki;
+	color: black;
+	width: 200px;
+	min-height: 100px;
+	padding: 10px 10px 30px 10px;
+	margin: 10px;
+	box-shadow: 2px 2px;
 }
 
-	a.user div,
-	a.project div,
-	div.list {
-		float: left;
-		border: solid 1px gold;
-		border-radius: 5px;
-		background-color: khaki;
-		color: black;
-		width: 200px;
-		min-height: 100px;
-		padding: 10px;
-		margin: 10px;
-		box-shadow: 2px 2px;
-	}
-
-	a.user h3,
-	a.project h3,
-	div.list h2 {
-		padding: 0;
-		margin: 0;
-	}
-
-	a.user p,
-	a.project p {
-		padding: 0;
-		margin: 0;
-	}
+div.list h2 {
+	padding: 0;
+	margin: 0;
+}
 
 a.card {
 	text-decoration: none;
