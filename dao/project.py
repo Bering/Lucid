@@ -61,6 +61,8 @@ class ProjectDAO():
 		# TODO: update position
 
 		if new_card["id"] == 0:
+			new_card["id"] = self.project["next_id"]
+			self.project["next_id"] += 1
 			self.project["cards"].append(new_card)
 			self.save()
 			return
