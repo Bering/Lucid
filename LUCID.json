@@ -169,9 +169,9 @@
             "labels": []
         },
         {
+            "position": 9,
             "id": 31,
             "list_index": 2,
-            "position": 9,
             "title": "[BUG] New cards sometime pop at top of list",
             "description": "Looks ok but some time later poof they're up top",
             "labels": []
