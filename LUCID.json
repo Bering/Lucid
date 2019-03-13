@@ -6,13 +6,29 @@
         "Doing",
         "Done"
     ],
-    "next_id": 27,
+    "next_id": 30,
     "cards": [
         {
             "id": 13,
             "list_index": "0",
             "position": 0,
             "title": "304 Not Modified",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": 27,
+            "list_index": 0,
+            "position": 0,
+            "title": "Renaming project",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": 28,
+            "list_index": 0,
+            "position": 0,
+            "title": "PyInstaller",
             "description": "",
             "labels": []
         },
@@ -25,6 +41,22 @@
             "labels": []
         },
         {
+            "id": 29,
+            "list_index": 0,
+            "position": 0,
+            "title": "config.path",
+            "description": "- [ ] Not sure how this will behave when I use PyInstaller\r\n- [ ] Test again to make sure it works when invoked in another project's folder",
+            "labels": []
+        },
+        {
+            "id": 16,
+            "list_index": "0",
+            "position": 1,
+            "title": "Delete cards",
+            "description": "",
+            "labels": []
+        },
+        {
             "id": 14,
             "list_index": "2",
             "position": 1,
@@ -33,10 +65,10 @@
             "labels": []
         },
         {
-            "id": 16,
+            "id": 17,
             "list_index": "0",
-            "position": 1,
-            "title": "Delete cards",
+            "position": 2,
+            "title": "Prepend Card",
             "description": "",
             "labels": []
         },
@@ -49,10 +81,10 @@
             "labels": []
         },
         {
-            "id": 17,
+            "id": 18,
             "list_index": "0",
-            "position": 2,
-            "title": "Prepend Card",
+            "position": 3,
+            "title": "Card Markdown",
             "description": "",
             "labels": []
         },
@@ -65,10 +97,10 @@
             "labels": []
         },
         {
-            "id": 18,
+            "id": 19,
             "list_index": "0",
-            "position": 3,
-            "title": "Card Markdown",
+            "position": 4,
+            "title": "Card labels",
             "description": "",
             "labels": []
         },
@@ -81,10 +113,10 @@
             "labels": []
         },
         {
-            "id": 19,
-            "list_index": "0",
-            "position": 4,
-            "title": "Card labels",
+            "id": 26,
+            "list_index": "2",
+            "position": 5,
+            "title": "Escape to close zoomed card",
             "description": "",
             "labels": []
         },
@@ -94,6 +126,14 @@
             "position": 5,
             "title": "Card checklists",
             "description": "",
+            "labels": []
+        },
+        {
+            "id": 24,
+            "list_index": "2",
+            "position": 6,
+            "title": "Command-line parameters",
+            "description": "To setup the hostname and port without editing config.json",
             "labels": []
         },
         {
@@ -108,8 +148,8 @@
             "id": 22,
             "list_index": 0,
             "position": 7,
-            "title": "Project Interface",
-            "description": "- [ ] Renaming\r\n- [ ] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [x] Drag and Drop between lists\r\n- [x] Drag and Drop in the same list\r\n- [ ] Show list's card count",
+            "title": "Lists",
+            "description": "- [ ] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [x] Drag and Drop between lists\r\n- [x] Drag and Drop in the same list\r\n- [ ] Show list's card count",
             "labels": []
         },
         {
@@ -118,22 +158,6 @@
             "position": 8,
             "title": "Start Browser",
             "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
-            "labels": []
-        },
-        {
-            "id": 24,
-            "list_index": "0",
-            "position": 9,
-            "title": "Command-line parameters",
-            "description": "To setup the hostname and port without editing config.json",
-            "labels": []
-        },
-        {
-            "id": 26,
-            "list_index": "0",
-            "position": 10,
-            "title": "Escape to close zoomed card",
-            "description": "",
             "labels": []
         }
     ]
