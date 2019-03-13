@@ -1,12 +1,12 @@
 {
-    "name": "New Project",
+    "name": "LUCID",
     "description": "",
     "lists": [
         "TODO",
         "Doing",
         "Done"
     ],
-    "next_id": 30,
+    "next_id": 31,
     "cards": [
         {
             "id": 13,
@@ -22,14 +22,6 @@
             "position": 0,
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
-            "labels": []
-        },
-        {
-            "id": 27,
-            "list_index": "0",
-            "position": 1,
-            "title": "Renaming project",
-            "description": "",
             "labels": []
         },
         {
@@ -137,6 +129,14 @@
             "labels": []
         },
         {
+            "id": 27,
+            "list_index": "2",
+            "position": 8,
+            "title": "Renaming project",
+            "description": "",
+            "labels": []
+        },
+        {
             "id": 21,
             "list_index": "0",
             "position": 9,
@@ -158,6 +158,14 @@
             "position": 11,
             "title": "Start Browser",
             "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
+            "labels": []
+        },
+        {
+            "id": 30,
+            "list_index": 0,
+            "position": 0,
+            "title": "EDGE and Chrome",
+            "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
             "labels": []
         }
     ]

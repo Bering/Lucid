@@ -19,7 +19,7 @@ class CardsController(Controller):
 
 		card_id = int(parts[0])
 		if card_id == 0:
-			card = self.dao.get_new()
+			card = self.dao.get_new_card()
 		else:
 			card = self.dao.load_card(card_id)
 

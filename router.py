@@ -14,7 +14,7 @@ def get_response(method, path, form):
 	else:
 		parts = path[1:].split("/")
 
-		if path == "/":
+		if path == "/" or path == "/name":
 			# GET / = project's main page
 			# POST / = save project settings
 			c = ProjectController(form)

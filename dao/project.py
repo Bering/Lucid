@@ -21,7 +21,12 @@ class ProjectDAO():
 		fh.close()
 		self.project = json.loads(project_json)
 
-	def get_new(self):
+	def save(self):
+		fh = open(self.file, "w")
+		fh.write(json.dumps(self.project, indent=4))
+		fh.close()
+
+	def get_new_card(self):
 		return {
 			"id" : 0,
 			"list_index" : 0,
@@ -30,11 +35,6 @@ class ProjectDAO():
 			"description" : "",
 			"labels" : []
 		}
-
-	def save(self):
-		fh = open(self.file, "w")
-		fh.write(json.dumps(self.project, indent=4))
-		fh.close()
 
 	def load_card(self, card_id):
 		for card in self.project["cards"]:

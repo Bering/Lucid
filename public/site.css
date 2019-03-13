@@ -12,6 +12,20 @@ html {
 	margin-bottom: 0;
 }
 
+#project_name {
+	color: gold;
+	background-color: DarkOliveGreen;
+	border: none;
+	font-size: xx-large;
+	width: 100%;
+}
+
+	#project_name + img {
+		display: none;
+		vertical-align: -8px;
+		margin-left: 10px;
+	}
+
 #content hr {
 	color: yellow;
 }
@@ -29,11 +43,15 @@ div.list {
 	box-shadow: 2px 2px;
 }
 
-div.list h2 {
-	height: 40px;
-	padding: 3px;
-	margin: 0;
-}
+	div.list h2 {
+		height: 40px;
+		padding: 3px;
+		margin: 0;
+	}
+
+	div.list img {
+		float: right;
+	}
 
 a.card {
 	text-decoration: none;
@@ -42,7 +60,8 @@ a.card {
 	a.card div {
 		display: inline-block;
 		border: solid 1px lightyellow;
-		border-radius: 5px;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
 		background-color: lightyellow;
 		color: black;
 		width: 180px;
