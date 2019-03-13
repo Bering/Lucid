@@ -10,7 +10,7 @@
     "cards": [
         {
             "id": 13,
-            "list_index": "0",
+            "list_index": 0,
             "position": 0,
             "title": "304 Not Modified",
             "description": "",
@@ -18,31 +18,23 @@
         },
         {
             "id": 19,
-            "list_index": "1",
+            "list_index": 1,
             "position": 0,
             "title": "Card labels",
             "description": "",
             "labels": []
         },
         {
-            "id": 31,
-            "list_index": 0,
-            "position": 0,
-            "title": "[BUG] New cards sometime pop at top of list",
-            "description": "Looks ok but some time later poof they're up top",
-            "labels": []
-        },
-        {
             "id": 6,
-            "list_index": "2",
-            "position": 1,
+            "list_index": 2,
+            "position": 0,
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
             "labels": []
         },
         {
             "id": 28,
-            "list_index": "0",
+            "list_index": 0,
             "position": 1,
             "title": "PyInstaller",
             "description": "",
@@ -50,15 +42,15 @@
         },
         {
             "id": 14,
-            "list_index": "2",
-            "position": 2,
+            "list_index": 2,
+            "position": 1,
             "title": "Data Storage",
             "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?",
             "labels": []
         },
         {
             "id": 29,
-            "list_index": "0",
+            "list_index": 0,
             "position": 2,
             "title": "config.path",
             "description": "- [ ] Not sure how this will behave when I use PyInstaller\r\n- [ ] Test again to make sure it works when invoked in another project's folder",
@@ -66,15 +58,15 @@
         },
         {
             "id": 10,
-            "list_index": "2",
-            "position": 3,
+            "list_index": 2,
+            "position": 2,
             "title": "Adding cards",
             "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
             "labels": []
         },
         {
             "id": 16,
-            "list_index": "0",
+            "list_index": 0,
             "position": 3,
             "title": "Delete cards",
             "description": "",
@@ -82,15 +74,15 @@
         },
         {
             "id": 12,
-            "list_index": "2",
-            "position": 4,
+            "list_index": 2,
+            "position": 3,
             "title": "Updating cards",
             "description": "Testing...\r\nWORKS!",
             "labels": []
         },
         {
             "id": 17,
-            "list_index": "0",
+            "list_index": 0,
             "position": 4,
             "title": "Prepend Card",
             "description": "",
@@ -98,15 +90,15 @@
         },
         {
             "id": 25,
-            "list_index": "2",
-            "position": 5,
+            "list_index": 2,
+            "position": 4,
             "title": "Drag & Drop",
             "description": "- [x] Between lists\r\n- [x] Inside a list",
             "labels": []
         },
         {
             "id": 18,
-            "list_index": "0",
+            "list_index": 0,
             "position": 5,
             "title": "Card Markdown",
             "description": "",
@@ -114,15 +106,15 @@
         },
         {
             "id": 26,
-            "list_index": "2",
-            "position": 6,
+            "list_index": 2,
+            "position": 5,
             "title": "Escape to close zoomed card",
             "description": "",
             "labels": []
         },
         {
             "id": 21,
-            "list_index": "0",
+            "list_index": 0,
             "position": 6,
             "title": "Card indicator if description is set",
             "description": "",
@@ -130,15 +122,15 @@
         },
         {
             "id": 24,
-            "list_index": "2",
-            "position": 7,
+            "list_index": 2,
+            "position": 6,
             "title": "Command-line parameters",
             "description": "To setup the hostname and port without editing config.json",
             "labels": []
         },
         {
             "id": 22,
-            "list_index": "0",
+            "list_index": 0,
             "position": 7,
             "title": "Lists",
             "description": "- [ ] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [ ] Drag and Drop list (re-order)\r\n- [x] Drag and Drop cards between lists\r\n- [x] Drag and Drop cards in a list\r\n- [x] Show list's card count",
@@ -146,34 +138,42 @@
         },
         {
             "id": 20,
-            "list_index": "2",
-            "position": 8,
+            "list_index": 2,
+            "position": 7,
             "title": "Card checklists",
             "description": "",
             "labels": []
         },
         {
             "id": 23,
-            "list_index": "0",
+            "list_index": 0,
             "position": 8,
             "title": "Start Browser",
             "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
             "labels": []
         },
         {
+            "id": 27,
+            "list_index": 2,
+            "position": 8,
+            "title": "Renaming project",
+            "description": "",
+            "labels": []
+        },
+        {
             "id": 30,
-            "list_index": "0",
+            "list_index": 0,
             "position": 9,
             "title": "EDGE and Chrome",
             "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
             "labels": []
         },
         {
-            "id": 27,
-            "list_index": "2",
+            "id": 31,
+            "list_index": 2,
             "position": 9,
-            "title": "Renaming project",
-            "description": "",
+            "title": "[BUG] New cards sometime pop at top of list",
+            "description": "Looks ok but some time later poof they're up top",
             "labels": []
         }
     ]

@@ -48,7 +48,7 @@ class CardsController(Controller):
 		n = 0
 		for card_id in ids:
 			card = self.dao.load_card(card_id)
-			card["list_index"] = list_index
+			card["list_index"] = int(list_index)
 			card["position"] = n
 			n += 1
 
