@@ -97,10 +97,10 @@ a.card {
 #modal_dialog {
 	width: 50%;
 	max-width: 500px;
-	margin: 20% auto;
+	margin: 15% auto;
 	padding: 20px 25px 20px 20px;
 	background-color: lightyellow;
-	border: solid 1px red;
+	border: solid 1px gold;
 	border-radius: 9px;
 }
 
@@ -108,18 +108,20 @@ a.card {
 	#modal_dialog textarea {
 		width: 100%;
 		font-size: large;
+		background-color: lightyellow;
 	}
 	#modal_dialog input[type="text"] {
 		height: 30px;
 	}
 	#modal_dialog textarea {
-		height: 100px;
+		height: 200px;
 	}
 	#modal_dialog input[type="submit"],
 	#modal_dialog input[type="button"] {
 		margin-top: 20px;
 		width: 100px;
 		height: 40px;
+		background-color: darkkhaki;
 	}
 
 	#modal_dialog div.buttons {
