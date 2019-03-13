@@ -50,6 +50,39 @@ a.card {
 		cursor: default;
 	}
 
+	a.card div div.progressArea {
+		padding: 0;
+		width: 170px;
+	}
+
+		a.card div div.progressArea div.progressBar {
+			float: left;
+			margin: 0;
+			padding: 0;
+			width: 140px;
+			height: 7px;
+			display: inline-block;
+			border: solid 1px gold;
+		}
+
+		a.card div div.progressArea div.progressBar div.progress {
+			margin: 0;
+			padding: 0;
+			height: 5px;
+			display: block;
+			background-color: darkkhaki;
+		}
+
+		a.card div div.progressArea div.checklist_counts {
+			float: right;
+			width: 19px;
+			margin: -3px 0 0 0;
+			padding: 0;
+			font-size: xx-small;
+			text-align: right;
+			display: inline-block;
+		}
+
 #modal {
 	display: none;
 	position: fixed;

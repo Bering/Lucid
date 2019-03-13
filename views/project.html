@@ -71,12 +71,14 @@ function makeCard(card) {
 	a.setAttribute("draggable", "true");
 	a.setAttribute("ondragstart", "drag(event)");
 
-	var el = document.createElement("div");
+	var div = document.createElement("div");
 	var text = document.createTextNode(card.title);
-	el.appendChild(text);
+	div.appendChild(text);
 
-	a.appendChild(el);
+	var pb = doProgressBar(card);
+	if (pb) div.appendChild(pb);
 
+	a.appendChild(div);
 	return a;
 }
 
@@ -85,6 +87,47 @@ function findCard(id_of_card_to_find) {
 		if (card.id == id_of_card_to_find) return card;
 	}
 	return null;
+}
+
+function doProgressBar(card) {
+	var unchecked = card.description.match(/- \[ \] /g);
+	if (unchecked == null)
+		unchecked = 0;
+	else
+		unchecked = unchecked.length;
+	
+	var checked = card.description.match(/- \[x\] /g);
+	if (checked == null)
+		checked = 0
+	else
+		checked = checked.length;
+
+	var total = 1.0 * (checked + unchecked);
+	if (total == 0) return null;
+
+	var percent = checked * 100 / total;
+
+	var container = document.createElement("div");
+	container.classList.add("progressArea");
+
+		var progressBar = document.createElement("div");
+		progressBar.classList.add("progressBar");
+		if (percent) {
+			var progress = document.createElement("div");
+			progress.classList.add("progress");
+			progress.style.width = percent+"%";
+			progressBar.appendChild(progress);
+		}
+
+	container.appendChild(progressBar);
+
+		var counts = document.createElement("div");
+		counts.classList.add("checklist_counts");
+			var text = document.createTextNode(checked + "/" + total);
+			counts.appendChild(text);
+
+	container.appendChild(counts);
+	return container;
 }
 
 function zoomOnCard(card) {
