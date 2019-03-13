@@ -32,6 +32,10 @@ window.onload = function() {
 	var text;
 	var listsDiv = document.getElementById("listsDiv");
 
+	document.addEventListener("keyup", function(event) {
+		if (event.key === "Escape") onCancel();
+	});
+
 	project.lists.forEach(function(list_name, list_index) {
 		var list = document.createElement("div");
 		list.setAttribute("id", "list_"+list_index);
