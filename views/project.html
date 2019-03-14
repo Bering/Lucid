@@ -4,8 +4,22 @@
 <div id="modal">
 	<form action="/" method="post">
 		<div id="modal_dialog">
+			<div>
+				<div class="labelToggler" style="display:inline-block; width:69px; height:50px; background-color:red; border:solid 3px red;" onclick="toggleLabel(this, 'red')"></div>
+				<input type="checkbox"style="display:none;" name="label1" value="1" />
+				<div class="labelToggler" style="display:inline-block; width:69px; height:50px; background-color:orange; border:solid 3px orange;" onclick="toggleLabel(this, 'orange')"></div>
+				<input type="checkbox"style="display:none;" name="label2" value="2" />
+				<div class="labelToggler" style="display:inline-block; width:69px; height:50px; background-color:yellow; border:solid 3px yellow;" onclick="toggleLabel(this, 'yellow')"></div>
+				<input type="checkbox"style="display:none;" name="label3" value="3" />
+				<div class="labelToggler" style="display:inline-block; width:69px; height:50px; background-color:green; border:solid 3px green;" onclick="toggleLabel(this, 'green')"></div>
+				<input type="checkbox"style="display:none;" name="label4" value="4" />
+				<div class="labelToggler" style="display:inline-block; width:69px; height:50px; background-color:blue; border:solid 3px blue;" onclick="toggleLabel(this, 'blue')"></div>
+				<input type="checkbox"style="display:none;" name="label5" value="5" />
+				<div class="labelToggler" style="display:inline-block; width:69px; height:50px; background-color:magenta; border:solid 3px magenta;" onclick="toggleLabel(this, 'magenta')"></div>
+				<input type="checkbox"style="display:none;" name="label6" value="6" />
+			</div>
 			<input type="hidden" name="list_index" />
-			<input type="text" name="title" placeholder="Title" /><br />
+		<input type="text" name="title" placeholder="Title" /><br />
 			<textarea name="description" placeholder="Description"></textarea><br />
 			<div class="buttons">
 				<input type="submit" value="Save" /> 
@@ -81,7 +95,11 @@ function makeCard(card) {
 	a.setAttribute("draggable", "true");
 	a.setAttribute("ondragstart", "drag(event)");
 
+	var labels = doLabels(card);
+	a.appendChild(labels);
+
 	var div = document.createElement("div");
+	div.classList.add("cardDiv");
 	var text = document.createTextNode(card.title);
 	div.appendChild(text);
 
@@ -97,6 +115,21 @@ function findCard(id_of_card_to_find) {
 		if (card.id == id_of_card_to_find) return card;
 	}
 	return null;
+}
+
+function doLabels(card) {
+	var labels = document.createElement("div");
+	labels.classList.add("labels");
+
+	var labelCount = card.labels.length;
+	for (var n = 0; n < labelCount; n++) {
+		var label = document.createElement("div");
+		label.classList.add("label"+card.labels[n]);
+		label.style.width = 190/labelCount + "px";
+		labels.appendChild(label);
+	}
+
+	return labels;
 }
 
 function doProgressBar(card) {
@@ -145,6 +178,19 @@ function zoomOnCard(card) {
 	list_index.value = card.list_index;
 	title.value = card.title;
 	description.value = card.description;
+
+	var labelDivs = document.querySelectorAll("div.labelToggler");
+	for (var n = 0; n < labelDivs.length; n++) {
+		var div = labelDivs[n];
+		if (card.labels.includes(n+1)) {
+			div.style.backgroundColor = div.style.borderColor;
+			div.nextElementSibling.checked = true;
+		}
+		else {
+			div.style.backgroundColor = "lightyellow";
+			div.nextElementSibling.checked = false;
+		}
+	}
 
 	modal.style.display = "block";
 	title.focus();
@@ -199,11 +245,13 @@ function drop(ev) {
 		list = list.parentNode;
 	}
 
-	// if it wasn't dropped on a card, find the y position in the list
+	// if it wasn't dropped on a card, find the card it should be inserted before
 	if (insertBeforeCard == null) {
 		var cards = document.querySelectorAll("#"+list.getAttribute("id")+" .card");
 		for(var n=0; n < cards.length; n++) {
-			if (cards[n].offsetTop > ev.pageY) {
+			console.log(cards[n].offsetTop, ev.pageY);
+			// -5 because of the labels
+			if (cards[n].offsetTop +15 > ev.pageY) {
 				insertBeforeCard = cards[n];
 				break;
 			}
@@ -260,6 +308,17 @@ function projectRename(event) {
 		name.value = project.name;
 	else if (event.key === "Enter") {
 		ajax("/name", "name="+name.value);
+	}
+}
+
+function toggleLabel(div, color) {
+	if (div.style.backgroundColor == color) {
+		div.style.backgroundColor = "lightyellow";
+		div.nextElementSibling.checked = false;
+	}
+	else {
+		div.style.backgroundColor = color;
+		div.nextElementSibling.checked = true;
 	}
 }
 

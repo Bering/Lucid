@@ -62,7 +62,7 @@ a.card {
 	text-decoration: none;
 }
 
-	a.card div {
+	a.card div.cardDiv {
 		display: inline-block;
 		border: solid 1px lightyellow;
 		border-bottom-left-radius: 5px;
@@ -70,42 +70,87 @@ a.card {
 		background-color: lightyellow;
 		color: black;
 		width: 180px;
-		padding: 5px;
-		margin: 5px;
+		padding: 0 5px 5px 5px;
+		margin: 0 5px 10px 5px;
 		cursor: default;
 	}
 
-	a.card div div.progressArea {
-		padding: 0;
-		width: 170px;
-	}
-
-		a.card div div.progressArea div.progressBar {
-			float: left;
-			margin: 0;
-			padding: 0;
-			width: 140px;
-			height: 7px;
-			display: inline-block;
-			border: solid 1px gold;
+		a.card div.cardDiv div.progressArea {
+			padding: 3px 0 0 0;
+			width: 170px;
 		}
 
-		a.card div div.progressArea div.progressBar div.progress {
-			margin: 0;
-			padding: 0;
+			a.card div.cardDiv div.progressArea div.progressBar {
+				float: left;
+				margin: 0;
+				padding: 0;
+				width: 140px;
+				height: 5px;
+				display: inline-block;
+				border: solid 1px gold;
+				border-radius: 2px;
+			}
+
+			a.card div.cardDiv div.progressArea div.progressBar div.progress {
+				margin: 0;
+				padding: 0;
+				height: 5px;
+				display: block;
+				background-color: darkkhaki;
+				border-radius: 2px;
+			}
+
+			a.card div.cardDiv div.progressArea div.checklist_counts {
+				float: right;
+				width: 19px;
+				margin: -2.75px 0 0 0;
+				padding: 0;
+				font-size: xx-small;
+				text-align: right;
+				display: inline-block;
+			}
+
+		a.card div.labels {
+			background-color: lightyellow;
+			border-left: solid 1px lightyellow;
+			border-right: solid 1px lightyellow;
+			width: 190px;
+			line-height: 0px;
 			height: 5px;
-			display: block;
-			background-color: darkkhaki;
+			padding: 0;
+			margin: 0 5px 0 5px;
 		}
 
-		a.card div div.progressArea div.checklist_counts {
-			float: right;
-			width: 19px;
-			margin: -3px 0 0 0;
-			padding: 0;
-			font-size: xx-small;
-			text-align: right;
+		a.card div.labels div {
 			display: inline-block;
+			line-height: 0px;
+			height: 5px;
+			padding: 0;
+			margin: 0;
+		}
+
+		a.card div.labels div.label1 {
+			background-color: red;
+		}
+
+		a.card div.labels div.label2 {
+			background-color: orange;
+		}
+
+		a.card div.labels div.label3 {
+			background-color: yellow;
+		}
+
+		a.card div.labels div.label4 {
+			background-color: green;
+		}
+
+		a.card div.labels div.label5 {
+			background-color: blue;
+		}
+
+		a.card div.labels div.label6 {
+			background-color: magenta;
 		}
 
 #modal {
