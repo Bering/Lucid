@@ -59,7 +59,9 @@ div.list {
 	}
 
 a.card {
+	display: block;
 	text-decoration: none;
+	margin: 5px 0 5px 0;
 }
 
 	a.card div.cardDiv {
@@ -71,7 +73,7 @@ a.card {
 		color: black;
 		width: 180px;
 		padding: 0 5px 5px 5px;
-		margin: 0 5px 10px 5px;
+		margin: 0 5px 0 5px;
 		cursor: default;
 	}
 

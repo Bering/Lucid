@@ -249,9 +249,7 @@ function drop(ev) {
 	if (insertBeforeCard == null) {
 		var cards = document.querySelectorAll("#"+list.getAttribute("id")+" .card");
 		for(var n=0; n < cards.length; n++) {
-			console.log(cards[n].offsetTop, ev.pageY);
-			// +40 because of reasons (time to go to bed, let's figure it out tomorrow)
-			if (cards[n].offsetTop + 40 > ev.pageY) {
+			if (cards[n].offsetTop > ev.pageY) {
 				insertBeforeCard = cards[n];
 				break;
 			}
