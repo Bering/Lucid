@@ -98,9 +98,12 @@ class ResponseFile(Response):
 
 class ResponseView(Response):
 	def __init__(self, viewname, replacements={}):
-		content  = self.load_view("header")
-		content += self.load_view(viewname)
-		content += self.load_view("footer")
+		try:
+			content  = self.load_view("header")
+			content += self.load_view(viewname)
+			content += self.load_view("footer")
+		except FileNotFoundError:
+			content = "<h1>View file not found!</h1>" + viewname
 
 		for needle, replacement in replacements.items():
 			content = content.replace(needle, replacement)
