@@ -288,6 +288,7 @@ function drop(ev) {
 	card.list_index = list_index;
 
 	// update the cards position in RAM
+	var cards = document.querySelectorAll("#"+list.getAttribute("id")+" .card");
 	var positions = [];
 	for (var n=0; n < cards.length; n++) {
 		var card_id = cards[n].getAttribute("id").replace("card_", "");
