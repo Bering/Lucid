@@ -2,12 +2,10 @@ import os
 import config
 
 class Response:
-
 	def __init__(self, status, headers, content):
 		self.status = status
 		self.headers = headers
 		self.content = content
-
 
 class Response204NoContent(Response):
 	def __init__(self):
@@ -58,7 +56,7 @@ class ResponseJSON(Response):
 		)
 
 class ResponseFile(Response):
-	def __init__(self, filepath):
+	def __init__(self, request, filepath):
 
 		# TODO: Check request headers for "If-Modified-Since"
 		# TODO: Check file last modified date
@@ -81,9 +79,12 @@ class ResponseFile(Response):
 			content_type = "text/plain"
 			mode = "r"
 
+		last_modified = os.path.getmtime(filepath)
+
 		headers = {
 			"Content-type" : content_type
-			#TODO: "Last-Modified" : <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
+			#,
+			#"Last-Modified" : request.date_time_string(last_modified)
 		}
 
 		fh = open(filepath, mode)

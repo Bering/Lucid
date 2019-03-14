@@ -4,25 +4,24 @@ import response
 from controllers.project import ProjectController
 from controllers.cards import CardsController
 
-def get_response(method, path, form):
+def get_response(request):
 
 	# serve static files
-	filepath = os.path.join(config.path, "public") + path
+	filepath = os.path.join(config.path, "public") + request.path
 	if os.path.isfile(filepath):
-		return response.ResponseFile(filepath)
+		return response.ResponseFile(request, filepath)
 	
 	else:
-		parts = path[1:].split("/")
-
-		if parts[0] in ["", "name", "list"]:
+		if request.path_parts[0] in ["", "name", "drag_drop", "list"]:
 			# GET / = project's main page
 			# POST /name = save new project name
+			# POST /drag_drop = drag & drop a card
 			# POST /list/<list_index> = rename list
-			c = ProjectController(form)
-			return c.handle_request(method, parts)
+			c = ProjectController()
+			return c.handle_request(request)
 
 		# POST /<card_id> = save card's info
 		# POST /<card_id>/drag_drop = move and reorder cards
 		# DELETE /<card_id>
-		c = CardsController(form)
-		return c.handle_request(method, parts)
+		c = CardsController()
+		return c.handle_request(request)
