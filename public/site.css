@@ -42,10 +42,14 @@ div.list {
 	box-shadow: 2px 2px;
 }
 
-	div.list h2 {
-		height: 40px;
-		padding: 3px;
-		margin: 0;
+	div.list input {
+		background-color: khaki;
+		color: black;
+		border: none;
+		font-size: x-large;
+		width: 150px;
+		height: 32px;
+		margin: 0 0 0 5px;
 	}
 
 	div.list img {

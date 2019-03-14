@@ -62,7 +62,10 @@ window.onload = function() {
 		el.setAttribute("onclick", "createCard(" + list_index + ")");
 		list.appendChild(el);
 
-		el = document.createElement("h2");
+		el = document.createElement("input");
+		el.setAttribute("type", "text");
+		el.setAttribute("value", list_name);
+		el.addEventListener("keyup", listRename);
 		text = document.createTextNode(list_name);
 		el.appendChild(text);
 		list.appendChild(el);
@@ -325,6 +328,17 @@ function drop(ev) {
 	ajax("POST", url, data);
 }
 
+function toggleLabel(div, color) {
+	if (div.style.backgroundColor == color) {
+		div.style.backgroundColor = "lightyellow";
+		div.nextElementSibling.checked = false;
+	}
+	else {
+		div.style.backgroundColor = color;
+		div.nextElementSibling.checked = true;
+	}
+}
+
 function ajax(method, url, data, callback) {
 	var req = new XMLHttpRequest();
 	req.addEventListener("load", function() {
@@ -341,24 +355,29 @@ function ajax(method, url, data, callback) {
 }
 
 function projectRename(event) {
-	var name = document.querySelector("#project_name");
-
-	if (event.key === "Escape")
-		name.value = project.name;
+	if (event.key === "Escape") {
+		event.target.value = project.name;
+		event.target.blur();
+	}
 	else if (event.key === "Enter") {
-		ajax("POST", "/name", "name="+name.value);
+		project.name = event.target.value;
+		ajax("POST", "/name", "name="+event.target.value);
+		event.target.blur();
 	}
 }
 
-function toggleLabel(div, color) {
-	if (div.style.backgroundColor == color) {
-		div.style.backgroundColor = "lightyellow";
-		div.nextElementSibling.checked = false;
+function listRename(event) {
+	var list = event.target.parentNode;
+	var list_index = list.getAttribute("id").replace("list_", "");
+
+	if (event.key === "Escape") {
+		event.target.value = project.lists[list_index];
+		event.target.blur();
 	}
-	else {
-		div.style.backgroundColor = color;
-		div.nextElementSibling.checked = true;
+	else if (event.key === "Enter") {
+		project.lists[list_index] = event.target.value;
+		ajax("POST", "/list/"+list_index, "name="+event.target.value);
+		event.target.blur();
 	}
 }
-
 </script>

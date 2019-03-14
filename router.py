@@ -14,9 +14,10 @@ def get_response(method, path, form):
 	else:
 		parts = path[1:].split("/")
 
-		if path == "/" or path == "/name":
+		if parts[0] in ["", "name", "list"]:
 			# GET / = project's main page
 			# POST /name = save new project name
+			# POST /list/<list_index> = rename list
 			c = ProjectController(form)
 			return c.handle_request(method, parts)
 

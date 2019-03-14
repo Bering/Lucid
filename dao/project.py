@@ -26,6 +26,25 @@ class ProjectDAO():
 		fh.write(json.dumps(self.project, indent=4))
 		fh.close()
 
+	def project_rename(self, new_name):
+		self.project["name"] = new_name
+		self.save()
+
+	def list_rename(self, list_index, new_name):
+		self.project["lists"][list_index] = new_name
+		self.save()
+
+	def list_add(self, new_name):
+		self.project["lists"].append(new_name)
+		self.save()
+
+	def list_delete(self, list_index):
+		del self.project["lists"][list_index]
+		self.save()
+
+	def reorder_lists(self):
+		pass
+
 	def get_new_card(self):
 		return {
 			"id" : 0,
@@ -62,4 +81,16 @@ class ProjectDAO():
 				del self.project["cards"][n]
 				break
 
+		self.save()
+
+	def reorder_cards(self, list_index, ids):
+		n = 0
+		list_index = int(list_index)
+		for card_id in ids:
+			card = self.load_card(card_id)
+			card["list_index"] = list_index
+			card["position"] = n
+			n += 1
+
+		self.project["cards"] = sorted(self.project["cards"], key=lambda x: list(x.values())[2])
 		self.save()

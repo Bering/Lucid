@@ -51,7 +51,6 @@ class CardsController(Controller):
 			card["labels"].append(6)
 
 		self.dao.save_card(card)
-
 		return response.Response301Redirect("/")
 
 	def drag_drop(self):
@@ -61,19 +60,9 @@ class CardsController(Controller):
 		list_index = self.form_fields["list_index"]
 		ids = json.loads(self.form_fields["ids"])
 
-		n = 0
-		for card_id in ids:
-			card = self.dao.load_card(card_id)
-			card["list_index"] = int(list_index)
-			card["position"] = n
-			n += 1
-
-		self.dao.project["cards"] = sorted(self.dao.project["cards"], key=lambda x: list(x.values())[2])
-		self.dao.save()
-
+		self.dao.reorder_cards(list_index, ids)
 		return response.Response204NoContent()
 
 	def delete(self, card):
 		self.dao.delete_card(card)
-
 		return response.Response204NoContent()
