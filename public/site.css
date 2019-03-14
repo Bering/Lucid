@@ -200,3 +200,7 @@ a.card {
 		text-align: center;
 		width: 100%;
 	}
+
+	#modal_dialog div.buttons input[value="Delete"] {
+		float: right;
+	}

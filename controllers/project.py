@@ -2,7 +2,6 @@ import json
 import response
 from controllers.base import Controller
 from dao.project import ProjectDAO
-from dao.cards import CardsDAO
 
 class ProjectController(Controller):
 	def __init__(self, form_fields):

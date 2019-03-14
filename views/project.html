@@ -24,6 +24,7 @@
 			<div class="buttons">
 				<input type="submit" value="Save" /> 
 				<input type="button" value="Cancel" onclick="onCancel()" />
+				<input type="button" value="Delete" onclick="onDelete()" />
 			</div>
 		</div>
 	</form>
@@ -199,7 +200,29 @@ function zoomOnCard(card) {
 function onCancel() {
 	modal.style.display = "none";
 	form.reset();
-	zoomed_card = null;
+}
+
+function onDelete() {
+	if (!confirm("Are you sure?")) return;
+
+	var parts = form.action.split("/");
+	var card_id = parts[parts.length-1];
+	var card = document.getElementById("card_"+card_id);
+	var list = card.parentNode;
+	list.removeChild(card);
+
+	var cardCounter = list.querySelector(".card_count");
+	var cards = list.querySelectorAll(".card");
+	if (cards.length == 1) {
+		cardCounter.textContent = "1 card";
+	}
+	else {
+		cardCounter.textContent = cards.length + " cards";
+	}
+
+	ajax("DELETE", form.action);
+
+	onCancel();
 }
 
 function createCard(list_index) {
@@ -299,17 +322,22 @@ function drop(ev) {
 	var url = "/drag_drop";
 	var data = "list_index="+list_index;
 	data += "&ids="+JSON.stringify(positions);
-	ajax(url, data);
+	ajax("POST", url, data);
 }
 
-function ajax(url, data, callback) {
+function ajax(method, url, data, callback) {
 	var req = new XMLHttpRequest();
 	req.addEventListener("load", function() {
 		if (callback) callback(this);
 	});
-	req.open("POST", url);
-	req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-	req.send(data);
+	req.open(method, url);
+	if (data) {
+		req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		req.send(data);
+	}
+	else {
+		req.send();
+	}
 }
 
 function projectRename(event) {
@@ -318,7 +346,7 @@ function projectRename(event) {
 	if (event.key === "Escape")
 		name.value = project.name;
 	else if (event.key === "Enter") {
-		ajax("/name", "name="+name.value);
+		ajax("POST", "/name", "name="+name.value);
 	}
 }
 

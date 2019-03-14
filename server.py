@@ -25,6 +25,15 @@ class LucidServer(BaseHTTPRequestHandler):
 			)
 		)
 
+	def do_DELETE(self):
+		self.respond(
+			router.get_response(
+				"delete",
+				self.path,
+				{}
+			)
+		)
+
 	# from https://stackoverflow.com/questions/4233218/python-how-do-i-get-key-value-pairs-from-the-basehttprequesthandler-http-post-h
 	def get_form_fields(self):
 		ctype, pdict = cgi.parse_header(self.headers["content-type"])

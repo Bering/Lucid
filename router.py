@@ -22,5 +22,6 @@ def get_response(method, path, form):
 
 		# POST /<card_id> = save card's info
 		# POST /<card_id>/drag_drop = move and reorder cards
+		# DELETE /<card_id>
 		c = CardsController(form)
 		return c.handle_request(method, parts)

@@ -55,3 +55,11 @@ class ProjectDAO():
 				self.project["cards"][n] = new_card
 
 		self.save()
+
+	def delete_card(self, card):
+		for n in range(len(self.project["cards"])):
+			if self.project["cards"][n]["id"] == card["id"]:
+				del self.project["cards"][n]
+				break
+
+		self.save()

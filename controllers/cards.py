@@ -1,7 +1,6 @@
 import json
 import response
 from dao.project import ProjectDAO
-from dao.cards import CardsDAO
 from controllers.base import Controller
 
 class CardsController(Controller):
@@ -23,7 +22,10 @@ class CardsController(Controller):
 		else:
 			card = self.dao.load_card(card_id)
 
-		return self.save_zoomed_card(card)
+		if method == "delete":
+			return self.delete(card)
+		else:
+			return self.save_zoomed_card(card)
 
 	def save_zoomed_card(self, card):
 		if "title" not in self.form_fields or "list_index" not in self.form_fields:
@@ -68,5 +70,10 @@ class CardsController(Controller):
 
 		self.dao.project["cards"] = sorted(self.dao.project["cards"], key=lambda x: list(x.values())[2])
 		self.dao.save()
+
+		return response.Response204NoContent()
+
+	def delete(self, card):
+		self.dao.delete_card(card)
 
 		return response.Response204NoContent()
