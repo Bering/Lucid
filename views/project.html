@@ -268,6 +268,19 @@ function drop(ev) {
 	list.removeChild(cardCount);
 	list.appendChild(cardCount);
 
+	// Update all lists counters
+	var lists = document.querySelectorAll(".list");
+	for (var n = 0; n < lists.length; n++) {
+		var cards = lists[n].querySelectorAll(".card");
+		var cardCounter = lists[n].querySelector("div.card_count");
+		if (cards.length == 1) {
+			cardCounter.textContent = cards.length + " card";
+		}
+		else {
+			cardCounter.textContent = cards.length + " cards";
+		}
+	}
+	
 	// update the card's list_index in RAM
 	var list_index = list.getAttribute("id").replace("list_", '');
 	var card_id = cardDiv.id.replace("card_", "");
@@ -275,7 +288,6 @@ function drop(ev) {
 	card.list_index = list_index;
 
 	// update the cards position in RAM
-	var cards = document.querySelectorAll("#list_"+list_index+" .card");
 	var positions = [];
 	for (var n=0; n < cards.length; n++) {
 		var card_id = cards[n].getAttribute("id").replace("card_", "");
