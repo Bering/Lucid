@@ -78,7 +78,7 @@ a.card {
 		width: 180px;
 		padding: 0 5px 5px 5px;
 		margin: 0 5px 0 5px;
-		cursor: default;
+		cursor: grab;
 	}
 
 		a.card div.cardDiv div.progressArea {
