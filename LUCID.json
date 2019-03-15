@@ -6,7 +6,7 @@
         "Doing",
         "Done"
     ],
-    "next_id": 44,
+    "next_id": 45,
     "cards": [
         {
             "id": 41,
@@ -15,6 +15,29 @@
             "title": "Brighten up the progress bar",
             "description": "It's not visible enough through the labels",
             "labels": [
+                6
+            ]
+        },
+        {
+            "id": 22,
+            "list_index": 0,
+            "position": 0,
+            "title": "Lists",
+            "description": "- [x] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [ ] Drag and Drop list (re-order)\r\n- [x] Drag and Drop cards between lists\r\n- [x] Drag and Drop cards in a list\r\n- [x] Show list's card count",
+            "labels": []
+        },
+        {
+            "id": 19,
+            "list_index": 1,
+            "position": 0,
+            "title": "Card labels",
+            "description": "Small 190/6 px wide labels always at the same position",
+            "labels": [
+                1,
+                2,
+                3,
+                4,
+                5,
                 6
             ]
         },
@@ -43,22 +66,32 @@
             "labels": []
         },
         {
-            "id": 39,
-            "list_index": 0,
-            "position": 2,
-            "title": "Theme support?",
-            "description": "",
-            "labels": [
-                6
-            ]
-        },
-        {
             "position": 4,
             "id": 31,
             "list_index": 2,
             "title": "[BUG] New cards sometime pop at top of list",
             "description": "Looks ok but some time later poof they're up top",
             "labels": []
+        },
+        {
+            "id": 23,
+            "list_index": 0,
+            "position": 2,
+            "title": "Start Browser",
+            "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
+            "labels": [
+                4
+            ]
+        },
+        {
+            "id": 39,
+            "list_index": 0,
+            "position": 3,
+            "title": "Theme support?",
+            "description": "How about a Sublime theme importer?",
+            "labels": [
+                6
+            ]
         },
         {
             "id": 29,
@@ -69,20 +102,22 @@
             "labels": []
         },
         {
-            "id": 17,
+            "id": 30,
             "list_index": 0,
-            "position": 3,
-            "title": "Prepend Card?",
-            "description": "",
+            "position": 4,
+            "title": "EDGE and Chrome",
+            "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
             "labels": []
         },
         {
-            "id": 18,
+            "id": 42,
             "list_index": 0,
-            "position": 4,
-            "title": "Card Markdown?",
-            "description": "",
-            "labels": []
+            "position": 5,
+            "title": "Accents are not supported...",
+            "description": "File \"C:\\Program Files\\Python\\lib\\urllib\\parse.py\", line 103, in _encode_result\r\n    return obj.encode(encoding, errors)\r\nUnicodeEncodeError: 'ascii' codec can't encode character '\\xe9' in position 269: ordinal not in range(128)",
+            "labels": [
+                1
+            ]
         },
         {
             "id": 28,
@@ -93,12 +128,14 @@
             "labels": []
         },
         {
-            "id": 21,
+            "id": 13,
             "list_index": 0,
-            "position": 5,
-            "title": "Card indicator if description is set?",
-            "description": "",
-            "labels": []
+            "position": 6,
+            "title": "304 Not Modified",
+            "description": "Last-Modified is not enough:\r\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\r\n\r\nAlthough, it seems to work with EDGE. Let's do it anyway.\r\n\r\nfrom email.utils import parsedate_tz, mktime_tz\r\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\r\n\r\nThe code I have right now has time difference:\r\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT; length=3564\r\nLast-Modified: Fri, 15 Mar 2019 01:32:30 GMT\r\nThis should have been a 200 but it was a 304\r\n\r\nNext step:\r\nhttps://stackoverflow.com/questions/26435530/converting-string-to-datetime-object/26435566#26435566",
+            "labels": [
+                1
+            ]
         },
         {
             "id": 34,
@@ -109,14 +146,12 @@
             "labels": []
         },
         {
-            "id": 23,
+            "id": 17,
             "list_index": 0,
-            "position": 6,
-            "title": "Start Browser",
-            "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
-            "labels": [
-                4
-            ]
+            "position": 7,
+            "title": "Prepend Card?",
+            "description": "\"Add to Top\" and \"Add to Bottom\" buttons in the modal popup",
+            "labels": []
         },
         {
             "id": 33,
@@ -129,11 +164,11 @@
             ]
         },
         {
-            "id": 22,
+            "id": 18,
             "list_index": 0,
-            "position": 7,
-            "title": "Lists",
-            "description": "- [x] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [ ] Drag and Drop list (re-order)\r\n- [x] Drag and Drop cards between lists\r\n- [x] Drag and Drop cards in a list\r\n- [x] Show list's card count",
+            "position": 8,
+            "title": "Card Markdown?",
+            "description": "",
             "labels": []
         },
         {
@@ -147,37 +182,12 @@
             ]
         },
         {
-            "id": 30,
+            "id": 21,
             "list_index": 0,
-            "position": 8,
-            "title": "EDGE and Chrome",
-            "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
-            "labels": []
-        },
-        {
-            "id": 19,
-            "list_index": 2,
             "position": 9,
-            "title": "Card labels",
+            "title": "Card indicator if description is set?",
             "description": "",
-            "labels": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6
-            ]
-        },
-        {
-            "id": 13,
-            "list_index": 0,
-            "position": 9,
-            "title": "304 Not Modified",
-            "description": "Last-Modified is not enough:\r\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\r\n\r\nAlthough, it seems to work with EDGE. Let's do it anyway.\r\n\r\nfrom email.utils import parsedate_tz, mktime_tz\r\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\r\n\r\nThe code I have right now has time difference:\r\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT; length=3564\r\nLast-Modified: Fri, 15 Mar 2019 01:32:30 GMT\r\nThis should have been a 200 but it was a 304\r\n\r\nNext step:\r\nhttps://stackoverflow.com/questions/26435530/converting-string-to-datetime-object/26435566#26435566",
-            "labels": [
-                1
-            ]
+            "labels": []
         },
         {
             "id": 27,
@@ -186,16 +196,6 @@
             "title": "Renaming project",
             "description": "",
             "labels": []
-        },
-        {
-            "id": 42,
-            "list_index": 0,
-            "position": 10,
-            "title": "Accents are not supported...",
-            "description": "File \"C:\\Program Files\\Python\\lib\\urllib\\parse.py\", line 103, in _encode_result\r\n    return obj.encode(encoding, errors)\r\nUnicodeEncodeError: 'ascii' codec can't encode character '\\xe9' in position 269: ordinal not in range(128)",
-            "labels": [
-                1
-            ]
         },
         {
             "id": 20,
@@ -259,6 +259,14 @@
             "position": 18,
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
+            "labels": []
+        },
+        {
+            "id": 44,
+            "list_index": 0,
+            "position": 0,
+            "title": "Switch to BottlePy",
+            "description": "",
             "labels": []
         }
     ]

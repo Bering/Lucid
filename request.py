@@ -1,4 +1,5 @@
 import cgi
+from urllib import parse
 
 class Request:
 	def __init__(self, base_http_request, method):
@@ -15,10 +16,10 @@ class Request:
 	def get_form_fields(self):
 		ctype, pdict = cgi.parse_header(self.base.headers["content-type"])
 		if ctype == "multipart/form-data":
-			postvars = cgi.parse_multipart(self.base.rfile, pdict)
+			postvars = parse.parse_multipart(self.base.rfile, pdict)
 		elif ctype == "application/x-www-form-urlencoded":
 			length = int(self.base.headers["content-length"])
-			postvars = cgi.parse_qs(self.base.rfile.read(length))
+			postvars = parse.parse_qs(self.base.rfile.read(length))
 		else:
 			return {}
 
