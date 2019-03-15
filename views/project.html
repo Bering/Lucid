@@ -125,11 +125,11 @@ function doLabels(card) {
 	var labels = document.createElement("div");
 	labels.classList.add("labels");
 
-	var labelCount = card.labels.length;
-	for (var n = 0; n < labelCount; n++) {
+	for (var n = 1; n < 7; n++) {
 		var label = document.createElement("div");
-		label.classList.add("label"+card.labels[n]);
-		label.style.width = 190/labelCount + "px";
+		if (card.labels.includes(n)) {
+			label.classList.add("label"+n);
+		}
 		labels.appendChild(label);
 	}
 
