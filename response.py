@@ -1,5 +1,6 @@
 import os
 import config
+from email.utils import parsedate_tz, mktime_tz
 
 class Response:
 	def __init__(self, status, headers, content):
@@ -58,11 +59,22 @@ class ResponseJSON(Response):
 class ResponseFile(Response):
 	def __init__(self, request, filepath):
 
-		# TODO: Check request headers for "If-Modified-Since"
-		# TODO: Check file last modified date
-		# TODO: Compare dates and times
-		# TODO: Return 304 Not Modified if not modified
+		last_modified = os.path.getmtime(filepath)
 
+		#if "If-Modified-Since" in request.base.headers:
+		#	since_when = request.base.headers["If-Modified-Since"]
+		#	timestamp = mktime_tz(parsedate_tz(since_when))
+		#	if last_modified > timestamp:
+		#		super().__init__(
+		#			304,
+		#			{
+		#				"Date" : request.base.date_time_string(),
+		#				"Content-Location" : request.path
+		#			},
+		#			""
+		#		)
+		#		return
+		
 		filetypes = {
 			"html" : ["text/html", "r"],
 			"css" : ["text/css", "r"],
@@ -79,12 +91,9 @@ class ResponseFile(Response):
 			content_type = "text/plain"
 			mode = "r"
 
-		last_modified = os.path.getmtime(filepath)
-
 		headers = {
-			"Content-type" : content_type
-			#,
-			#"Last-Modified" : request.date_time_string(last_modified)
+			"Content-type" : content_type,
+			"Last-Modified" : request.base.date_time_string(last_modified)
 		}
 
 		fh = open(filepath, mode)

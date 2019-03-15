@@ -6,15 +6,17 @@
         "Doing",
         "Done"
     ],
-    "next_id": 42,
+    "next_id": 43,
     "cards": [
         {
             "id": 13,
             "list_index": 1,
             "position": 0,
             "title": "304 Not Modified",
-            "description": "",
-            "labels": []
+            "description": "Last-Modified is not enough:\r\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\r\n\r\nAlthough, it seems to work with EDGE. Let's do it anyway.\r\n\r\nfrom email.utils import parsedate_tz, mktime_tz\r\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\r\n\r\nThe code I have right now has time difference:\r\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT; length=3564\r\nLast-Modified: Fri, 15 Mar 2019 01:32:30 GMT\r\nThis should have been a 200 but it was a 304",
+            "labels": [
+                1
+            ]
         },
         {
             "id": 41,
@@ -242,6 +244,16 @@
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
             "labels": []
+        },
+        {
+            "id": 42,
+            "list_index": 0,
+            "position": 0,
+            "title": "Accents are not supported...",
+            "description": "File \"C:\\Program Files\\Python\\lib\\urllib\\parse.py\", line 103, in _encode_result\r\n    return obj.encode(encoding, errors)\r\nUnicodeEncodeError: 'ascii' codec can't encode character '\\xe9' in position 269: ordinal not in range(128)",
+            "labels": [
+                1
+            ]
         }
     ]
 }
