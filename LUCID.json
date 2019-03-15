@@ -4,15 +4,25 @@
     "lists": [
         "TODO",
         "Doing",
-        "Done"
+        "Done",
+        "Test new list ",
+        "Another list"
     ],
-    "next_id": 47,
+    "next_id": 48,
     "cards": [
         {
             "id": 45,
             "list_index": 2,
             "position": 0,
             "title": "Refactoring url to /card",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": 47,
+            "list_index": 1,
+            "position": 0,
+            "title": "Max Length on lists name",
             "description": "",
             "labels": []
         },
@@ -44,9 +54,27 @@
             "list_index": 1,
             "position": 1,
             "title": "Lists",
-            "description": "- [x] Rename list\r\n- [ ] Add list\r\n- [ ] Delete list\r\n- [ ] Drag and Drop list (re-order)\r\n- [x] Drag and Drop cards between lists\r\n- [x] Drag and Drop cards in a list\r\n- [x] Show list's card count",
+            "description": "- [x] Rename list\r\n- [x] Add list\r\n- [ ] Delete list\r\n- [ ] Drag and Drop list (re-order)\r\n- [x] Drag and Drop cards between lists\r\n- [x] Drag and Drop cards in a list\r\n- [x] Show list's card count",
             "labels": [
                 4
+            ]
+        },
+        {
+            "id": 38,
+            "list_index": 0,
+            "position": 2,
+            "title": "JS CleanUp",
+            "description": "- [ ] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
+            "labels": []
+        },
+        {
+            "position": 3,
+            "id": 31,
+            "list_index": 2,
+            "title": "New cards sometimes pop at top of list",
+            "description": "Looks ok but some time later poof they're up top",
+            "labels": [
+                1
             ]
         },
         {
@@ -60,32 +88,6 @@
             ]
         },
         {
-            "id": 38,
-            "list_index": 0,
-            "position": 2,
-            "title": "JS CleanUp",
-            "description": "- [ ] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
-            "labels": []
-        },
-        {
-            "position": 4,
-            "id": 31,
-            "list_index": 2,
-            "title": "New cards sometimes pop at top of list",
-            "description": "Looks ok but some time later poof they're up top",
-            "labels": [
-                1
-            ]
-        },
-        {
-            "id": 40,
-            "list_index": 2,
-            "position": 3,
-            "title": "Request class",
-            "description": "",
-            "labels": []
-        },
-        {
             "id": 23,
             "list_index": 0,
             "position": 3,
@@ -94,6 +96,14 @@
             "labels": [
                 4
             ]
+        },
+        {
+            "id": 40,
+            "list_index": 2,
+            "position": 4,
+            "title": "Request class",
+            "description": "",
+            "labels": []
         },
         {
             "id": 39,

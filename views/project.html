@@ -50,45 +50,49 @@ window.onload = function() {
 
 	document.getElementById("project_name").addEventListener("keyup", projectRename);
 
+	document.addEventListener("dblclick", newList);
+
 	project.lists.forEach(function(list_name, list_index) {
-		var list = document.createElement("div");
-		list.setAttribute("id", "list_"+list_index);
-		list.setAttribute("ondrop", "drop(event)");
-		list.setAttribute("ondragover", "allowDrop(event)");
-		list.classList.add("list");
-
-		el = document.createElement("img");
-		el.setAttribute("src", "/add.png");
-		el.setAttribute("onclick", "createCard(" + list_index + ")");
-		list.appendChild(el);
-
-		el = document.createElement("input");
-		el.setAttribute("type", "text");
-		el.setAttribute("value", list_name);
-		el.addEventListener("keyup", listRename);
-		text = document.createTextNode(list_name);
-		el.appendChild(text);
-		list.appendChild(el);
-
-		var cardCount = 0;
-		for (const card of project.cards) {
-			if (card.list_index != list_index) continue;
-			var c = makeCard(card);
-			list.appendChild(c);
-			cardCount++;
-		}
-
-		el = document.createElement("div");
-		el.classList.add("card_count");
-		if (cardCount == 1)
-			text = document.createTextNode(cardCount + " card");
-		else
-			text = document.createTextNode(cardCount + " cards");
-		el.appendChild(text);
-		list.appendChild(el);
-
+		var list = makeList(list_name, list_index);
 		listsDiv.appendChild(list);	
 	});
+}
+
+function makeList(list_name, list_index) {
+	var list = document.createElement("div");
+	list.setAttribute("id", "list_"+list_index);
+	list.setAttribute("ondrop", "drop(event)");
+	list.setAttribute("ondragover", "allowDrop(event)");
+	list.classList.add("list");
+
+	el = document.createElement("img");
+	el.setAttribute("src", "/add.png");
+	el.setAttribute("onclick", "createCard(" + list_index + ")");
+	list.appendChild(el);
+
+	el = document.createElement("input");
+	el.setAttribute("type", "text");
+	el.setAttribute("value", list_name);
+	el.addEventListener("keyup", listRename);
+	list.appendChild(el);
+
+	var cardCount = 0;
+	for (const card of project.cards) {
+		if (card.list_index != list_index) continue;
+		var c = makeCard(card);
+		list.appendChild(c);
+		cardCount++;
+	}
+
+	el = document.createElement("div");
+	el.classList.add("card_count");
+	if (cardCount == 1)
+		text = document.createTextNode(cardCount + " card");
+	else
+		text = document.createTextNode(cardCount + " cards");
+	el.appendChild(text);
+	list.appendChild(el);
+	return list;
 }
 
 function makeCard(card) {
@@ -371,13 +375,45 @@ function listRename(event) {
 	var list_index = list.getAttribute("id").replace("list_", "");
 
 	if (event.key === "Escape") {
-		event.target.value = project.lists[list_index];
-		event.target.blur();
+		if (list_index == "new") {
+			list.parentNode.removeChild(list);
+		}
+		else {
+			event.target.value = project.lists[list_index];
+			event.target.blur();
+		}
 	}
 	else if (event.key === "Enter") {
-		project.lists[list_index] = event.target.value;
-		ajax("POST", "/list/"+list_index, "name="+event.target.value);
-		event.target.blur();
+		if (list_index == "new") {
+			list.parentNode.removeChild(list); // remove the new list interface
+			var listsDiv = document.getElementById("listsDiv");
+			listsDiv.appendChild(makeList(event.target.value, project.lists.length));
+			project.lists.push(event.target.value);
+			ajax("POST", "/list", "name="+event.target.value);
+		}
+		else {
+			project.lists[list_index] = event.target.value;
+			ajax("POST", "/list/"+list_index, "name="+event.target.value);
+			event.target.blur();
+		}
 	}
+}
+
+function newList(event) {
+	var listsDiv = document.getElementById("listsDiv");
+
+	var list = document.createElement("div");
+	list.setAttribute("id", "list_new");
+	list.classList.add("list");
+
+	el = document.createElement("input");
+	el.setAttribute("type", "text");
+	el.setAttribute("value", "New list");
+	el.addEventListener("keyup", listRename);
+	list.appendChild(el);
+
+	listsDiv.appendChild(list);
+
+	el.focus();
 }
 </script>
