@@ -30,15 +30,15 @@ class ProjectDAO():
 		self.project["name"] = new_name
 		self.save()
 
-	def list_rename(self, list_index, new_name):
-		self.project["lists"][list_index] = new_name
-		self.save()
-
-	def list_add(self, new_name):
+	def create_list(self, new_name):
 		self.project["lists"].append(new_name)
 		self.save()
 
-	def list_delete(self, list_index):
+	def rename_list(self, list_index, new_name):
+		self.project["lists"][list_index] = new_name
+		self.save()
+
+	def delete_list(self, list_index):
 		del self.project["lists"][list_index]
 		self.save()
 
@@ -94,3 +94,4 @@ class ProjectDAO():
 
 		self.project["cards"] = sorted(self.project["cards"], key=lambda x: list(x.values())[2])
 		self.save()
+

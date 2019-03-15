@@ -2,7 +2,7 @@
 <hr />
 <div id="listsDiv"></div>
 <div id="modal">
-	<form action="/" method="post">
+	<form action="/card/0" method="post">
 		<div id="modal_dialog">
 			<div>
 				<div class="labelToggler" style="display:inline-block; width:69px; height:50px; background-color:red; border:solid 3px red;" onclick="toggleLabel(this, 'red')"></div>
@@ -178,7 +178,7 @@ function doProgressBar(card) {
 }
 
 function zoomOnCard(card) {
-	form.action = "/" + card.id;
+	form.action = "/card/" + card.id;
 	list_index.value = card.list_index;
 	title.value = card.title;
 	description.value = card.description;

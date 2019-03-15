@@ -15,10 +15,10 @@ class ProjectController(Controller):
 				return self.project_rename()
 			elif request.path_parts[0] == "drag_drop":
 				return self.drag_drop()
-			elif request.path_parts[0] == "list":
-				return self.list_rename()
 			else:
-				return self.not_found()
+				return response.Response400BadRequest()
+		else:
+			return response.Response400BadRequest()
 
 	def main_view(self):
 		return response.ResponseView(
@@ -50,18 +50,3 @@ class ProjectController(Controller):
 
 		self.dao.reorder_cards(list_index, ids)
 		return response.Response204NoContent()
-
-	# POST /list/<list_index>
-	def list_rename(self):
-			if "name" not in self.request.form_fields\
-			or len(self.request.path_parts) != 2:
-				return response.Response400BadRequest()
-
-			list_index = int(self.request.path_parts[1])
-			name = self.request.form_fields["name"]
-
-			self.dao.list_rename(list_index, name)
-			return response.Response204NoContent()
-
-	def not_found(self):
-			return response.Response404NotFound()

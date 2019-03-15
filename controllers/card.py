@@ -1,14 +1,13 @@
-import json
 import response
 from dao.project import ProjectDAO
 from controllers.base import Controller
 
-class CardsController(Controller):
+class CardController(Controller):
 	def handle_request(self, request):
 		self.request = request
 		self.dao = ProjectDAO()
 
-		card_id = int(request.path_parts[0])
+		card_id = int(request.path_parts[1])
 		if card_id == 0:
 			card = self.dao.get_new_card()
 		else:
@@ -19,7 +18,7 @@ class CardsController(Controller):
 		elif request.method == "delete":
 			return self.delete(card)
 		else:
-			return response.Response404NotFound()
+			return response.Response400BadRequest()
 
 	def save_zoomed_card(self, card):
 		if "title" not in self.request.form_fields\
