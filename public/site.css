@@ -91,19 +91,19 @@ a.card {
 				margin: 0;
 				padding: 0;
 				width: 140px;
-				height: 5px;
+				height: 4px;
 				display: inline-block;
-				border: solid 1px gold;
+				border: solid 1px DarkOliveGreen;
 				border-radius: 2px;
 			}
 
 			a.card div.cardDiv div.progressArea div.progressBar div.progress {
 				margin: 0;
 				padding: 0;
-				height: 5px;
+				height: 4px;
 				display: block;
-				background-color: darkkhaki;
-				border-radius: 2px;
+				background-color: black;
+				border-radius: 1px;
 			}
 
 			a.card div.cardDiv div.progressArea div.checklist_counts {

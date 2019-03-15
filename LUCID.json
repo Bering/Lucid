@@ -6,39 +6,23 @@
         "Doing",
         "Done"
     ],
-    "next_id": 43,
+    "next_id": 44,
     "cards": [
         {
-            "id": 13,
-            "list_index": 1,
-            "position": 0,
-            "title": "304 Not Modified",
-            "description": "Last-Modified is not enough:\r\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\r\n\r\nAlthough, it seems to work with EDGE. Let's do it anyway.\r\n\r\nfrom email.utils import parsedate_tz, mktime_tz\r\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\r\n\r\nThe code I have right now has time difference:\r\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT; length=3564\r\nLast-Modified: Fri, 15 Mar 2019 01:32:30 GMT\r\nThis should have been a 200 but it was a 304",
-            "labels": [
-                1
-            ]
-        },
-        {
             "id": 41,
-            "list_index": 0,
+            "list_index": 2,
             "position": 0,
             "title": "Brighten up the progress bar",
             "description": "It's not visible enough through the labels",
-            "labels": []
+            "labels": [
+                6
+            ]
         },
         {
             "id": 40,
             "list_index": 2,
-            "position": 0,
-            "title": "Request class",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": 16,
-            "list_index": 2,
             "position": 1,
-            "title": "Delete cards",
+            "title": "Request class",
             "description": "",
             "labels": []
         },
@@ -51,11 +35,11 @@
             "labels": []
         },
         {
-            "id": 29,
+            "id": 16,
             "list_index": 2,
             "position": 2,
-            "title": "config.path",
-            "description": "- [x] Not sure how this will behave when I use PyInstaller\r\n- [x] Test again to make sure it works when invoked in another project's folder",
+            "title": "Delete cards",
+            "description": "",
             "labels": []
         },
         {
@@ -64,7 +48,9 @@
             "position": 2,
             "title": "Theme support?",
             "description": "",
-            "labels": []
+            "labels": [
+                6
+            ]
         },
         {
             "position": 4,
@@ -75,11 +61,11 @@
             "labels": []
         },
         {
-            "id": 28,
+            "id": 29,
             "list_index": 2,
             "position": 3,
-            "title": "PyInstaller",
-            "description": "",
+            "title": "config.path",
+            "description": "- [x] Not sure how this will behave when I use PyInstaller\r\n- [x] Test again to make sure it works when invoked in another project's folder",
             "labels": []
         },
         {
@@ -99,10 +85,10 @@
             "labels": []
         },
         {
-            "id": 34,
+            "id": 28,
             "list_index": 2,
             "position": 5,
-            "title": "Catch viewfile not found and display in response",
+            "title": "PyInstaller",
             "description": "",
             "labels": []
         },
@@ -115,14 +101,12 @@
             "labels": []
         },
         {
-            "id": 33,
+            "id": 34,
             "list_index": 2,
             "position": 6,
-            "title": "Card counts are not updated after drag & drop between lists",
+            "title": "Catch viewfile not found and display in response",
             "description": "",
-            "labels": [
-                1
-            ]
+            "labels": []
         },
         {
             "id": 23,
@@ -130,13 +114,15 @@
             "position": 6,
             "title": "Start Browser",
             "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
-            "labels": []
+            "labels": [
+                4
+            ]
         },
         {
-            "id": 32,
+            "id": 33,
             "list_index": 2,
             "position": 7,
-            "title": "Drag & Drop inside a list between cards is off by one",
+            "title": "Card counts are not updated after drag & drop between lists",
             "description": "",
             "labels": [
                 1
@@ -151,9 +137,27 @@
             "labels": []
         },
         {
-            "id": 19,
+            "id": 32,
             "list_index": 2,
             "position": 8,
+            "title": "Drag & Drop inside a list between cards is off by one",
+            "description": "",
+            "labels": [
+                1
+            ]
+        },
+        {
+            "id": 30,
+            "list_index": 0,
+            "position": 8,
+            "title": "EDGE and Chrome",
+            "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
+            "labels": []
+        },
+        {
+            "id": 19,
+            "list_index": 2,
+            "position": 9,
             "title": "Card labels",
             "description": "",
             "labels": [
@@ -166,25 +170,37 @@
             ]
         },
         {
-            "id": 30,
+            "id": 13,
             "list_index": 0,
-            "position": 8,
-            "title": "EDGE and Chrome",
-            "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
-            "labels": []
+            "position": 9,
+            "title": "304 Not Modified",
+            "description": "Last-Modified is not enough:\r\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\r\n\r\nAlthough, it seems to work with EDGE. Let's do it anyway.\r\n\r\nfrom email.utils import parsedate_tz, mktime_tz\r\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\r\n\r\nThe code I have right now has time difference:\r\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT; length=3564\r\nLast-Modified: Fri, 15 Mar 2019 01:32:30 GMT\r\nThis should have been a 200 but it was a 304\r\n\r\nNext step:\r\nhttps://stackoverflow.com/questions/26435530/converting-string-to-datetime-object/26435566#26435566",
+            "labels": [
+                1
+            ]
         },
         {
             "id": 27,
             "list_index": 2,
-            "position": 9,
+            "position": 10,
             "title": "Renaming project",
             "description": "",
             "labels": []
         },
         {
+            "id": 42,
+            "list_index": 0,
+            "position": 10,
+            "title": "Accents are not supported...",
+            "description": "File \"C:\\Program Files\\Python\\lib\\urllib\\parse.py\", line 103, in _encode_result\r\n    return obj.encode(encoding, errors)\r\nUnicodeEncodeError: 'ascii' codec can't encode character '\\xe9' in position 269: ordinal not in range(128)",
+            "labels": [
+                1
+            ]
+        },
+        {
             "id": 20,
             "list_index": 2,
-            "position": 10,
+            "position": 11,
             "title": "Card checklists",
             "description": "",
             "labels": []
@@ -192,7 +208,7 @@
         {
             "id": 24,
             "list_index": 2,
-            "position": 11,
+            "position": 12,
             "title": "Command-line parameters",
             "description": "To setup the hostname and port without editing config.json",
             "labels": []
@@ -200,7 +216,7 @@
         {
             "id": 26,
             "list_index": 2,
-            "position": 12,
+            "position": 13,
             "title": "Escape to close zoomed card",
             "description": "",
             "labels": []
@@ -208,7 +224,7 @@
         {
             "id": 25,
             "list_index": 2,
-            "position": 13,
+            "position": 14,
             "title": "Drag & Drop",
             "description": "- [x] Between lists\r\n- [x] Inside a list",
             "labels": []
@@ -216,7 +232,7 @@
         {
             "id": 12,
             "list_index": 2,
-            "position": 14,
+            "position": 15,
             "title": "Updating cards",
             "description": "Testing...\r\nWORKS!",
             "labels": []
@@ -224,7 +240,7 @@
         {
             "id": 10,
             "list_index": 2,
-            "position": 15,
+            "position": 16,
             "title": "Adding cards",
             "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
             "labels": []
@@ -232,7 +248,7 @@
         {
             "id": 14,
             "list_index": 2,
-            "position": 16,
+            "position": 17,
             "title": "Data Storage",
             "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?",
             "labels": []
@@ -240,20 +256,10 @@
         {
             "id": 6,
             "list_index": 2,
-            "position": 17,
+            "position": 18,
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
             "labels": []
-        },
-        {
-            "id": 42,
-            "list_index": 0,
-            "position": 0,
-            "title": "Accents are not supported...",
-            "description": "File \"C:\\Program Files\\Python\\lib\\urllib\\parse.py\", line 103, in _encode_result\r\n    return obj.encode(encoding, errors)\r\nUnicodeEncodeError: 'ascii' codec can't encode character '\\xe9' in position 269: ordinal not in range(128)",
-            "labels": [
-                1
-            ]
         }
     ]
 }
