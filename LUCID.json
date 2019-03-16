@@ -10,28 +10,18 @@
     "next_id": 56,
     "cards": [
         {
-            "id": 47,
-            "list_id": 2,
-            "position": 0,
-            "title": "Max Length on lists name",
-            "description": "",
-            "labels": [
-                4
-            ]
-        },
-        {
             "id": 17,
             "list_id": 0,
             "position": 0,
-            "title": "Prepend Card?",
+            "title": "Prepend Card",
             "description": "\"Add to Top\" and \"Add to Bottom\" buttons in the modal popup",
             "labels": []
         },
         {
-            "id": 55,
-            "list_id": 1,
+            "id": 53,
+            "list_id": 2,
             "position": 0,
-            "title": "Save card in AJAX",
+            "title": "New card in AJAX",
             "description": "",
             "labels": [
                 3,
@@ -39,10 +29,10 @@
             ]
         },
         {
-            "id": 53,
-            "list_id": 1,
+            "id": 55,
+            "list_id": 2,
             "position": 1,
-            "title": "New card in AJAX",
+            "title": "Save card in AJAX",
             "description": "",
             "labels": [
                 3,
@@ -60,21 +50,12 @@
             ]
         },
         {
-            "id": 38,
-            "list_id": 2,
-            "position": 1,
-            "title": "JS CleanUp",
-            "description": "- [x] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
-            "labels": []
-        },
-        {
-            "id": 48,
+            "id": 47,
             "list_id": 2,
             "position": 2,
-            "title": "Refactoring: Switch the lists from a list to a dict",
-            "description": "Use the same \"next_id\" trick with the same variable",
+            "title": "Max Length on lists name",
+            "description": "",
             "labels": [
-                3,
                 4
             ]
         },
@@ -87,7 +68,7 @@
             "labels": []
         },
         {
-            "position": 4,
+            "position": 5,
             "id": 31,
             "list_id": 2,
             "title": "New cards sometimes pop at top of list",
@@ -97,11 +78,11 @@
             ]
         },
         {
-            "id": 45,
+            "id": 38,
             "list_id": 2,
             "position": 3,
-            "title": "Refactoring url to /card",
-            "description": "",
+            "title": "JS CleanUp",
+            "description": "- [x] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
             "labels": []
         },
         {
@@ -113,6 +94,17 @@
             "labels": []
         },
         {
+            "id": 48,
+            "list_id": 2,
+            "position": 4,
+            "title": "Refactoring: Switch the lists from a list to a dict",
+            "description": "Use the same \"next_id\" trick with the same variable",
+            "labels": [
+                3,
+                4
+            ]
+        },
+        {
             "id": 23,
             "list_id": 0,
             "position": 4,
@@ -120,21 +112,6 @@
             "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
             "labels": [
                 4
-            ]
-        },
-        {
-            "id": 19,
-            "list_id": 2,
-            "position": 5,
-            "title": "Card labels",
-            "description": "Small 190/6 px wide labels always at the same position",
-            "labels": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6
             ]
         },
         {
@@ -148,14 +125,12 @@
             ]
         },
         {
-            "id": 41,
+            "id": 45,
             "list_id": 2,
             "position": 6,
-            "title": "Brighten up the progress bar",
-            "description": "It's not visible enough through the labels",
-            "labels": [
-                6
-            ]
+            "title": "Refactoring url to /card",
+            "description": "",
+            "labels": []
         },
         {
             "id": 30,
@@ -166,12 +141,19 @@
             "labels": []
         },
         {
-            "id": 40,
+            "id": 19,
             "list_id": 2,
             "position": 7,
-            "title": "Request class",
-            "description": "",
-            "labels": []
+            "title": "Card labels",
+            "description": "Small 190/6 px wide labels always at the same position",
+            "labels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ]
         },
         {
             "id": 42,
@@ -184,12 +166,14 @@
             ]
         },
         {
-            "id": 16,
+            "id": 41,
             "list_id": 2,
             "position": 8,
-            "title": "Delete cards",
-            "description": "",
-            "labels": []
+            "title": "Brighten up the progress bar",
+            "description": "It's not visible enough through the labels",
+            "labels": [
+                6
+            ]
         },
         {
             "id": 13,
@@ -202,11 +186,11 @@
             ]
         },
         {
-            "id": 29,
+            "id": 40,
             "list_id": 2,
             "position": 9,
-            "title": "config.path",
-            "description": "- [x] Not sure how this will behave when I use PyInstaller\r\n- [x] Test again to make sure it works when invoked in another project's folder",
+            "title": "Request class",
+            "description": "",
             "labels": []
         },
         {
@@ -218,10 +202,10 @@
             "labels": []
         },
         {
-            "id": 28,
+            "id": 16,
             "list_id": 2,
             "position": 10,
-            "title": "PyInstaller",
+            "title": "Delete cards",
             "description": "",
             "labels": []
         },
@@ -234,11 +218,11 @@
             "labels": []
         },
         {
-            "id": 34,
+            "id": 29,
             "list_id": 2,
             "position": 11,
-            "title": "Catch viewfile not found and display in response",
-            "description": "",
+            "title": "config.path",
+            "description": "- [x] Not sure how this will behave when I use PyInstaller\r\n- [x] Test again to make sure it works when invoked in another project's folder",
             "labels": []
         },
         {
@@ -250,9 +234,25 @@
             "labels": []
         },
         {
-            "id": 33,
+            "id": 28,
             "list_id": 2,
             "position": 12,
+            "title": "PyInstaller",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": 34,
+            "list_id": 2,
+            "position": 13,
+            "title": "Catch viewfile not found and display in response",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": 33,
+            "list_id": 2,
+            "position": 14,
             "title": "Card counts are not updated after drag & drop between lists",
             "description": "",
             "labels": [
@@ -262,7 +262,7 @@
         {
             "id": 32,
             "list_id": 2,
-            "position": 13,
+            "position": 15,
             "title": "Drag & Drop inside a list between cards is off by one",
             "description": "",
             "labels": [
@@ -272,7 +272,7 @@
         {
             "id": 27,
             "list_id": 2,
-            "position": 14,
+            "position": 16,
             "title": "Renaming project",
             "description": "",
             "labels": []
@@ -280,7 +280,7 @@
         {
             "id": 20,
             "list_id": 2,
-            "position": 15,
+            "position": 17,
             "title": "Card checklists",
             "description": "",
             "labels": []
@@ -288,7 +288,7 @@
         {
             "id": 24,
             "list_id": 2,
-            "position": 16,
+            "position": 18,
             "title": "Command-line parameters",
             "description": "To setup the hostname and port without editing config.json",
             "labels": []
@@ -296,7 +296,7 @@
         {
             "id": 26,
             "list_id": 2,
-            "position": 17,
+            "position": 19,
             "title": "Escape to close zoomed card",
             "description": "",
             "labels": []
@@ -304,7 +304,7 @@
         {
             "id": 12,
             "list_id": 2,
-            "position": 18,
+            "position": 20,
             "title": "Updating cards",
             "description": "Testing...\r\nWORKS!",
             "labels": []
@@ -312,7 +312,7 @@
         {
             "id": 10,
             "list_id": 2,
-            "position": 19,
+            "position": 21,
             "title": "Adding cards",
             "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
             "labels": []
@@ -320,7 +320,7 @@
         {
             "id": 14,
             "list_id": 2,
-            "position": 20,
+            "position": 22,
             "title": "Data Storage",
             "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?",
             "labels": []
@@ -328,7 +328,7 @@
         {
             "id": 6,
             "list_id": 2,
-            "position": 21,
+            "position": 23,
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
             "labels": []
