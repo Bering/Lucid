@@ -18,7 +18,7 @@
 				<div class="labelToggler" style="display:inline-block; width:69px; height:50px; background-color:magenta; border:solid 3px magenta;" onclick="toggleLabel(this, 'magenta')"></div>
 				<input type="checkbox"style="display:none;" name="label6" value="6" />
 			</div>
-			<input type="hidden" name="list_index" />
+			<input type="hidden" name="list_id" />
 		<input type="text" name="title" placeholder="Title" /><br />
 			<textarea name="description" placeholder="Description"></textarea><br />
 			<div class="buttons">
@@ -39,7 +39,7 @@
 var project = %project%;
 var modal = document.getElementById("modal");
 var form = document.querySelector("form");
-var list_index_hidden = document.getElementsByName("list_index")[0];
+var list_id_hidden = document.getElementsByName("list_id")[0];
 var title = document.getElementsByName("title")[0];
 var description = document.getElementsByName("description")[0];
 var listMenuDiv = document.getElementById("listMenu");
@@ -59,27 +59,27 @@ window.onload = function() {
 
 	document.addEventListener("dblclick", newList);
 
-	project.lists.forEach(function(list_name, list_index) {
-		var list = makeList(list_name, list_index);
-		listsDiv.appendChild(list);	
-	});
+	for (const [list_id, list_name] of  Object.entries(project.lists)) {
+		var list = makeList(list_id, list_name);
+		listsDiv.appendChild(list);
+	}
 }
 
-function makeList(list_name, list_index) {
+function makeList(list_id, list_name) {
 	var list = document.createElement("div");
-	list.setAttribute("id", "list_"+list_index);
+	list.setAttribute("id", "list_"+list_id);
 	list.setAttribute("ondrop", "drop(event)");
 	list.setAttribute("ondragover", "allowDrop(event)");
 	list.classList.add("list");
 
 	el = document.createElement("img");
 	el.setAttribute("src", "/list_handle.png");
-	el.setAttribute("onclick", "listMenu("+list_index+", this)");
+	el.setAttribute("onclick", "listMenu("+list_id+", this)");
 	list.appendChild(el);
 
 	el = document.createElement("img");
 	el.setAttribute("src", "/add.png");
-	el.setAttribute("onclick", "createCard(" + list_index + ")");
+	el.setAttribute("onclick", "createCard(" + list_id + ")");
 	list.appendChild(el);
 
 	el = document.createElement("input");
@@ -90,7 +90,7 @@ function makeList(list_name, list_index) {
 
 	var cardCount = 0;
 	for (const card of project.cards) {
-		if (card.list_index != list_index) continue;
+		if (card.list_id != list_id) continue;
 		var c = makeCard(card);
 		list.appendChild(c);
 		cardCount++;
@@ -195,7 +195,7 @@ function doProgressBar(card) {
 
 function zoomOnCard(card) {
 	form.action = "/card/" + card.id;
-	list_index_hidden.value = card.list_index;
+	list_id_hidden.value = card.list_id;
 	title.value = card.title;
 	description.value = card.description;
 
@@ -244,11 +244,11 @@ function onDelete() {
 	onCancel();
 }
 
-function createCard(list_index) {
+function createCard(list_id) {
 
 	var card = {
 		"id" : 0,
-		"list_index" : list_index,
+		"list_id" : list_id,
 		"position" : 0,
 		"title" : "",
 		"description" : "",
@@ -323,24 +323,24 @@ function drop(ev) {
 		}
 	}
 	
-	// update the card's list_index in RAM
-	var list_index = list.getAttribute("id").replace("list_", '');
+	// update the card's list_id in RAM
+	var list_id = list.getAttribute("id").replace("list_", '');
 	var card_id = cardDiv.id.replace("card_", "");
 	var card = findCard(card_id);
-	card.list_index = list_index;
+	card.list_id = list_id;
 
 	// update the cards position in RAM
 	var cards = document.querySelectorAll("#"+list.getAttribute("id")+" .card");
-	var positions = [];
+	var card_ids = [];
 	for (var n=0; n < cards.length; n++) {
 		var card_id = cards[n].getAttribute("id").replace("card_", "");
-		positions.push(parseInt(card_id));
+		card_ids.push(parseInt(card_id));
 	}
 
 	// update the cards on the server
 	var url = "/drag_drop";
-	var data = "list_index="+list_index;
-	data += "&ids="+JSON.stringify(positions);
+	var data = "list_id="+list_id;
+	data += "&card_ids="+JSON.stringify(card_ids);
 	ajax("POST", url, data);
 }
 
@@ -384,28 +384,29 @@ function projectRename(event) {
 
 function listRename(event) {
 	var list = event.target.parentNode;
-	var list_index = list.getAttribute("id").replace("list_", "");
+	var list_id = list.getAttribute("id").replace("list_", "");
 
 	if (event.key === "Escape") {
-		if (list_index == "new") {
+		if (list_id == "new") {
 			list.parentNode.removeChild(list);
 		}
 		else {
-			event.target.value = project.lists[list_index];
+			event.target.value = project.lists[list_id];
 			event.target.blur();
 		}
 	}
 	else if (event.key === "Enter") {
-		if (list_index == "new") {
+		if (list_id == "new") {
 			list.parentNode.removeChild(list); // remove the new list interface
 			var listsDiv = document.getElementById("listsDiv");
-			listsDiv.appendChild(makeList(event.target.value, project.lists.length));
-			project.lists.push(event.target.value);
+			listsDiv.appendChild(makeList(project.next_id, event.target.value));
+			project.lists[project.next_id] = event.target.value;
+			project.next_id++;
 			ajax("POST", "/list", "name="+event.target.value);
 		}
 		else {
-			project.lists[list_index] = event.target.value;
-			ajax("POST", "/list/"+list_index, "name="+event.target.value);
+			project.lists[list_id] = event.target.value;
+			ajax("POST", "/list/"+list_id, "name="+event.target.value);
 			event.target.blur();
 		}
 	}
@@ -416,25 +417,25 @@ function newList(event) {
 
 	var listsDiv = document.getElementById("listsDiv");
 
-	var list = document.createElement("div");
-	list.setAttribute("id", "list_new");
-	list.classList.add("list");
+	var newListDiv = document.createElement("div");
+	newListDiv.setAttribute("id", "list_new");
+	newListDiv.classList.add("list");
 
 	el = document.createElement("input");
 	el.setAttribute("type", "text");
 	el.setAttribute("value", "New list");
 	el.addEventListener("keyup", listRename);
-	list.appendChild(el);
+	newListDiv.appendChild(el);
 
-	listsDiv.appendChild(list);
+	listsDiv.appendChild(newListDiv);
 
 	el.focus();
 	el.select();
 }
 
-function listMenu(list_index, icon) {
+function listMenu(list_id, icon) {
 	if (listMenuDiv.style.display == "none") {
-		listMenuTarget = list_index;
+		listMenuTarget = list_id;
 		listMenuDiv.style.left = (icon.offsetLeft - 37) + "px";
 		listMenuDiv.style.top = (icon.offsetTop -44) + "px";
 		listMenuDiv.style.display = "block";
@@ -450,17 +451,10 @@ function deleteList() {
 	var list = document.getElementById("list_"+listMenuTarget);
 	list.parentNode.removeChild(list);
 
-	project.lists.splice(listMenuTarget, 1);
+	delete project.lists[listMenuTarget];
 	for (var n = project.cards.length - 1; n >= 0 ; n--) {
-		if (project.cards[n].list_index == listMenuTarget)
+		if (project.cards[n].list_id == listMenuTarget)
 			project.cards.splice(n, 1);
-		else if (project.cards[n].list_index > listMenuTarget)
-			project.cards[n].list_index--;
-	}
-
-	var lists = document.querySelectorAll(".list");
-	for (var n = 0; n < lists.length; n++) {
-		lists[n].setAttribute("id", "list_"+n);
 	}
 
 	ajax("DELETE", "/list/"+listMenuTarget);

@@ -1,25 +1,17 @@
 {
     "name": "LUCID",
     "description": "",
-    "lists": [
-        "TODO",
-        "Doing",
-        "Done",
-        "Another list"
-    ],
-    "next_id": 48,
+    "lists": {
+        "0": "TODO",
+        "1": "Doing",
+        "2": "Done",
+        "51": "Testing"
+    },
+    "next_id": 53,
     "cards": [
         {
-            "id": 45,
-            "list_index": 2,
-            "position": 0,
-            "title": "Refactoring url to /card",
-            "description": "",
-            "labels": []
-        },
-        {
             "id": 22,
-            "list_index": 0,
+            "list_id": 0,
             "position": 0,
             "title": "Lists",
             "description": "- [x] Rename list\r\n- [x] Add list\r\n- [x] Delete list\r\n- [ ] Drag and Drop list (re-order)\r\n- [x] Drag and Drop cards between lists\r\n- [x] Drag and Drop cards in a list\r\n- [x] Show list's card count",
@@ -28,8 +20,27 @@
             ]
         },
         {
+            "id": 48,
+            "list_id": 51,
+            "position": 1,
+            "title": "Refactoring: Switch the lists from a list to a dict",
+            "description": "Use the same \"next_id\" trick with the same variable",
+            "labels": [
+                3,
+                4
+            ]
+        },
+        {
+            "id": 45,
+            "list_id": 2,
+            "position": 1,
+            "title": "Refactoring url to /card",
+            "description": "",
+            "labels": []
+        },
+        {
             "id": 47,
-            "list_index": 0,
+            "list_id": 0,
             "position": 1,
             "title": "Max Length on lists name",
             "description": "",
@@ -37,8 +48,8 @@
         },
         {
             "id": 19,
-            "list_index": 2,
-            "position": 1,
+            "list_id": 2,
+            "position": 2,
             "title": "Card labels",
             "description": "Small 190/6 px wide labels always at the same position",
             "labels": [
@@ -52,7 +63,7 @@
         },
         {
             "id": 44,
-            "list_index": 0,
+            "list_id": 0,
             "position": 2,
             "title": "Switch to BottlePy",
             "description": "",
@@ -61,7 +72,7 @@
         {
             "position": 3,
             "id": 31,
-            "list_index": 2,
+            "list_id": 2,
             "title": "New cards sometimes pop at top of list",
             "description": "Looks ok but some time later poof they're up top",
             "labels": [
@@ -69,9 +80,17 @@
             ]
         },
         {
+            "id": 25,
+            "list_id": 0,
+            "position": 3,
+            "title": "Drag & Drop Cards",
+            "description": "- [x] Between lists\r\n- [x] Inside a list\r\n- [ ] Drop shadow\r\n- [ ] Drop target",
+            "labels": []
+        },
+        {
             "id": 41,
-            "list_index": 2,
-            "position": 2,
+            "list_id": 2,
+            "position": 4,
             "title": "Brighten up the progress bar",
             "description": "It's not visible enough through the labels",
             "labels": [
@@ -79,16 +98,8 @@
             ]
         },
         {
-            "id": 25,
-            "list_index": 0,
-            "position": 3,
-            "title": "Drag & Drop Cards",
-            "description": "- [x] Between lists\r\n- [x] Inside a list\r\n- [ ] Drop shadow\r\n- [ ] Drop target",
-            "labels": []
-        },
-        {
             "id": 38,
-            "list_index": 0,
+            "list_id": 0,
             "position": 4,
             "title": "JS CleanUp",
             "description": "- [ ] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
@@ -96,15 +107,15 @@
         },
         {
             "id": 40,
-            "list_index": 2,
-            "position": 4,
+            "list_id": 2,
+            "position": 5,
             "title": "Request class",
             "description": "",
             "labels": []
         },
         {
             "id": 23,
-            "list_index": 0,
+            "list_id": 0,
             "position": 5,
             "title": "Start Browser",
             "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
@@ -114,15 +125,15 @@
         },
         {
             "id": 16,
-            "list_index": 2,
-            "position": 5,
+            "list_id": 2,
+            "position": 6,
             "title": "Delete cards",
             "description": "",
             "labels": []
         },
         {
             "id": 39,
-            "list_index": 0,
+            "list_id": 0,
             "position": 6,
             "title": "Theme support?",
             "description": "How about a Sublime theme importer?",
@@ -132,15 +143,15 @@
         },
         {
             "id": 29,
-            "list_index": 2,
-            "position": 6,
+            "list_id": 2,
+            "position": 7,
             "title": "config.path",
             "description": "- [x] Not sure how this will behave when I use PyInstaller\r\n- [x] Test again to make sure it works when invoked in another project's folder",
             "labels": []
         },
         {
             "id": 30,
-            "list_index": 0,
+            "list_id": 0,
             "position": 7,
             "title": "EDGE and Chrome",
             "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
@@ -148,15 +159,15 @@
         },
         {
             "id": 28,
-            "list_index": 2,
-            "position": 7,
+            "list_id": 2,
+            "position": 8,
             "title": "PyInstaller",
             "description": "",
             "labels": []
         },
         {
             "id": 42,
-            "list_index": 0,
+            "list_id": 0,
             "position": 8,
             "title": "Accents are not supported...",
             "description": "File \"C:\\Program Files\\Python\\lib\\urllib\\parse.py\", line 103, in _encode_result\r\n    return obj.encode(encoding, errors)\r\nUnicodeEncodeError: 'ascii' codec can't encode character '\\xe9' in position 269: ordinal not in range(128)",
@@ -166,15 +177,15 @@
         },
         {
             "id": 34,
-            "list_index": 2,
-            "position": 8,
+            "list_id": 2,
+            "position": 9,
             "title": "Catch viewfile not found and display in response",
             "description": "",
             "labels": []
         },
         {
             "id": 13,
-            "list_index": 0,
+            "list_id": 0,
             "position": 9,
             "title": "304 Not Modified",
             "description": "Last-Modified is not enough:\r\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\r\n\r\nAlthough, it seems to work with EDGE. Let's do it anyway.\r\n\r\nfrom email.utils import parsedate_tz, mktime_tz\r\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\r\n\r\nThe code I have right now has time difference:\r\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT; length=3564\r\nLast-Modified: Fri, 15 Mar 2019 01:32:30 GMT\r\nThis should have been a 200 but it was a 304\r\n\r\nNext step:\r\nhttps://stackoverflow.com/questions/26435530/converting-string-to-datetime-object/26435566#26435566",
@@ -184,8 +195,8 @@
         },
         {
             "id": 33,
-            "list_index": 2,
-            "position": 9,
+            "list_id": 2,
+            "position": 10,
             "title": "Card counts are not updated after drag & drop between lists",
             "description": "",
             "labels": [
@@ -194,7 +205,7 @@
         },
         {
             "id": 17,
-            "list_index": 0,
+            "list_id": 0,
             "position": 10,
             "title": "Prepend Card?",
             "description": "\"Add to Top\" and \"Add to Bottom\" buttons in the modal popup",
@@ -202,8 +213,8 @@
         },
         {
             "id": 32,
-            "list_index": 2,
-            "position": 10,
+            "list_id": 2,
+            "position": 11,
             "title": "Drag & Drop inside a list between cards is off by one",
             "description": "",
             "labels": [
@@ -212,7 +223,7 @@
         },
         {
             "id": 18,
-            "list_index": 0,
+            "list_id": 0,
             "position": 11,
             "title": "Card Markdown?",
             "description": "",
@@ -220,15 +231,15 @@
         },
         {
             "id": 27,
-            "list_index": 2,
-            "position": 11,
+            "list_id": 2,
+            "position": 12,
             "title": "Renaming project",
             "description": "",
             "labels": []
         },
         {
             "id": 21,
-            "list_index": 0,
+            "list_id": 0,
             "position": 12,
             "title": "Card indicator if description is set?",
             "description": "",
@@ -236,31 +247,31 @@
         },
         {
             "id": 20,
-            "list_index": 2,
-            "position": 12,
+            "list_id": 2,
+            "position": 13,
             "title": "Card checklists",
             "description": "",
             "labels": []
         },
         {
             "id": 24,
-            "list_index": 2,
-            "position": 13,
+            "list_id": 2,
+            "position": 14,
             "title": "Command-line parameters",
             "description": "To setup the hostname and port without editing config.json",
             "labels": []
         },
         {
             "id": 26,
-            "list_index": 2,
-            "position": 14,
+            "list_id": 2,
+            "position": 15,
             "title": "Escape to close zoomed card",
             "description": "",
             "labels": []
         },
         {
             "id": 12,
-            "list_index": 2,
+            "list_id": 2,
             "position": 16,
             "title": "Updating cards",
             "description": "Testing...\r\nWORKS!",
@@ -268,7 +279,7 @@
         },
         {
             "id": 10,
-            "list_index": 2,
+            "list_id": 2,
             "position": 17,
             "title": "Adding cards",
             "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
@@ -276,7 +287,7 @@
         },
         {
             "id": 14,
-            "list_index": 2,
+            "list_id": 2,
             "position": 18,
             "title": "Data Storage",
             "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?",
@@ -284,7 +295,7 @@
         },
         {
             "id": 6,
-            "list_index": 2,
+            "list_id": 2,
             "position": 19,
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",

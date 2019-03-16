@@ -13,12 +13,12 @@ class ListController(Controller):
 			else:
 				return response.Response400BadRequest()
 
-		list_index = int(request.path_parts[1])
+		list_id = request.path_parts[1]
 
 		if request.method == "post":
-			return self.rename(list_index)
+			return self.rename(list_id)
 		elif request.method == "delete":
-			return self.delete(list_index)
+			return self.delete(list_id)
 		else:
 			return response.Response400BadRequest()
 
@@ -32,17 +32,17 @@ class ListController(Controller):
 		self.dao.create_list(name)
 		return response.Response201Created("/")
 
-	# POST /list/<list_index>
-	def rename(self, list_index):
+	# POST /list/<list_id>
+	def rename(self, list_id):
 		if "name" not in self.request.form_fields:
 			return response.Response400BadRequest()
 
 		name = self.request.form_fields["name"]
 
-		self.dao.rename_list(list_index, name)
+		self.dao.rename_list(list_id, name)
 		return response.Response204NoContent()
 
-	# DELETE /list/<list_index>
-	def delete(self, list_index):
-		self.dao.delete_list(list_index)
+	# DELETE /list/<list_id>
+	def delete(self, list_id):
+		self.dao.delete_list(list_id)
 		return response.Response204NoContent()

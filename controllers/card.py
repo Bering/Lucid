@@ -22,10 +22,10 @@ class CardController(Controller):
 
 	def save_zoomed_card(self, card):
 		if "title" not in self.request.form_fields\
-		or "list_index" not in self.request.form_fields:
+		or "list_id" not in self.request.form_fields:
 			return response.Response400BadRequest()
 		
-		card["list_index"] = int(self.request.form_fields["list_index"])
+		card["list_id"] = int(self.request.form_fields["list_id"])
 		card["title"] = self.request.form_fields["title"]
 		if "description" in self.request.form_fields:
 			card["description"] = self.request.form_fields["description"]

@@ -41,12 +41,12 @@ class ProjectController(Controller):
 
 	# POST /drag_drop
 	def drag_drop(self):
-		if "list_index" not in self.request.form_fields\
-		or "ids" not in self.request.form_fields:
+		if "list_id" not in self.request.form_fields\
+		or "card_ids" not in self.request.form_fields:
 			return response.Response400BadRequest()
 
-		list_index = self.request.form_fields["list_index"]
-		ids = json.loads(self.request.form_fields["ids"])
+		list_id = self.request.form_fields["list_id"]
+		card_ids = json.loads(self.request.form_fields["card_ids"])
 
-		self.dao.reorder_cards(list_index, ids)
+		self.dao.reorder_cards(list_id, card_ids)
 		return response.Response204NoContent()
