@@ -37,7 +37,7 @@ div.list {
 	background-color: khaki;
 	color: black;
 	width: 200px;
-	padding: 10px;
+	padding: 0 10px 10px 10px;
 	margin: 10px;
 	box-shadow: 2px 2px;
 }
@@ -52,7 +52,12 @@ div.list {
 		margin: 0 0 0 5px;
 	}
 
-	div.list img {
+	div.list img[src="/list_handle.png"] {
+		margin-left: 78px;
+	}
+
+	div.list img[src="/add.png"] {
+		margin-top: 18px;
 		float: right;
 	}
 
@@ -61,6 +66,15 @@ div.list {
 		margin-top: 0px;
 		margin-bottom: 0;
 	}
+
+#listMenu {
+	position: absolute;
+	display: none;
+	background-color: khaki;
+	border: solid 1px gold;
+	border-radius: 6px;
+	padding-top: 5px;
+}
 
 a.card {
 	display: block;

@@ -40,6 +40,11 @@ class ProjectDAO():
 
 	def delete_list(self, list_index):
 		del self.project["lists"][list_index]
+		self.project["cards"] = [c for c in self.project["cards"] if c["list_index"] != list_index]
+		for card in self.project["cards"]:
+			if card["list_index"] > list_index:
+				card["list_index"] -= 1
+
 		self.save()
 
 	def reorder_lists(self):

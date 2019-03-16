@@ -29,14 +29,21 @@
 		</div>
 	</form>
 </div>
+<div id="listMenu">
+	<img src="/left.png" onclick="swapListLeft()" />
+	<img src="/delete.png" onclick="deleteList()" />
+	<img src="/right.png" onclick="swapListRight()" />
+</div>
 
 <script type="text/javascript">
 var project = %project%;
 var modal = document.getElementById("modal");
 var form = document.querySelector("form");
-var list_index = document.getElementsByName("list_index")[0];
+var list_index_hidden = document.getElementsByName("list_index")[0];
 var title = document.getElementsByName("title")[0];
 var description = document.getElementsByName("description")[0];
+var listMenuDiv = document.getElementById("listMenu");
+var listMenuTarget = null;
 
 window.onload = function() {
 
@@ -64,6 +71,11 @@ function makeList(list_name, list_index) {
 	list.setAttribute("ondrop", "drop(event)");
 	list.setAttribute("ondragover", "allowDrop(event)");
 	list.classList.add("list");
+
+	el = document.createElement("img");
+	el.setAttribute("src", "/list_handle.png");
+	el.setAttribute("onclick", "listMenu("+list_index+", this)");
+	list.appendChild(el);
 
 	el = document.createElement("img");
 	el.setAttribute("src", "/add.png");
@@ -183,7 +195,7 @@ function doProgressBar(card) {
 
 function zoomOnCard(card) {
 	form.action = "/card/" + card.id;
-	list_index.value = card.list_index;
+	list_index_hidden.value = card.list_index;
 	title.value = card.title;
 	description.value = card.description;
 
@@ -417,5 +429,36 @@ function newList(event) {
 	listsDiv.appendChild(list);
 
 	el.focus();
+	el.select();
+}
+
+function listMenu(list_index, icon) {
+	listMenuTarget = list_index;
+	listMenuDiv.style.left = (icon.offsetLeft - 37) + "px";
+	listMenuDiv.style.top = (icon.offsetTop -44) + "px";
+	listMenuDiv.style.display = "block";
+}
+
+function deleteList() {
+	listMenuDiv.style.display = "none";
+	if (!confirm("Are you sure?")) return;
+
+	var list = document.getElementById("list_"+listMenuTarget);
+	list.parentNode.removeChild(list);
+
+	project.lists.splice(listMenuTarget, 1);
+	for (var n = project.cards.length - 1; n >= 0 ; n--) {
+		if (project.cards[n].list_index == listMenuTarget)
+			project.cards.splice(n, 1);
+		else if (project.cards[n].list_index > listMenuTarget)
+			project.cards[n].list_index--;
+	}
+
+	var lists = document.querySelectorAll(".list");
+	for (var n = 0; n < lists.length; n++) {
+		lists[n].setAttribute("id", "list_"+n);
+	}
+
+	ajax("DELETE", "/list/"+listMenuTarget);
 }
 </script>

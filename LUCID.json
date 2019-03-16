@@ -5,7 +5,6 @@
         "TODO",
         "Doing",
         "Done",
-        "Test new list ",
         "Another list"
     ],
     "next_id": 48,
@@ -20,9 +19,27 @@
         },
         {
             "id": 47,
-            "list_index": 1,
+            "list_index": 0,
             "position": 0,
             "title": "Max Length on lists name",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": 22,
+            "list_index": 1,
+            "position": 0,
+            "title": "Lists",
+            "description": "- [x] Rename list\r\n- [x] Add list\r\n- [x] Delete list\r\n- [ ] Drag and Drop list (re-order)\r\n- [x] Drag and Drop cards between lists\r\n- [x] Drag and Drop cards in a list\r\n- [x] Show list's card count",
+            "labels": [
+                4
+            ]
+        },
+        {
+            "id": 44,
+            "list_index": 0,
+            "position": 1,
+            "title": "Switch to BottlePy",
             "description": "",
             "labels": []
         },
@@ -42,29 +59,11 @@
             ]
         },
         {
-            "id": 44,
-            "list_index": 0,
-            "position": 1,
-            "title": "Switch to BottlePy",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": 22,
-            "list_index": 1,
-            "position": 1,
-            "title": "Lists",
-            "description": "- [x] Rename list\r\n- [x] Add list\r\n- [ ] Delete list\r\n- [ ] Drag and Drop list (re-order)\r\n- [x] Drag and Drop cards between lists\r\n- [x] Drag and Drop cards in a list\r\n- [x] Show list's card count",
-            "labels": [
-                4
-            ]
-        },
-        {
-            "id": 38,
+            "id": 25,
             "list_index": 0,
             "position": 2,
-            "title": "JS CleanUp",
-            "description": "- [ ] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
+            "title": "Drag & Drop",
+            "description": "- [x] Between lists\r\n- [x] Inside a list\r\n- [ ] Drop shadow\r\n- [ ] Drop target",
             "labels": []
         },
         {
@@ -88,9 +87,17 @@
             ]
         },
         {
-            "id": 23,
+            "id": 38,
             "list_index": 0,
             "position": 3,
+            "title": "JS CleanUp",
+            "description": "- [ ] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
+            "labels": []
+        },
+        {
+            "id": 23,
+            "list_index": 0,
+            "position": 4,
             "title": "Start Browser",
             "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
             "labels": [
@@ -108,7 +115,7 @@
         {
             "id": 39,
             "list_index": 0,
-            "position": 4,
+            "position": 5,
             "title": "Theme support?",
             "description": "How about a Sublime theme importer?",
             "labels": [
@@ -126,7 +133,7 @@
         {
             "id": 30,
             "list_index": 0,
-            "position": 5,
+            "position": 6,
             "title": "EDGE and Chrome",
             "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
             "labels": []
@@ -142,7 +149,7 @@
         {
             "id": 42,
             "list_index": 0,
-            "position": 6,
+            "position": 7,
             "title": "Accents are not supported...",
             "description": "File \"C:\\Program Files\\Python\\lib\\urllib\\parse.py\", line 103, in _encode_result\r\n    return obj.encode(encoding, errors)\r\nUnicodeEncodeError: 'ascii' codec can't encode character '\\xe9' in position 269: ordinal not in range(128)",
             "labels": [
@@ -160,7 +167,7 @@
         {
             "id": 13,
             "list_index": 0,
-            "position": 7,
+            "position": 8,
             "title": "304 Not Modified",
             "description": "Last-Modified is not enough:\r\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\r\n\r\nAlthough, it seems to work with EDGE. Let's do it anyway.\r\n\r\nfrom email.utils import parsedate_tz, mktime_tz\r\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\r\n\r\nThe code I have right now has time difference:\r\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT; length=3564\r\nLast-Modified: Fri, 15 Mar 2019 01:32:30 GMT\r\nThis should have been a 200 but it was a 304\r\n\r\nNext step:\r\nhttps://stackoverflow.com/questions/26435530/converting-string-to-datetime-object/26435566#26435566",
             "labels": [
@@ -178,7 +185,7 @@
         {
             "id": 17,
             "list_index": 0,
-            "position": 8,
+            "position": 9,
             "title": "Prepend Card?",
             "description": "\"Add to Top\" and \"Add to Bottom\" buttons in the modal popup",
             "labels": []
@@ -196,7 +203,7 @@
         {
             "id": 18,
             "list_index": 0,
-            "position": 9,
+            "position": 10,
             "title": "Card Markdown?",
             "description": "",
             "labels": []
@@ -214,7 +221,7 @@
         {
             "id": 21,
             "list_index": 0,
-            "position": 10,
+            "position": 11,
             "title": "Card indicator if description is set?",
             "description": "",
             "labels": []
@@ -249,14 +256,6 @@
             "position": 14,
             "title": "Escape to close zoomed card",
             "description": "",
-            "labels": []
-        },
-        {
-            "id": 25,
-            "list_index": 2,
-            "position": 15,
-            "title": "Drag & Drop",
-            "description": "- [x] Between lists\r\n- [x] Inside a list",
             "labels": []
         },
         {
