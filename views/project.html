@@ -131,13 +131,6 @@ function makeCard(card) {
 	return a;
 }
 
-function findCard(id_of_card_to_find) {
-	for (const card of project.cards) {
-		if (card.id == id_of_card_to_find) return card;
-	}
-	return null;
-}
-
 function doLabels(card) {
 	var labels = document.createElement("div");
 	labels.classList.add("labels");
@@ -194,6 +187,13 @@ function doProgressBar(card) {
 	return container;
 }
 
+function findCard(id_of_card_to_find) {
+	for (const card of project.cards) {
+		if (card.id == id_of_card_to_find) return card;
+	}
+	return null;
+}
+
 function zoomOnCard(card) {
 	form.action = "/card/" + card.id;
 	list_id_hidden.value = card.list_id;
@@ -215,6 +215,17 @@ function zoomOnCard(card) {
 
 	modal.style.display = "block";
 	title.focus();
+}
+
+function toggleLabel(div, color) {
+	if (div.style.backgroundColor == color) {
+		div.style.backgroundColor = "lightyellow";
+		div.nextElementSibling.checked = false;
+	}
+	else {
+		div.style.backgroundColor = color;
+		div.nextElementSibling.checked = true;
+	}
 }
 
 function onCancel() {
@@ -345,32 +356,6 @@ function drop(ev) {
 	ajax("POST", url, data);
 }
 
-function toggleLabel(div, color) {
-	if (div.style.backgroundColor == color) {
-		div.style.backgroundColor = "lightyellow";
-		div.nextElementSibling.checked = false;
-	}
-	else {
-		div.style.backgroundColor = color;
-		div.nextElementSibling.checked = true;
-	}
-}
-
-function ajax(method, url, data, callback) {
-	var req = new XMLHttpRequest();
-	req.addEventListener("load", function() {
-		if (callback) callback(this);
-	});
-	req.open(method, url);
-	if (data) {
-		req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		req.send(data);
-	}
-	else {
-		req.send();
-	}
-}
-
 function projectRename(event) {
 	if (event.key === "Escape") {
 		event.target.value = project.name;
@@ -460,4 +445,20 @@ function deleteList() {
 
 	ajax("DELETE", "/list/"+listMenuTarget);
 }
+
+function ajax(method, url, data, callback) {
+	var req = new XMLHttpRequest();
+	req.addEventListener("load", function() {
+		if (callback) callback(this);
+	});
+	req.open(method, url);
+	if (data) {
+		req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		req.send(data);
+	}
+	else {
+		req.send();
+	}
+}
+
 </script>

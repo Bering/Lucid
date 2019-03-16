@@ -20,9 +20,35 @@
             ]
         },
         {
-            "id": 48,
-            "list_id": 51,
+            "id": 47,
+            "list_id": 2,
+            "position": 0,
+            "title": "Max Length on lists name",
+            "description": "",
+            "labels": [
+                4
+            ]
+        },
+        {
+            "id": 17,
+            "list_id": 1,
+            "position": 0,
+            "title": "Prepend Card?",
+            "description": "\"Add to Top\" and \"Add to Bottom\" buttons in the modal popup",
+            "labels": []
+        },
+        {
+            "id": 38,
+            "list_id": 2,
             "position": 1,
+            "title": "JS CleanUp",
+            "description": "- [x] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
+            "labels": []
+        },
+        {
+            "id": 48,
+            "list_id": 2,
+            "position": 2,
             "title": "Refactoring: Switch the lists from a list to a dict",
             "description": "Use the same \"next_id\" trick with the same variable",
             "labels": [
@@ -31,25 +57,43 @@
             ]
         },
         {
+            "id": 44,
+            "list_id": 0,
+            "position": 2,
+            "title": "Switch to BottlePy",
+            "description": "",
+            "labels": []
+        },
+        {
+            "position": 4,
+            "id": 31,
+            "list_id": 2,
+            "title": "New cards sometimes pop at top of list",
+            "description": "Looks ok but some time later poof they're up top",
+            "labels": [
+                1
+            ]
+        },
+        {
             "id": 45,
             "list_id": 2,
-            "position": 1,
+            "position": 3,
             "title": "Refactoring url to /card",
             "description": "",
             "labels": []
         },
         {
-            "id": 47,
+            "id": 25,
             "list_id": 0,
-            "position": 1,
-            "title": "Max Length on lists name",
-            "description": "",
+            "position": 3,
+            "title": "Drag & Drop Cards",
+            "description": "- [x] Between lists\r\n- [x] Inside a list\r\n- [ ] Drop shadow\r\n- [ ] Drop target",
             "labels": []
         },
         {
             "id": 19,
             "list_id": 2,
-            "position": 2,
+            "position": 5,
             "title": "Card labels",
             "description": "Small 190/6 px wide labels always at the same position",
             "labels": [
@@ -62,58 +106,6 @@
             ]
         },
         {
-            "id": 44,
-            "list_id": 0,
-            "position": 2,
-            "title": "Switch to BottlePy",
-            "description": "",
-            "labels": []
-        },
-        {
-            "position": 3,
-            "id": 31,
-            "list_id": 2,
-            "title": "New cards sometimes pop at top of list",
-            "description": "Looks ok but some time later poof they're up top",
-            "labels": [
-                1
-            ]
-        },
-        {
-            "id": 25,
-            "list_id": 0,
-            "position": 3,
-            "title": "Drag & Drop Cards",
-            "description": "- [x] Between lists\r\n- [x] Inside a list\r\n- [ ] Drop shadow\r\n- [ ] Drop target",
-            "labels": []
-        },
-        {
-            "id": 41,
-            "list_id": 2,
-            "position": 4,
-            "title": "Brighten up the progress bar",
-            "description": "It's not visible enough through the labels",
-            "labels": [
-                6
-            ]
-        },
-        {
-            "id": 38,
-            "list_id": 0,
-            "position": 4,
-            "title": "JS CleanUp",
-            "description": "- [ ] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
-            "labels": []
-        },
-        {
-            "id": 40,
-            "list_id": 2,
-            "position": 5,
-            "title": "Request class",
-            "description": "",
-            "labels": []
-        },
-        {
             "id": 23,
             "list_id": 0,
             "position": 5,
@@ -124,12 +116,14 @@
             ]
         },
         {
-            "id": 16,
+            "id": 41,
             "list_id": 2,
             "position": 6,
-            "title": "Delete cards",
-            "description": "",
-            "labels": []
+            "title": "Brighten up the progress bar",
+            "description": "It's not visible enough through the labels",
+            "labels": [
+                6
+            ]
         },
         {
             "id": 39,
@@ -142,11 +136,11 @@
             ]
         },
         {
-            "id": 29,
+            "id": 40,
             "list_id": 2,
             "position": 7,
-            "title": "config.path",
-            "description": "- [x] Not sure how this will behave when I use PyInstaller\r\n- [x] Test again to make sure it works when invoked in another project's folder",
+            "title": "Request class",
+            "description": "",
             "labels": []
         },
         {
@@ -158,10 +152,10 @@
             "labels": []
         },
         {
-            "id": 28,
+            "id": 16,
             "list_id": 2,
             "position": 8,
-            "title": "PyInstaller",
+            "title": "Delete cards",
             "description": "",
             "labels": []
         },
@@ -176,11 +170,11 @@
             ]
         },
         {
-            "id": 34,
+            "id": 29,
             "list_id": 2,
             "position": 9,
-            "title": "Catch viewfile not found and display in response",
-            "description": "",
+            "title": "config.path",
+            "description": "- [x] Not sure how this will behave when I use PyInstaller\r\n- [x] Test again to make sure it works when invoked in another project's folder",
             "labels": []
         },
         {
@@ -194,32 +188,20 @@
             ]
         },
         {
-            "id": 33,
+            "id": 28,
             "list_id": 2,
             "position": 10,
-            "title": "Card counts are not updated after drag & drop between lists",
+            "title": "PyInstaller",
             "description": "",
-            "labels": [
-                1
-            ]
-        },
-        {
-            "id": 17,
-            "list_id": 0,
-            "position": 10,
-            "title": "Prepend Card?",
-            "description": "\"Add to Top\" and \"Add to Bottom\" buttons in the modal popup",
             "labels": []
         },
         {
-            "id": 32,
+            "id": 34,
             "list_id": 2,
             "position": 11,
-            "title": "Drag & Drop inside a list between cards is off by one",
+            "title": "Catch viewfile not found and display in response",
             "description": "",
-            "labels": [
-                1
-            ]
+            "labels": []
         },
         {
             "id": 18,
@@ -230,12 +212,14 @@
             "labels": []
         },
         {
-            "id": 27,
+            "id": 33,
             "list_id": 2,
             "position": 12,
-            "title": "Renaming project",
+            "title": "Card counts are not updated after drag & drop between lists",
             "description": "",
-            "labels": []
+            "labels": [
+                1
+            ]
         },
         {
             "id": 21,
@@ -246,9 +230,27 @@
             "labels": []
         },
         {
-            "id": 20,
+            "id": 32,
             "list_id": 2,
             "position": 13,
+            "title": "Drag & Drop inside a list between cards is off by one",
+            "description": "",
+            "labels": [
+                1
+            ]
+        },
+        {
+            "id": 27,
+            "list_id": 2,
+            "position": 14,
+            "title": "Renaming project",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": 20,
+            "list_id": 2,
+            "position": 15,
             "title": "Card checklists",
             "description": "",
             "labels": []
@@ -256,7 +258,7 @@
         {
             "id": 24,
             "list_id": 2,
-            "position": 14,
+            "position": 16,
             "title": "Command-line parameters",
             "description": "To setup the hostname and port without editing config.json",
             "labels": []
@@ -264,7 +266,7 @@
         {
             "id": 26,
             "list_id": 2,
-            "position": 15,
+            "position": 17,
             "title": "Escape to close zoomed card",
             "description": "",
             "labels": []
@@ -272,7 +274,7 @@
         {
             "id": 12,
             "list_id": 2,
-            "position": 16,
+            "position": 18,
             "title": "Updating cards",
             "description": "Testing...\r\nWORKS!",
             "labels": []
@@ -280,7 +282,7 @@
         {
             "id": 10,
             "list_id": 2,
-            "position": 17,
+            "position": 19,
             "title": "Adding cards",
             "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
             "labels": []
@@ -288,7 +290,7 @@
         {
             "id": 14,
             "list_id": 2,
-            "position": 18,
+            "position": 20,
             "title": "Data Storage",
             "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?",
             "labels": []
@@ -296,7 +298,7 @@
         {
             "id": 6,
             "list_id": 2,
-            "position": 19,
+            "position": 21,
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
             "labels": []
