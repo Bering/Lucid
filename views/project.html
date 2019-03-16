@@ -85,6 +85,7 @@ function makeList(list_id, list_name) {
 	el = document.createElement("input");
 	el.setAttribute("type", "text");
 	el.setAttribute("value", list_name);
+	el.setAttribute("maxlength", "15");
 	el.addEventListener("keyup", listRename);
 	list.appendChild(el);
 
