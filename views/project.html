@@ -2,7 +2,7 @@
 <hr />
 <div id="listsDiv"></div>
 <div id="modal">
-	<form action="/card/0" method="post">
+	<form action="/card/0" method="post" onsubmit="onSubmit(event)">
 		<div id="modal_dialog">
 			<div>
 				<div class="labelToggler" style="display:inline-block; width:69px; height:50px; background-color:red; border:solid 3px red;" onclick="toggleLabel(this, 'red')"></div>
@@ -22,7 +22,7 @@
 		<input type="text" name="title" placeholder="Title" /><br />
 			<textarea name="description" placeholder="Description"></textarea><br />
 			<div class="buttons">
-				<input type="submit" value="Save" /> 
+				<input type="button" value="Save" /> 
 				<input type="button" value="Cancel" onclick="onCancel()" />
 				<input type="button" value="Delete" onclick="onDelete()" />
 			</div>
@@ -228,6 +228,94 @@ function toggleLabel(div, color) {
 	}
 }
 
+function onSubmit(ev) {
+	ev.preventDefault();
+
+	var parts = form.action.split("/");
+	var card_id = parts[parts.length-1];
+
+	if (card_id == "new") {
+		form.action = "/card";
+
+		var card = {
+			"id" : "0",
+			"list_id" : list_id_hidden.value,
+			"position" : 0,
+			"title" : title.value,
+			"description" : description.value,
+			"labels" : []
+		};
+
+		var list = document.querySelector("#list_"+list_id_hidden.value);
+		var cards = list.querySelectorAll(".card");
+		card.position = cards.length;
+
+		var formLabels = document.querySelectorAll("#modal_dialog input[type='checkbox']");
+		formLabels.forEach(function(checkbox, index) {
+			if (checkbox.checked) {
+				card.labels.push(index+1);
+			}
+		});
+
+		list.appendChild(makeCard(card));
+
+		var cardCount = cards.length + 1;
+		var cardCounter = list.querySelector(".card_count");
+		if (cardCount == 1)
+			cardCounter.textContent = "1 card";
+		else
+			cardCounter.textContent = cardCount + " cards";
+
+		list.removeChild(cardCounter);
+		list.appendChild(cardCounter);
+	}
+
+	// Save existing card
+	else {
+		var card = findCard(card_id);
+
+		var formLabels = document.querySelectorAll("#modal_dialog input[type='checkbox']");
+		var cardLabels = document.querySelectorAll("#card_"+card_id+" .labels div");
+		cardLabels.forEach(function(div, index) {
+			if (formLabels[index].checked) {
+				div.classList.add("label"+(index+1));
+
+				var labelIndex = card.labels.indexOf(index+1);
+				if (labelIndex == -1) {
+					card.labels.push(index+1);
+				}
+			}
+			else {
+				div.classList.remove("label"+(index+1));
+
+				var labelIndex = card.labels.indexOf(index+1);
+				if (labelIndex != -1) {
+					card.labels.splice(labelIndex, 1);
+				}
+			}
+		});
+		card.labels.sort()
+
+		var cardDiv = document.querySelector("#card_"+card_id+" .cardDiv");
+		cardDiv.textContent = title.value;
+
+		card.title = title.value;
+		card.description = description.value;
+	}
+
+	var data = "list_id=" + card.list_id;
+	data += "&title=" + card.title;
+	data += "&description=" + card.description;
+	card.labels.forEach(function(value, index) {
+		data += "&label"+value+"="+value;
+	});
+	ajax("POST", "/card/"+card.id, data);
+
+	modal.style.display = "none";
+
+	return false;
+}
+
 function onCancel() {
 	modal.style.display = "none";
 	form.reset();
@@ -259,7 +347,7 @@ function onDelete() {
 function createCard(list_id) {
 
 	var card = {
-		"id" : 0,
+		"id" : "new",
 		"list_id" : list_id,
 		"position" : 0,
 		"title" : "",
