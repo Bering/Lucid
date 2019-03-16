@@ -7,46 +7,68 @@ class CardController(Controller):
 		self.request = request
 		self.dao = ProjectDAO()
 
-		card_id = int(request.path_parts[1])
-		if card_id == 0:
-			card = self.dao.get_new_card()
-		else:
-			card = self.dao.load_card(card_id)
-
 		if request.method == "post":
-			return self.save_zoomed_card(card)
+			if request.path_parts[1] == "append":
+				return self.append()
+			elif request.path_parts[1] == "prepend":
+				return self.prepend()
+			else:
+				card_id = int(request.path_parts[1])
+				return self.save_zoomed_card(card_id)
 		elif request.method == "delete":
-			return self.delete(card)
+			card_id = int(request.path_parts[1])
+			return self.delete(card_id)
 		else:
 			return response.Response400BadRequest()
 
-	def save_zoomed_card(self, card):
+	def append(self):
+		card = self.dao.get_new_card()
+		card = self.read_form_fields(card)
+
+		if card == None:
+			return response.Response400BadRequest()
+
+		self.dao.append_card(card)
+		return response.Response201Created("/")
+
+	def prepend(self):
+		card = self.dao.get_new_card()
+		card = self.read_form_fields(card)
+
+		if card == None:
+			return response.Response400BadRequest()
+
+		self.dao.prepend_card(card)
+		return response.Response201Created("/")
+
+	def save_zoomed_card(self, card_id):
+		card = self.dao.load_card(card_id)
+		card = self.read_form_fields(card)
+		
+		if card == None:
+			return response.Response400BadRequest()
+
+		self.dao.save_card(card)
+		return response.Response204NoContent()
+
+	def read_form_fields(self, card):
 		if "title" not in self.request.form_fields\
 		or "list_id" not in self.request.form_fields:
-			return response.Response400BadRequest()
-		
+			return None
+
 		card["list_id"] = int(self.request.form_fields["list_id"])
 		card["title"] = self.request.form_fields["title"]
 		if "description" in self.request.form_fields:
 			card["description"] = self.request.form_fields["description"]
 
 		card["labels"] = []
-		if "label1" in self.request.form_fields:
-			card["labels"].append(1)
-		if "label2" in self.request.form_fields:
-			card["labels"].append(2)
-		if "label3" in self.request.form_fields:
-			card["labels"].append(3)
-		if "label4" in self.request.form_fields:
-			card["labels"].append(4)
-		if "label5" in self.request.form_fields:
-			card["labels"].append(5)
-		if "label6" in self.request.form_fields:
-			card["labels"].append(6)
+		for n in range(6):
+			if "label"+str(n+1) in self.request.form_fields:
+				card["labels"].append(n+1)
 
-		self.dao.save_card(card)
-		return response.Response301Redirect("/")
+		return card
 
-	def delete(self, card):
+	def delete(self, card_id):
+		card = self.dao.load_card(card_id)
 		self.dao.delete_card(card)
 		return response.Response204NoContent()

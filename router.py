@@ -24,7 +24,8 @@ def get_response(request):
 		return c.handle_request(request)
 
 	elif request.path_parts[0] == "card":
-		# POST /card = create new card
+		# POST /card/append = create new card at bottom of list
+		# POST /card/prepend = create new card at top of list
 		# POST /card/<card_id> = save card's info
 		# DELETE /card/<card_id>
 		c = CardController()

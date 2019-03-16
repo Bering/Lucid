@@ -67,14 +67,40 @@ class ProjectDAO():
 				return card
 		return None
 
+	def append_card(self, new_card):
+		new_card["id"] = self.project["next_id"]
+		self.project["next_id"] += 1
+
+		new_card["position"] = 0
+		for card in self.project["cards"]:
+			if card["list_id"] != new_card["list_id"]:
+				continue
+
+			new_card["position"] += 1
+
+		self.project["cards"].append(new_card)
+		self.save()
+		return
+
+	def prepend_card(self, new_card):
+		new_card["id"] = self.project["next_id"]
+		self.project["next_id"] += 1
+
+		new_card["position"] = 0
+		for card in self.project["cards"]:
+			if card["list_id"] != new_card["list_id"]:
+				continue
+
+			# note that the difference with append() is that here we change
+			# the position of the existing cards, not the one of the new card
+			card["position"] += 1
+
+		self.project["cards"].append(new_card)
+		self.project["cards"] = sorted(self.project["cards"], key=lambda x: list(x.values())[2])
+		self.save()
+		return
+	
 	def save_card(self, new_card):
-		if new_card["id"] == 0:
-			new_card["id"] = self.project["next_id"]
-			self.project["next_id"] += 1
-			self.project["cards"].append(new_card)
-			self.save()
-			return
-		
 		for n, card in enumerate(self.project["cards"]):
 			if card["id"] == new_card["id"]:
 				self.project["cards"][n] = new_card

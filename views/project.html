@@ -19,10 +19,12 @@
 				<input type="checkbox"style="display:none;" name="label6" value="6" />
 			</div>
 			<input type="hidden" name="list_id" />
-		<input type="text" name="title" placeholder="Title" /><br />
+			<input type="text" name="title" placeholder="Title" /><br />
 			<textarea name="description" placeholder="Description"></textarea><br />
 			<div class="buttons">
-				<input type="button" value="Save" /> 
+				<input type="submit" value="Save" /> 
+				<input type="submit" value="Append" /> 
+				<input type="submit" value="Prepend" /> 
 				<input type="button" value="Cancel" onclick="onCancel()" />
 				<input type="button" value="Delete" onclick="onDelete()" />
 			</div>
@@ -112,7 +114,7 @@ function makeCard(card) {
 	var a = document.createElement("a");
 	a.classList.add("card");
 	a.setAttribute("id", "card_" + card.id);
-	a.setAttribute("onclick", "zoomOnCard(findCard(" + card.id + "))");
+	a.setAttribute("onclick", "zoomOnCard(findCard(" + card.id + "), false)");
 	a.setAttribute("draggable", "true");
 	a.setAttribute("ondragstart", "drag(event)");
 
@@ -194,7 +196,7 @@ function findCard(id_of_card_to_find) {
 	return null;
 }
 
-function zoomOnCard(card) {
+function zoomOnCard(card, isNew) {
 	form.action = "/card/" + card.id;
 	list_id_hidden.value = card.list_id;
 	title.value = card.title;
@@ -211,6 +213,17 @@ function zoomOnCard(card) {
 			div.style.backgroundColor = "lightyellow";
 			div.nextElementSibling.checked = false;
 		}
+	}
+
+	if (isNew == true) {
+		document.querySelector("input[value='Save']").style.display="none";
+		document.querySelector("input[value='Append']").style.display="inline-block";
+		document.querySelector("input[value='Prepend']").style.display="inline-block";
+	}
+	else {
+		document.querySelector("input[value='Save']").style.display="inline-block";
+		document.querySelector("input[value='Append']").style.display="none";
+		document.querySelector("input[value='Prepend']").style.display="none";
 	}
 
 	modal.style.display = "block";
@@ -235,20 +248,15 @@ function onSubmit(ev) {
 	var card_id = parts[parts.length-1];
 
 	if (card_id == "new") {
-		form.action = "/card";
-
 		var card = {
-			"id" : "0",
+			"id" : project.next_id,
 			"list_id" : list_id_hidden.value,
 			"position" : 0,
 			"title" : title.value,
 			"description" : description.value,
 			"labels" : []
 		};
-
-		var list = document.querySelector("#list_"+list_id_hidden.value);
-		var cards = list.querySelectorAll(".card");
-		card.position = cards.length;
+		project.next_id++;
 
 		var formLabels = document.querySelectorAll("#modal_dialog input[type='checkbox']");
 		formLabels.forEach(function(checkbox, index) {
@@ -257,7 +265,22 @@ function onSubmit(ev) {
 			}
 		});
 
-		list.appendChild(makeCard(card));
+		var list = document.querySelector("#list_"+list_id_hidden.value);
+		var cards = list.querySelectorAll(".card");
+		if (ev.explicitOriginalTarget.value == "Prepend") {
+			card.position = 0;
+			project.cards.forEach(function(c, index) {
+				c.position++;
+			});
+			
+			list.insertBefore(makeCard(card), cards[0]);
+			form.action = "/card/prepend";
+		}
+		else {
+			card.position = cards.length;
+			list.appendChild(makeCard(card));
+			form.action = "/card/append";
+		}
 
 		var cardCount = cards.length + 1;
 		var cardCounter = list.querySelector(".card_count");
@@ -268,6 +291,8 @@ function onSubmit(ev) {
 
 		list.removeChild(cardCounter);
 		list.appendChild(cardCounter);
+
+		project.cards.push(card);
 	}
 
 	// Save existing card
@@ -309,10 +334,9 @@ function onSubmit(ev) {
 	card.labels.forEach(function(value, index) {
 		data += "&label"+value+"="+value;
 	});
-	ajax("POST", "/card/"+card.id, data);
+	ajax("POST", form.action, data);
 
 	modal.style.display = "none";
-
 	return false;
 }
 
@@ -355,7 +379,7 @@ function createCard(list_id) {
 		"labels" : []
 	};
 
-	zoomOnCard(card);
+	zoomOnCard(card, true);
 }
 
 function drag(ev) {
