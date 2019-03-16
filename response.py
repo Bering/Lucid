@@ -84,14 +84,14 @@ class ResponseFile(Response):
 		#		return
 		
 		filetypes = {
-			"html" : ["text/html", "r"],
-			"css" : ["text/css", "r"],
-			"js" : ["application/javascript", "r"],
-			"png" : ["image/png", "rb"],
-			"jpg" : ["image/jpeg", "rb"],
+			".html" : ["text/html", "r"],
+			".css" : ["text/css", "r"],
+			".js" : ["application/javascript", "r"],
+			".png" : ["image/png", "rb"],
+			".jpg" : ["image/jpeg", "rb"],
 		}
 
-		extension = filepath.lower().rsplit(".", 2)[-1]
+		name, extension = os.path.splitext(filepath)
 		if extension in filetypes:
 			content_type = filetypes[extension][0]
 			mode = filetypes[extension][1]
