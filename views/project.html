@@ -433,10 +433,14 @@ function newList(event) {
 }
 
 function listMenu(list_index, icon) {
-	listMenuTarget = list_index;
-	listMenuDiv.style.left = (icon.offsetLeft - 37) + "px";
-	listMenuDiv.style.top = (icon.offsetTop -44) + "px";
-	listMenuDiv.style.display = "block";
+	if (listMenuDiv.style.display == "none") {
+		listMenuTarget = list_index;
+		listMenuDiv.style.left = (icon.offsetLeft - 37) + "px";
+		listMenuDiv.style.top = (icon.offsetTop -44) + "px";
+		listMenuDiv.style.display = "block";
+	}
+	else
+		listMenuDiv.style.display = "none";
 }
 
 function deleteList() {
