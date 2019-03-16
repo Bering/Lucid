@@ -400,6 +400,8 @@ function listRename(event) {
 }
 
 function newList(event) {
+	if (event.target.tagName != "HTML") return;
+
 	var listsDiv = document.getElementById("listsDiv");
 
 	var list = document.createElement("div");
