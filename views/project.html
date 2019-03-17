@@ -396,7 +396,9 @@ function drag(ev) {
 }
 
 function allowDrop(ev) {
-	ev.preventDefault();
+	if (ev.dataTransfer.getData("text").startsWith("card_")) {
+		ev.preventDefault();
+	}
 }
 
 function drop(ev) {
