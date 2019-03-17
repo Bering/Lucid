@@ -1,4 +1,4 @@
-from bottle import request, HTTPResponse
+from bottle import abort, request, HTTPResponse
 from dao.project import ProjectDAO
 from controllers.base import Controller
 
@@ -8,12 +8,14 @@ class ListController(Controller):
 
 	# POST /list
 	def create(self):
-		if "name" not in request.forms:
+		if "id" not in request.forms\
+		or "name" not in request.forms:
 			abort(400)
 
+		id = request.forms.id
 		name = request.forms.name
 
-		self.dao.create_list(name)
+		self.dao.create_list(id, name)
 		return HTTPResponse(status=201)
 
 	# POST /list/<list_id>

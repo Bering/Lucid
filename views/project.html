@@ -32,11 +32,7 @@
 		</div>
 	</form>
 </div>
-<div id="listMenu">
-	<img src="/left.png" onclick="swapListLeft()" />
-	<img src="/delete.png" onclick="deleteList()" />
-	<img src="/right.png" onclick="swapListRight()" />
-</div>
+<div id="listMenu"><img src="/delete.png" onclick="deleteList()" /></div>
 %include('footer.html')
 
 <script type="text/javascript">
@@ -48,6 +44,10 @@ var title = document.getElementsByName("title")[0];
 var description = document.getElementsByName("description")[0];
 var listMenuDiv = document.getElementById("listMenu");
 var listMenuTarget = null;
+
+function generate_id() {
+	return crypto.getRandomValues(new Uint32Array(4)).join('_');
+}
 
 window.onload = function() {
 
@@ -72,18 +72,20 @@ window.onload = function() {
 function makeList(list_id, list_name) {
 	var list = document.createElement("div");
 	list.setAttribute("id", "list_"+list_id);
+	list.setAttribute("draggable", "true");
+	list.setAttribute("ondragstart", "drag(event)");
 	list.setAttribute("ondrop", "drop(event)");
 	list.setAttribute("ondragover", "allowDrop(event)");
 	list.classList.add("list");
 
 	el = document.createElement("img");
 	el.setAttribute("src", "/list_handle.png");
-	el.setAttribute("onclick", "listMenu("+list_id+", this)");
+	el.setAttribute("onclick", "listMenu('"+list_id+"', this)");
 	list.appendChild(el);
 
 	el = document.createElement("img");
 	el.setAttribute("src", "/add.png");
-	el.setAttribute("onclick", "addCard(" + list_id + ")");
+	el.setAttribute("onclick", "addCard('" + list_id + "')");
 	list.appendChild(el);
 
 	el = document.createElement("input");
@@ -116,7 +118,7 @@ function makeCard(card) {
 	var a = document.createElement("a");
 	a.classList.add("card");
 	a.setAttribute("id", "card_" + card.id);
-	a.setAttribute("onclick", "zoomOnCard(findCard(" + card.id + "), false)");
+	a.setAttribute("onclick", "zoomOnCard(findCard('" + card.id + "'), false)");
 	a.setAttribute("draggable", "true");
 	a.setAttribute("ondragstart", "drag(event)");
 	a.setAttribute("ondragend", "dragEnd(event)");
@@ -260,14 +262,13 @@ function onSubmit(ev) {
 
 	if (card_id == "new") {
 		var card = {
-			"id" : project.next_id,
+			"id" : generate_id(),
 			"list_id" : list_id_hidden.value,
 			"position" : 0,
 			"title" : title.value,
 			"description" : description.value,
 			"labels" : []
 		};
-		project.next_id++;
 
 		var formLabels = document.querySelectorAll("#modal_dialog input[type='checkbox']");
 		formLabels.forEach(function(checkbox, index) {
@@ -338,7 +339,8 @@ function onSubmit(ev) {
 		cardA.parentNode.replaceChild(makeCard(card), cardA);
 	}
 
-	var data = "list_id=" + card.list_id;
+	var data = "id=" + card.id;
+	data += "&list_id=" + card.list_id;
 	data += "&title=" + card.title;
 	data += "&description=" + card.description;
 	card.labels.forEach(function(value, index) {
@@ -403,13 +405,24 @@ function drag(ev) {
 }
 
 function allowDrop(ev) {
-	if (ev.dataTransfer.getData("text").startsWith("card_")) {
+	var id = ev.dataTransfer.getData("text");
+	if (id.startsWith("card_") || id.startsWith("list_")) {
 		ev.preventDefault();
 	}
 }
 
 function drop(ev) {
 	ev.preventDefault();
+	var id = ev.dataTransfer.getData("text");
+	if (id.startsWith("card_")) {
+		dropCard(ev);
+	}
+	else if (id.startsWith("list_")) {
+		dropList(ev);
+	}
+}
+
+function dropCard(ev) {
 	var id = ev.dataTransfer.getData("text");
 
 	// find which card it was dropped on (if any)
@@ -476,14 +489,37 @@ function drop(ev) {
 	var card_ids = [];
 	for (var n=0; n < cards.length; n++) {
 		var card_id = cards[n].getAttribute("id").replace("card_", "");
-		card_ids.push(parseInt(card_id));
+		card_ids.push(card_id);
 	}
 
 	// update the cards on the server
-	var url = "/drag_drop";
+	var url = "/card/drag_drop";
 	var data = "list_id="+list_id;
 	data += "&card_ids="+JSON.stringify(card_ids);
 	ajax("POST", url, data);
+}
+
+function dropList(ev) {
+	var id = ev.dataTransfer.getData("text");
+
+	// Find the list behind the header, icon or other cards
+	var list = ev.target;
+	while (!list.classList.contains("list")) {
+		list = list.parentNode;
+	}
+
+	var listBeingDragged = document.getElementById(id);
+
+	list.parentNode.insertBefore(listBeingDragged, list);
+
+	var lists = list.parentNode.querySelectorAll(".list");
+	var list_ids = [];
+	lists.forEach(function(list, index) {
+		list_ids.push(list.getAttribute("id").replace("list_",""));
+	});
+
+	var data = "list_ids="+JSON.stringify(list_ids);
+	ajax("POST", "/drag_drop", data);
 }
 
 function dragEnd(ev) {
@@ -519,10 +555,10 @@ function listRename(event) {
 		if (list_id == "new") {
 			list.parentNode.removeChild(list); // remove the new list interface
 			var listsDiv = document.getElementById("listsDiv");
-			listsDiv.appendChild(makeList(project.next_id, event.target.value));
-			project.lists[project.next_id] = event.target.value;
-			project.next_id++;
-			ajax("POST", "/list", "name="+event.target.value);
+			var generatedId = generate_id();
+			listsDiv.appendChild(makeList(generatedId, event.target.value));
+			project.lists[generatedId] = event.target.value;
+			ajax("POST", "/list", "id="+generatedId+"&name="+event.target.value);
 		}
 		else {
 			project.lists[list_id] = event.target.value;
@@ -533,7 +569,7 @@ function listRename(event) {
 }
 
 function newList(event) {
-	if (event.target.tagName != "HTML") return;
+	if (event.target.tagName != "HTML" && event.target.getAttribute("id") != "listsDiv") return;
 
 	var listsDiv = document.getElementById("listsDiv");
 
@@ -556,7 +592,7 @@ function newList(event) {
 function listMenu(list_id, icon) {
 	if (listMenuDiv.style.display == "none") {
 		listMenuTarget = list_id;
-		listMenuDiv.style.left = (icon.offsetLeft - 37) + "px";
+		listMenuDiv.style.left = (icon.offsetLeft -2) + "px";
 		listMenuDiv.style.top = (icon.offsetTop -44) + "px";
 		listMenuDiv.style.display = "block";
 	}

@@ -1,4 +1,5 @@
-from bottle import request, HTTPResponse
+import json
+from bottle import abort, request, HTTPResponse
 from dao.project import ProjectDAO
 from controllers.base import Controller
 
@@ -7,11 +8,15 @@ class CardController(Controller):
 		self.dao = ProjectDAO()
 
 	def read_form_fields(self, card):
-		if "title" not in request.forms\
-		or "list_id" not in request.forms:
-			return None
+		if "id" not in request.forms:
+			raise KeyError("Missing id in request")
+		if "title" not in request.forms:
+			raise KeyError("Missing title in request")
+		if "list_id" not in request.forms:
+			raise KeyError("Missing list_id in request")
 
-		card["list_id"] = int(request.forms.list_id)
+		card["id"] = request.forms.id
+		card["list_id"] = request.forms.list_id
 		card["title"] = request.forms.title
 		if "description" in request.forms:
 			card["description"] = request.forms.description
@@ -27,9 +32,6 @@ class CardController(Controller):
 		card = self.dao.get_new_card()
 		card = self.read_form_fields(card)
 
-		if card == None:
-			abort(400)
-
 		self.dao.append_card(card)
 		return HTTPResponse(status=201)
 
@@ -37,18 +39,12 @@ class CardController(Controller):
 		card = self.dao.get_new_card()
 		card = self.read_form_fields(card)
 
-		if card == None:
-			abort(400)
-
 		self.dao.prepend_card(card)
 		return HTTPResponse(status=201)
 
 	def save(self, card_id):
 		card = self.dao.load_card(card_id)
 		card = self.read_form_fields(card)
-		
-		if card == None:
-			abort(400)
 
 		self.dao.save_card(card)
 		return HTTPResponse(status=204)
@@ -56,4 +52,15 @@ class CardController(Controller):
 	def delete(self, card_id):
 		card = self.dao.load_card(card_id)
 		self.dao.delete_card(card)
+		return HTTPResponse(status=204)
+
+	def drag_drop(self):
+		if "list_id" not in request.forms\
+		or "card_ids" not in request.forms:
+			abort(400)
+
+		list_id = request.forms.list_id
+		card_ids = json.loads(request.forms.card_ids)
+
+		self.dao.reorder_cards(list_id, card_ids)
 		return HTTPResponse(status=204)

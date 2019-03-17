@@ -45,15 +45,20 @@ def prepend_card():
 	c = CardController()
 	return c.prepend()
 
-@post("/card/<card_id:int>") # save card
+@post("/card/<card_id>") # save card
 def save_card(card_id):
 	c = CardController()
 	return c.save(card_id)
 
-@delete("/card/<card_id:int>")
+@delete("/card/<card_id>")
 def delete_card(card_id):
 	c = CardController()
 	return c.delete(card_id)
+
+@post("/card/drag_drop")
+def drag_drop_card():
+	c = CardController()
+	return c.drag_drop()
 
 
 @get("/<filepath>")

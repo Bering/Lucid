@@ -10,11 +10,10 @@ class ProjectDAO():
 				"name" : "New Project",
 				"description" : "",
 				"lists" : {
-					"0" : "TODO",
-					"1" : "Doing",
-					"2" : "Done"
+			        "1463394567_1005693800_3793023534_2523788226": "TODO",
+			        "1994759157_3198025395_360080308_1005768122": "Done",
+			        "1901749129_962513719_918349320_1149498453": "Doing"
 				},
-				"next_id" : 3,
 				"cards" : []
 			}
 			fh.write(json.dumps(default_config, indent=4))
@@ -34,9 +33,8 @@ class ProjectDAO():
 		self.project["name"] = new_name
 		self.save()
 
-	def create_list(self, new_name):
-		self.project["lists"][str(self.project["next_id"])] = new_name
-		self.project["next_id"] += 1
+	def create_list(self, list_id, new_name):
+		self.project["lists"][list_id] = new_name
 		self.save()
 
 	def rename_list(self, list_id, new_name):
@@ -48,8 +46,14 @@ class ProjectDAO():
 		self.project["cards"] = [c for c in self.project["cards"] if c["list_id"] != list_id]
 		self.save()
 
-	def reorder_lists(self):
-		pass
+	def reorder_lists(self, list_ids):
+		previous_lists = self.project["lists"].copy()
+		self.project["lists"].clear()
+
+		for key in list_ids:
+			self.project["lists"][key] = previous_lists[key]
+
+		self.save()
 
 	def get_new_card(self):
 		return {
@@ -65,12 +69,10 @@ class ProjectDAO():
 		for card in self.project["cards"]:
 			if card["id"] == card_id:
 				return card
-		return None
+
+		raise KeyError("Card not found: " + card_id)
 
 	def append_card(self, new_card):
-		new_card["id"] = self.project["next_id"]
-		self.project["next_id"] += 1
-
 		new_card["position"] = 0
 		for card in self.project["cards"]:
 			if card["list_id"] != new_card["list_id"]:
@@ -83,9 +85,6 @@ class ProjectDAO():
 		return
 
 	def prepend_card(self, new_card):
-		new_card["id"] = self.project["next_id"]
-		self.project["next_id"] += 1
-
 		new_card["position"] = 0
 		for card in self.project["cards"]:
 			if card["list_id"] != new_card["list_id"]:
@@ -117,12 +116,11 @@ class ProjectDAO():
 
 	def reorder_cards(self, list_id, card_ids):
 		n = 0
-		list_id = int(list_id)
 		for card_id in card_ids:
 			card = self.load_card(card_id)
 			card["list_id"] = list_id
 			card["position"] = n
 			n += 1
 
-		self.project["cards"] = sorted(self.project["cards"], key=lambda x: list(x.values())[2])
+		self.project["cards"].sort(key = lambda x: x["position"])
 		self.save()

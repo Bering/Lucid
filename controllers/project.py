@@ -1,5 +1,5 @@
 import json
-from bottle import request, template, HTTPResponse
+from bottle import abort, request, template, HTTPResponse
 from controllers.base import Controller
 from dao.project import ProjectDAO
 
@@ -26,12 +26,10 @@ class ProjectController(Controller):
 
 	# POST /drag_drop
 	def drag_drop(self):
-		if "list_id" not in request.forms\
-		or "card_ids" not in request.forms:
+		if "list_ids" not in request.forms:
 			abort(400)
 
-		list_id = request.forms.list_id
-		card_ids = json.loads(request.forms.card_ids)
+		list_ids = json.loads(request.forms.list_ids)
 
-		self.dao.reorder_cards(list_id, card_ids)
+		self.dao.reorder_lists(list_ids)
 		return HTTPResponse(status=204)
