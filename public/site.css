@@ -30,8 +30,14 @@ html {
 	color: yellow;
 }
 
+#listsDiv {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
 div.list {
-	float: left;
+	flex-shrink: 0;
 	border: solid 1px gold;
 	border-radius: 5px;
 	background-color: khaki;
