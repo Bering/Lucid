@@ -119,6 +119,7 @@ function makeCard(card) {
 	a.setAttribute("onclick", "zoomOnCard(findCard(" + card.id + "), false)");
 	a.setAttribute("draggable", "true");
 	a.setAttribute("ondragstart", "drag(event)");
+	a.setAttribute("ondragend", "dragEnd(event)");
 
 	var labels = doLabels(card);
 	a.appendChild(labels);
@@ -393,6 +394,12 @@ function addCard(list_id) {
 
 function drag(ev) {
 	ev.dataTransfer.setData("text", ev.target.id);
+	ev.target.classList.add("dragGhost");
+	
+	setTimeout(function() {
+		ev.target.classList.add("dragged");
+		ev.target.classList.remove("dragGhost");
+	});
 }
 
 function allowDrop(ev) {
@@ -477,6 +484,10 @@ function drop(ev) {
 	var data = "list_id="+list_id;
 	data += "&card_ids="+JSON.stringify(card_ids);
 	ajax("POST", url, data);
+}
+
+function dragEnd(ev) {
+	ev.target.classList.remove("dragged");
 }
 
 function projectRename(event) {

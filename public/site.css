@@ -94,6 +94,11 @@ a.card {
 		margin: 0 5px 0 5px;
 		cursor: grab;
 	}
+		a.card.dragged {
+			opacity: 0.3;
+		}
+		a.card.dragGhost {
+		}
 
 		a.card div.cardDiv img {
 			margin: 2px 0 0 5px;
