@@ -322,12 +322,11 @@ function onSubmit(ev) {
 			}
 		});
 		card.labels.sort()
-
-		var cardDiv = document.querySelector("#card_"+card_id+" .cardDiv");
-		cardDiv.textContent = title.value;
-
 		card.title = title.value;
 		card.description = description.value;
+
+		var cardA = document.getElementById("card_"+card_id);
+		cardA.parentNode.replaceChild(makeCard(card), cardA);
 	}
 
 	var data = "list_id=" + card.list_id;
