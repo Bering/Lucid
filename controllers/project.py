@@ -1,52 +1,37 @@
 import json
-import response
+from bottle import request, template, HTTPResponse
 from controllers.base import Controller
 from dao.project import ProjectDAO
 
 class ProjectController(Controller):
-	def handle_request(self, request):
-		self.request = request
+	def __init__(self):
 		self.dao = ProjectDAO()
 
-		if request.method == "get":
-			return self.main_view()
-		elif request.method == "post":
-			if request.path_parts[0] == "name":
-				return self.project_rename()
-			elif request.path_parts[0] == "drag_drop":
-				return self.drag_drop()
-			else:
-				return response.Response400BadRequest()
-		else:
-			return response.Response400BadRequest()
-
-	def main_view(self):
-		return response.ResponseView(
+	def main_page(self):
+		return template(
 			"project",
-			{
-				"%project_name%" : self.dao.project["name"],
-				"%project%" : json.dumps(self.dao.project)
-			}
+			project_name = self.dao.project["name"],
+			project = json.dumps(self.dao.project)
 		)
 
 	# POST /name
-	def project_rename(self):
-			if "name" not in self.request.form_fields:
-				return response.Response400BadRequest()
+	def rename_project(self):
+		if "name" not in request.forms:
+			abort(400)
 
-			name = self.request.form_fields["name"]
+		name = request.forms.name
 
-			self.dao.project_rename(name)
-			return response.Response204NoContent()
+		self.dao.project_rename(name)
+		return HTTPResponse(status=204)
 
 	# POST /drag_drop
 	def drag_drop(self):
-		if "list_id" not in self.request.form_fields\
-		or "card_ids" not in self.request.form_fields:
-			return response.Response400BadRequest()
+		if "list_id" not in request.forms\
+		or "card_ids" not in request.forms:
+			abort(400)
 
-		list_id = self.request.form_fields["list_id"]
-		card_ids = json.loads(self.request.form_fields["card_ids"])
+		list_id = request.forms.list_id
+		card_ids = json.loads(request.forms.card_ids)
 
 		self.dao.reorder_cards(list_id, card_ids)
-		return response.Response204NoContent()
+		return HTTPResponse(status=204)

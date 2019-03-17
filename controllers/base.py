@@ -1,3 +1,3 @@
 class Controller:
-	def handle_request(self, request):
+	def handle_request(self):
 		pass

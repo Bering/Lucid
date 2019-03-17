@@ -1,9 +1,9 @@
 import sys
 import time
 import getopt
+import router
 from config import Config
-from http.server import HTTPServer
-from server import LucidServer
+from bottle import run
 
 config = Config()
 user_config = config.load()
@@ -36,13 +36,11 @@ if len(sys.argv) > 1:
 	port = int(port)
 	config.save(hostname, port)
 
-httpd = HTTPServer((hostname, port), LucidServer)
 print(time.asctime(), ": LUCID server started on", hostname + ":" + str(port))
 
 try:
-	httpd.serve_forever()
+	run(host=hostname, port=port)
 except KeyboardInterrupt:
 	pass
 
 print(time.asctime(), ": LUCID server shutting down")
-httpd.server_close()

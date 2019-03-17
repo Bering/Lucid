@@ -1,74 +1,59 @@
-import response
+from bottle import request, HTTPResponse
 from dao.project import ProjectDAO
 from controllers.base import Controller
 
 class CardController(Controller):
-	def handle_request(self, request):
-		self.request = request
+	def __init__(self):
 		self.dao = ProjectDAO()
 
-		if request.method == "post":
-			if request.path_parts[1] == "append":
-				return self.append()
-			elif request.path_parts[1] == "prepend":
-				return self.prepend()
-			else:
-				card_id = int(request.path_parts[1])
-				return self.save_zoomed_card(card_id)
-		elif request.method == "delete":
-			card_id = int(request.path_parts[1])
-			return self.delete(card_id)
-		else:
-			return response.Response400BadRequest()
+	def read_form_fields(self, card):
+		if "title" not in request.forms\
+		or "list_id" not in request.forms:
+			return None
+
+		card["list_id"] = int(request.forms.list_id)
+		card["title"] = request.forms.title
+		if "description" in request.forms:
+			card["description"] = request.forms.description
+
+		card["labels"] = []
+		for n in range(6):
+			if "label"+str(n+1) in request.forms:
+				card["labels"].append(n+1)
+
+		return card
 
 	def append(self):
 		card = self.dao.get_new_card()
 		card = self.read_form_fields(card)
 
 		if card == None:
-			return response.Response400BadRequest()
+			abort(400)
 
 		self.dao.append_card(card)
-		return response.Response201Created("/")
+		return HTTPResponse(status=201)
 
 	def prepend(self):
 		card = self.dao.get_new_card()
 		card = self.read_form_fields(card)
 
 		if card == None:
-			return response.Response400BadRequest()
+			abort(400)
 
 		self.dao.prepend_card(card)
-		return response.Response201Created("/")
+		return HTTPResponse(status=201)
 
-	def save_zoomed_card(self, card_id):
+	def save(self, card_id):
 		card = self.dao.load_card(card_id)
 		card = self.read_form_fields(card)
 		
 		if card == None:
-			return response.Response400BadRequest()
+			abort(400)
 
 		self.dao.save_card(card)
-		return response.Response204NoContent()
-
-	def read_form_fields(self, card):
-		if "title" not in self.request.form_fields\
-		or "list_id" not in self.request.form_fields:
-			return None
-
-		card["list_id"] = int(self.request.form_fields["list_id"])
-		card["title"] = self.request.form_fields["title"]
-		if "description" in self.request.form_fields:
-			card["description"] = self.request.form_fields["description"]
-
-		card["labels"] = []
-		for n in range(6):
-			if "label"+str(n+1) in self.request.form_fields:
-				card["labels"].append(n+1)
-
-		return card
+		return HTTPResponse(status=204)
 
 	def delete(self, card_id):
 		card = self.dao.load_card(card_id)
 		self.dao.delete_card(card)
-		return response.Response204NoContent()
+		return HTTPResponse(status=204)
