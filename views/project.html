@@ -83,7 +83,7 @@ function makeList(list_id, list_name) {
 
 	el = document.createElement("img");
 	el.setAttribute("src", "/add.png");
-	el.setAttribute("onclick", "createCard(" + list_id + ")");
+	el.setAttribute("onclick", "addCard(" + list_id + ")");
 	list.appendChild(el);
 
 	el = document.createElement("input");
@@ -377,7 +377,7 @@ function onDelete() {
 	onCancel();
 }
 
-function createCard(list_id) {
+function addCard(list_id) {
 
 	var card = {
 		"id" : "new",
