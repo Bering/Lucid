@@ -125,6 +125,14 @@ function makeCard(card) {
 
 	var div = document.createElement("div");
 	div.classList.add("cardDiv");
+
+	if (card.description) {
+		var img = document.createElement("img");
+		img.setAttribute("src", "/description.png");
+		img.setAttribute("title", "This card has a description. Click to see more.");
+		div.appendChild(img);
+	}
+
 	var text = document.createTextNode(card.title);
 	div.appendChild(text);
 

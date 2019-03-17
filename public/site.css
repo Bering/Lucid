@@ -95,16 +95,22 @@ a.card {
 		cursor: grab;
 	}
 
+		a.card div.cardDiv img {
+			margin: 2px 0 0 5px;
+			cursor: default;
+			float: right;
+		}
+
 		a.card div.cardDiv div.progressArea {
 			padding: 3px 0 0 0;
-			width: 170px;
+			width: 175px;
 		}
 
 			a.card div.cardDiv div.progressArea div.progressBar {
 				float: left;
 				margin: 0;
 				padding: 0;
-				width: 140px;
+				width: 145px;
 				height: 4px;
 				display: inline-block;
 				border: solid 1px DarkOliveGreen;
