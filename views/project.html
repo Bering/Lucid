@@ -23,9 +23,9 @@
 			<input type="text" name="title" placeholder="Title" /><br />
 			<textarea name="description" placeholder="Description"></textarea><br />
 			<div class="buttons">
-				<input type="submit" value="Save" /> 
-				<input type="submit" value="Append" /> 
-				<input type="submit" value="Prepend" /> 
+				<input type="submit" value="Save" onclick="submitButton='Save'" /> 
+				<input type="submit" value="Append" onclick="submitButton='Append'" /> 
+				<input type="submit" value="Prepend" onclick="submitButton='Prepend'" /> 
 				<input type="button" value="Cancel" onclick="onCancel()" />
 				<input type="button" value="Delete" onclick="onDelete()" />
 			</div>
@@ -38,6 +38,7 @@
 var project = {{!project}};
 var modal = document.getElementById("modal");
 var form = document.querySelector("form");
+var submitButton = null;
 var list_id_hidden = document.getElementsByName("list_id")[0];
 var title = document.getElementsByName("title")[0];
 var description = document.getElementsByName("description")[0];
@@ -278,7 +279,8 @@ function onSubmit(ev) {
 
 		var list = document.querySelector("#list_"+list_id_hidden.value);
 		var cards = list.querySelectorAll(".card");
-		if (ev.explicitOriginalTarget.value == "Prepend") {
+		
+		if (submitButton == "Prepend") {
 			card.position = 0;
 			project.cards.forEach(function(c, index) {
 				c.position++;
