@@ -16,6 +16,35 @@
             "labels": []
         },
         {
+            "id": "30",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 0,
+            "title": "EDGE and Chrome",
+            "description": "- [ ] Make sure that it works in Chrome\n- [ ] Make sure that it works in EDGE\n- [x] Make sure that it looks good in Chrome\n- [x] Make sure that it looks good in EDGE",
+            "labels": []
+        },
+        {
+            "id": "3165614628_4271220274_621564534_651658824",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 0,
+            "title": "Prepend broke when I switched to GUUID",
+            "description": "",
+            "labels": [
+                1
+            ]
+        },
+        {
+            "id": "170573099_580621972_1569965045_3281674073",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 1,
+            "title": "Chrome Test",
+            "description": "- [x] Add card\n- [x] Save card\n- [ ] Drag Drop card\n- [x] Delete card\n- [x] Add list\n- [x] Rename list\n- [x] Drag Drop list\n- [x] Rename project\n",
+            "labels": [
+                1,
+                3
+            ]
+        },
+        {
             "id": "22",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 1,
@@ -23,6 +52,26 @@
             "description": "- [x] Rename list\n- [x] Add list\n- [x] Delete list\n- [x] Drag and Drop list (re-order)\n- [x] Drag and Drop cards between lists\n- [x] Drag and Drop cards in a list\n- [x] Show list's card count",
             "labels": [
                 4
+            ]
+        },
+        {
+            "id": "1244876708_2466753516_77541808_57339673",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 1,
+            "title": "Edge always drags the whole list",
+            "description": "",
+            "labels": [
+                1
+            ]
+        },
+        {
+            "id": "2037027285_4088488914_1700291577_1584084663",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 2,
+            "title": "Chrome: Can only drop on list input",
+            "description": "",
+            "labels": [
+                1
             ]
         },
         {
@@ -34,12 +83,25 @@
             "labels": []
         },
         {
-            "id": "23",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "id": "309300538_348640289_2086712927_809850682",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 2,
-            "title": "Start Browser",
-            "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
-            "labels": []
+            "title": "Edge Tests",
+            "description": "- [x] Add card\n- [x] Save card\n- [ ] Drag Drop card\n- [x] Delete card\n- [x] Add list\n- [x] Rename list\n- [x] Drag Drop list\n- [x] Delete list\n- [x] Rename project\n",
+            "labels": [
+                1,
+                3
+            ]
+        },
+        {
+            "id": "3977200099_3900013638_163169334_2002842467",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 3,
+            "title": "Server freezes when switching from Chrome to FF or Edge!?",
+            "description": "",
+            "labels": [
+                1
+            ]
         },
         {
             "id": "25",
@@ -50,12 +112,14 @@
             "labels": []
         },
         {
-            "id": "70",
+            "id": "1466946762_1813769083_836833175_939114413",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 3,
-            "title": "README.md",
-            "description": "Update with instructions about running in project's folder, etc.",
-            "labels": []
+            "position": 4,
+            "title": "Amperstand symbol breaks the card's description",
+            "description": "",
+            "labels": [
+                1
+            ]
         },
         {
             "id": "54",
@@ -66,14 +130,12 @@
             "labels": []
         },
         {
-            "id": "39",
+            "id": "23",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 4,
-            "title": "Theme support?",
-            "description": "How about a Sublime theme importer?",
-            "labels": [
-                6
-            ]
+            "position": 5,
+            "title": "Start Browser",
+            "description": "Start the user's browser after starting the web server, just like Jupyter Notebook",
+            "labels": []
         },
         {
             "position": 5,
@@ -86,11 +148,11 @@
             ]
         },
         {
-            "id": "30",
+            "id": "70",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 5,
-            "title": "EDGE and Chrome",
-            "description": "- [ ] Make sure that it works in Chrome\r\n- [ ] Make sure that it works in EDGE\r\n- [ ] Make sure that it looks good in Chrome\r\n- [ ] Make sure that it looks good in EDGE\r\n",
+            "position": 6,
+            "title": "README.md",
+            "description": "Update with instructions about running in project's folder, etc.",
             "labels": []
         },
         {
@@ -104,13 +166,13 @@
             ]
         },
         {
-            "id": "13",
+            "id": "39",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 6,
-            "title": "304 Not Modified",
-            "description": "**UPDATE**\nStill not working, even after the switch to BottlePy, who claims it takes care of it... Oh well, it's out of my hands now... It's all localhost so it's no biggie but still...\n\n\n\nLast-Modified is not enough:\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\n\nAlthough, it seems to work with EDGE. Let's do it anyway.\n\nfrom email.utils import parsedate_tz, mktime_tz\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\n\nThe code I have right now has time difference:\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT",
+            "position": 7,
+            "title": "Theme support?",
+            "description": "How about a Sublime theme importer?",
             "labels": [
-                1
+                6
             ]
         },
         {
@@ -122,6 +184,16 @@
             "labels": [
                 4,
                 6
+            ]
+        },
+        {
+            "id": "13",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 8,
+            "title": "304 Not Modified",
+            "description": "**UPDATE**\nStill not working, even after the switch to BottlePy, who claims it takes care of it... Oh well, it's out of my hands now... It's all localhost so it's no biggie but still...\n\n\n\nLast-Modified is not enough:\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\n\nAlthough, it seems to work with EDGE. Let's do it anyway.\n\nfrom email.utils import parsedate_tz, mktime_tz\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\n\nThe code I have right now has time difference:\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT",
+            "labels": [
+                1
             ]
         },
         {
