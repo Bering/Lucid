@@ -36,6 +36,7 @@
 
 <script type="text/javascript">
 var project = {{!project}};
+var draggedObjectId = null;
 var modal = document.getElementById("modal");
 var form = document.querySelector("form");
 var submitButton = null;
@@ -396,6 +397,7 @@ function addCard(list_id) {
 }
 
 function drag(ev) {
+	draggedObjectId = ev.target.id;
 	ev.dataTransfer.setData("text", ev.target.id);
 	ev.target.classList.add("dragGhost");
 	
@@ -406,26 +408,22 @@ function drag(ev) {
 }
 
 function allowDrop(ev) {
-	var id = ev.dataTransfer.getData("text");
-	if (id.startsWith("card_") || id.startsWith("list_")) {
+	if (draggedObjectId.startsWith("card_") || draggedObjectId.startsWith("list_")) {
 		ev.preventDefault();
 	}
 }
 
 function drop(ev) {
 	ev.preventDefault();
-	var id = ev.dataTransfer.getData("text");
-	if (id.startsWith("card_")) {
+	if (draggedObjectId.startsWith("card_")) {
 		dropCard(ev);
 	}
-	else if (id.startsWith("list_")) {
+	else if (draggedObjectId.startsWith("list_")) {
 		dropList(ev);
 	}
 }
 
 function dropCard(ev) {
-	var id = ev.dataTransfer.getData("text");
-
 	// find which card it was dropped on (if any)
 	var insertBeforeCard = ev.target;
 	while (!insertBeforeCard.classList.contains("card")) {
@@ -455,7 +453,7 @@ function dropCard(ev) {
 	}
 
 	// drop the card
-	var cardDiv = document.getElementById(id);
+	var cardDiv = document.getElementById(draggedObjectId);
 	if(insertBeforeCard)
 		list.insertBefore(cardDiv, insertBeforeCard);
 	else
@@ -501,15 +499,13 @@ function dropCard(ev) {
 }
 
 function dropList(ev) {
-	var id = ev.dataTransfer.getData("text");
-
 	// Find the list behind the header, icon or other cards
 	var list = ev.target;
 	while (!list.classList.contains("list")) {
 		list = list.parentNode;
 	}
 
-	var listBeingDragged = document.getElementById(id);
+	var listBeingDragged = document.getElementById(draggedObjectId);
 
 	list.parentNode.insertBefore(listBeingDragged, list);
 
