@@ -95,7 +95,7 @@ class ProjectDAO():
 			card["position"] += 1
 
 		self.project["cards"].append(new_card)
-		self.project["cards"] = sorted(self.project["cards"], key=lambda x: list(x.values())[2])
+		self.project["cards"].sort(key = lambda x: x["position"])
 		self.save()
 		return
 	
