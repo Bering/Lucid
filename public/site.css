@@ -8,6 +8,11 @@ html {
 	padding: 5px;
 }
 
+#shutdown_link {
+	float: right;
+	color: gold;
+}
+
 #content h1 {
 	margin-bottom: 0;
 }

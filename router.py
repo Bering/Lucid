@@ -20,6 +20,11 @@ def drag_drop():
 	c = ProjectController()
 	return c.drag_drop()
 
+@get("/shutdown")
+def shutdown():
+	c = ProjectController()
+	return c.shutdown()
+
 
 @post("/list") # create new list
 def create_list():

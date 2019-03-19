@@ -64,6 +64,8 @@ window.onload = function() {
 
 	document.addEventListener("dblclick", newList);
 
+	document.getElementById("shutdown_link").addEventListener("click", shutdown);
+
 	for (const [list_id, list_name] of  Object.entries(project.lists)) {
 		var list = makeList(list_id, list_name);
 		listsDiv.appendChild(list);
@@ -626,6 +628,12 @@ function ajax(method, url, data, callback) {
 	else {
 		req.send();
 	}
+}
+
+function shutdown(ev) {
+	ev.preventDefault();
+	ajax("GET", "/shutdown");
+	alert("The server has shut down, you may now close this window");
 }
 
 </script>

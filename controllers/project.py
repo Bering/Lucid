@@ -1,3 +1,4 @@
+import sys
 import json
 from bottle import abort, request, template, HTTPResponse
 from controllers.base import Controller
@@ -7,6 +8,7 @@ class ProjectController(Controller):
 	def __init__(self):
 		self.dao = ProjectDAO()
 
+	# GET /
 	def main_page(self):
 		return template(
 			"project",
@@ -33,3 +35,7 @@ class ProjectController(Controller):
 
 		self.dao.reorder_lists(list_ids)
 		return HTTPResponse(status=204)
+
+	# GET /shutdown
+	def shutdown(self):
+		sys.stderr.close()
