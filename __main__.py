@@ -1,12 +1,14 @@
+import os
 import sys
 import time
 import getopt
 import router
-from config import Config
-from bottle import run
+import config
+import webbrowser
+from bottle import TEMPLATE_PATH, run
 
-config = Config()
-user_config = config.load()
+cfg = config.Config()
+user_config = cfg.load()
 hostname = user_config["hostname"]
 port = user_config["port"]
 debug = False
@@ -35,15 +37,16 @@ if "-p" not in opts and "--port" not in opts:
 		port = hostname_parts[1]
 
 if len(sys.argv) > 1:
-	print("Config saved: hostname=" + hostname + ", port=" + str(port) + " in file: ", config.config_file)
 	port = int(port)
-	config.save(hostname, port)
+	cfg.save(hostname, port)
 
 print(time.asctime(), ": LUCID server started on", hostname + ":" + str(port) + " debug:" + str(debug))
 
+TEMPLATE_PATH.insert(0, os.path.join(config.path, "views"))
 try:
-	run(host=hostname, port=port)
+	webbrowser.open("http://"+hostname+":"+str(port))
 	run(host=hostname, port=port, debug=debug)
+
 except KeyboardInterrupt:
 	pass
 

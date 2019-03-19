@@ -1,3 +1,5 @@
+import os
+import config
 from bottle import get, post, delete, static_file
 from controllers.project import ProjectController
 from controllers.list import ListController
@@ -63,4 +65,5 @@ def drag_drop_card():
 
 @get("/<filepath>")
 def files(filepath):
-	return static_file(filepath, root="public/")
+	root = os.path.join(config.path, "public")
+	return static_file(filepath, root=root)
