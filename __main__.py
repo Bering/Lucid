@@ -9,10 +9,11 @@ config = Config()
 user_config = config.load()
 hostname = user_config["hostname"]
 port = user_config["port"]
+debug = False
 
-usage = 'LUCID -p <port> <hostname> or <hostname:port>'
+usage = 'LUCID -d -p <port> <hostname> or <hostname:port>'
 try:
-	opts, args = getopt.getopt(sys.argv[1:],"hp:",["port="])
+	opts, args = getopt.getopt(sys.argv[1:],"hdp:",["port=","debug"])
 except getopt.GetoptError:
 	print (usage)
 	sys.exit(2);
@@ -20,6 +21,8 @@ for opt, arg in opts:
 	if opt == '-h':
 		print (usage)
 		sys.exit();
+	elif opt in ("-d", "--debug"):
+		debug = True
 	elif opt in ("-p", "--port"):
 		port = arg
 if len(args):
@@ -36,10 +39,11 @@ if len(sys.argv) > 1:
 	port = int(port)
 	config.save(hostname, port)
 
-print(time.asctime(), ": LUCID server started on", hostname + ":" + str(port))
+print(time.asctime(), ": LUCID server started on", hostname + ":" + str(port) + " debug:" + str(debug))
 
 try:
 	run(host=hostname, port=port)
+	run(host=hostname, port=port, debug=debug)
 except KeyboardInterrupt:
 	pass
 
