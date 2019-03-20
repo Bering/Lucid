@@ -1,6 +1,6 @@
 html {
-	color: gold;
-	background-color: DarkOliveGreen;
+	color: {{html_foreground}};
+	background-color: {{html_background}};
 }
 
 #header img {
@@ -8,9 +8,18 @@ html {
 	padding: 5px;
 }
 
+#theme_selector {
+	float: right;
+	margin-right: 15px;
+}
+	#theme_selector select {
+		background-color: {{html_background}};
+		color: {{html_foreground}};
+	}
+
 #shutdown_link {
 	float: right;
-	color: gold;
+	color: {{html_foreground}};
 }
 
 #content h1 {
@@ -18,8 +27,8 @@ html {
 }
 
 #project_name {
-	color: gold;
-	background-color: DarkOliveGreen;
+	color: {{html_foreground}};
+	background-color: {{html_background}};
 	border: none;
 	font-size: xx-large;
 	width: 100%;
@@ -32,7 +41,7 @@ html {
 	}
 
 #content hr {
-	color: yellow;
+	color: {{html_foreground}};
 }
 
 #listsDiv {
@@ -43,10 +52,10 @@ html {
 
 div.list {
 	flex-shrink: 0;
-	border: solid 1px gold;
+	border: solid 1px {{html_foreground}};
 	border-radius: 5px;
-	background-color: khaki;
-	color: black;
+	background-color: {{list_background}};
+	color: {{list_foreground}};
 	width: 200px;
 	padding: 0 10px 10px 10px;
 	margin: 10px;
@@ -54,8 +63,8 @@ div.list {
 }
 
 	div.list input {
-		background-color: khaki;
-		color: black;
+		background-color: {{list_background}};
+		color: {{list_foreground}};
 		border: none;
 		font-size: x-large;
 		width: 150px;
@@ -81,8 +90,8 @@ div.list {
 #listMenu {
 	position: absolute;
 	display: none;
-	background-color: khaki;
-	border: solid 1px gold;
+	background-color: {{list_background}};
+	border: solid 1px {{html_foreground}};
 	border-radius: 6px;
 	padding-top: 5px;
 }
@@ -95,11 +104,11 @@ a.card {
 
 	a.card div.cardDiv {
 		display: inline-block;
-		border: solid 1px lightyellow;
+		border: solid 1px {{card_background}};
 		border-bottom-left-radius: 5px;
 		border-bottom-right-radius: 5px;
-		background-color: lightyellow;
-		color: black;
+		background-color: {{card_background}};
+		color: {{card_foreground}};
 		width: 180px;
 		padding: 0 5px 5px 5px;
 		margin: 0 5px 0 5px;
@@ -129,7 +138,7 @@ a.card {
 				width: 145px;
 				height: 4px;
 				display: inline-block;
-				border: solid 1px DarkOliveGreen;
+				border: solid 1px {{progressbar_border}};
 				border-radius: 2px;
 			}
 
@@ -138,7 +147,7 @@ a.card {
 				padding: 0;
 				height: 4px;
 				display: block;
-				background-color: black;
+				background-color: {{progressbar_progress}};
 				border-radius: 1px;
 			}
 
@@ -153,9 +162,9 @@ a.card {
 			}
 
 		a.card div.labels {
-			background-color: lightyellow;
-			border-left: solid 1px lightyellow;
-			border-right: solid 1px lightyellow;
+			background-color: {{card_background}};
+			border-left: solid 1px {{card_background}};
+			border-right: solid 1px {{card_background}};
 			width: 190px;
 			line-height: 0px;
 			height: 5px;
@@ -163,38 +172,38 @@ a.card {
 			margin: 0 5px 0 5px;
 		}
 
-		a.card div.labels div {
-			display: inline-block;
-			line-height: 0px;
-			height: 5px;
-			width: 31.67px;
-			padding: 0;
-			margin: 0;
-		}
+			a.card div.labels div {
+				display: inline-block;
+				line-height: 0px;
+				height: 5px;
+				width: 31.67px;
+				padding: 0;
+				margin: 0;
+			}
 
-		a.card div.labels div.label1 {
-			background-color: red;
-		}
+			a.card div.labels div.label1 {
+				background-color: red;
+			}
 
-		a.card div.labels div.label2 {
-			background-color: orange;
-		}
+			a.card div.labels div.label2 {
+				background-color: orange;
+			}
 
-		a.card div.labels div.label3 {
-			background-color: yellow;
-		}
+			a.card div.labels div.label3 {
+				background-color: yellow;
+			}
 
-		a.card div.labels div.label4 {
-			background-color: green;
-		}
+			a.card div.labels div.label4 {
+				background-color: green;
+			}
 
-		a.card div.labels div.label5 {
-			background-color: blue;
-		}
+			a.card div.labels div.label5 {
+				background-color: blue;
+			}
 
-		a.card div.labels div.label6 {
-			background-color: magenta;
-		}
+			a.card div.labels div.label6 {
+				background-color: magenta;
+			}
 
 #modal {
 	display: none;
@@ -212,8 +221,8 @@ a.card {
 	max-width: 500px;
 	margin: 15% auto;
 	padding: 20px 25px 20px 20px;
-	background-color: lightyellow;
-	border: solid 1px gold;
+	background-color: {{card_background}};
+	border: solid 1px {{html_foreground}};
 	border-radius: 9px;
 }
 
@@ -221,7 +230,7 @@ a.card {
 	#modal_dialog textarea {
 		width: 100%;
 		font-size: large;
-		background-color: lightyellow;
+		background-color: {{card_background}};
 	}
 	#modal_dialog input[type="text"] {
 		height: 30px;
@@ -234,7 +243,8 @@ a.card {
 		margin-top: 20px;
 		width: 100px;
 		height: 40px;
-		background-color: darkkhaki;
+		background-color: {{button_background}};
+		color: {{button_foreground}};
 	}
 
 	#modal_dialog div.buttons {

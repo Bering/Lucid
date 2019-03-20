@@ -16,6 +16,24 @@
             "labels": []
         },
         {
+            "id": "30",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 0,
+            "title": "EDGE and Chrome",
+            "description": "- [x] Make sure that it works in Chrome\n- [ ] Make sure that it works in EDGE\n- [x] Make sure that it looks good in Chrome\n- [x] Make sure that it looks good in EDGE",
+            "labels": []
+        },
+        {
+            "id": "39",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 0,
+            "title": "Theme support?",
+            "description": "- [x] Change header\n- [x] Theme class\n- [x] Insert theme colors in main page controller\n- [ ] How about a Sublime theme importer?\n- [x] Default theme\n- [x] Blue theme\n- [x] Dark theme\n- [x] Theme switcher",
+            "labels": [
+                6
+            ]
+        },
+        {
             "id": "70",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 1,
@@ -28,7 +46,7 @@
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 1,
             "title": "Edge always drags the whole list",
-            "description": "The ondrag event is called on the list even if you try to drag the card. Nothing I can do...\n\nI would have to allow dragging lists by dragging only the header. Changes to the structure of the lists... Not today thank you...",
+            "description": "The ondrag event is called on the list even if you try to drag the card. Nothing I can do...\n\nI would have to allow dragging lists by dragging only the header. Changes to the structure of the lists... Not today sorry...",
             "labels": [
                 1
             ]
@@ -46,18 +64,10 @@
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 2,
             "title": "Freezing and socket errors on the server in Edge and Chrome",
-            "description": "WTF are they doing!?",
+            "description": "They say it's the WSGI reference server that leaves the port open for KeepAlive connections...\n\nOut of my control :-/",
             "labels": [
                 1
             ]
-        },
-        {
-            "id": "30",
-            "list_id": "1901749129_962513719_918349320_1149498453",
-            "position": 3,
-            "title": "EDGE and Chrome",
-            "description": "- [x] Make sure that it works in Chrome\n- [ ] Make sure that it works in EDGE\n- [x] Make sure that it looks good in Chrome\n- [x] Make sure that it looks good in EDGE",
-            "labels": []
         },
         {
             "id": "309300538_348640289_2086712927_809850682",
@@ -70,23 +80,21 @@
             ]
         },
         {
+            "id": "13",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 4,
+            "title": "304 Not Modified",
+            "description": "**UPDATE**\nStill not working, even after the switch to BottlePy, who claims it takes care of it... Oh well, it's out of my hands now... It's all localhost so it's no biggie but still...\n\n\n\nLast-Modified is not enough:\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\n\nAlthough, it seems to work with EDGE. Let's do it anyway.\n\nfrom email.utils import parsedate_tz, mktime_tz\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\n\nThe code I have right now has time difference:\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT",
+            "labels": []
+        },
+        {
             "id": "1466946762_1813769083_836833175_939114413",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 5,
             "title": "Special symbols that break the card's description",
-            "description": "- [x] And what about \" and ' ?\n- [x] OK, what about < and > ?\n- [x] And finally, that famous & ?",
+            "description": "- [x] And what about \" and ' ?\n- [x] OK, what about < and > ?\n- [x] And finally, that famous & ?\n- [x] And accents like \u00e9\u00e0\u00e7 now that we're here?",
             "labels": [
                 1
-            ]
-        },
-        {
-            "id": "39",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 5,
-            "title": "Theme support?",
-            "description": "How about a Sublime theme importer?",
-            "labels": [
-                6
             ]
         },
         {
@@ -100,21 +108,11 @@
             ]
         },
         {
-            "id": "13",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 6,
-            "title": "304 Not Modified",
-            "description": "**UPDATE**\nStill not working, even after the switch to BottlePy, who claims it takes care of it... Oh well, it's out of my hands now... It's all localhost so it's no biggie but still...\n\n\n\nLast-Modified is not enough:\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\n\nAlthough, it seems to work with EDGE. Let's do it anyway.\n\nfrom email.utils import parsedate_tz, mktime_tz\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\n\nThe code I have right now has time difference:\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT",
-            "labels": [
-                1
-            ]
-        },
-        {
             "id": "170573099_580621972_1569965045_3281674073",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 7,
             "title": "Chrome Tests",
-            "description": "- [x] Add card\n- [x] Save card\n- [x] Drag Drop card\n- [x] Delete card\n- [x] Add list\n- [x] Rename list\n- [x] Drag Drop list\n- [x] Rename project\n",
+            "description": "- [x] Add card\n- [x] Save card\n- [x] Drag Drop card\n- [x] Delete card\n- [x] Add list\n- [x] Rename list\n- [x] Drag Drop list\n- [x] Delete list\n- [x] Rename project",
             "labels": [
                 1,
                 3
@@ -124,7 +122,7 @@
             "id": "3165614628_4271220274_621564534_651658824",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 8,
-            "title": "Prepend broke when I switched to GUUID",
+            "title": "Prepend broke when I switched to GUID",
             "description": "",
             "labels": [
                 1
@@ -134,8 +132,8 @@
             "id": "74",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 9,
-            "title": "GUUID-like ids",
-            "description": "I was using numeric ids inside strings and JS sorts them!\n\n>>> x = { \"0\": \"a\", \"1\": \"b\", \"2\": \"c\" }",
+            "title": "GUID-like ids",
+            "description": "I was using numeric ids inside strings and JS sorts them!\n\n>>> x = { \"0\": \"a\", \"1\": \"b\", \"2\": \"c\" };\nObject(3) [ \"a\", \"b\", \"c\" ]\n\nSo I switched to GUID-like ids",
             "labels": []
         },
         {
@@ -452,5 +450,6 @@
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
             "labels": []
         }
-    ]
+    ],
+    "theme": "default"
 }

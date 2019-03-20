@@ -20,6 +20,11 @@ def drag_drop():
 	c = ProjectController()
 	return c.drag_drop()
 
+@get("/theme/<theme_name>")
+def switch_theme(theme_name):
+	c = ProjectController()
+	return c.switch_theme(theme_name)
+
 @get("/shutdown")
 def shutdown():
 	c = ProjectController()

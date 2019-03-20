@@ -9,6 +9,7 @@ class ProjectDAO():
 			default_config = {
 				"name" : "New Project",
 				"description" : "",
+				"theme" : "default",
 				"lists" : {
 			        "1463394567_1005693800_3793023534_2523788226": "TODO",
 			        "1994759157_3198025395_360080308_1005768122": "Done",
@@ -24,6 +25,11 @@ class ProjectDAO():
 		fh.close()
 		self.project = json.loads(project_json)
 
+		# upgrade v1.0 projects
+		if "theme" not in self.project:
+			self.project["theme"] = "default"
+			self.save()
+
 	def save(self):
 		fh = open(self.file, "w")
 		fh.write(json.dumps(self.project, indent=4))
@@ -31,6 +37,10 @@ class ProjectDAO():
 
 	def project_rename(self, new_name):
 		self.project["name"] = new_name
+		self.save()
+
+	def switch_theme(self, theme_name):
+		self.project["theme"] = theme_name
 		self.save()
 
 	def create_list(self, list_id, new_name):

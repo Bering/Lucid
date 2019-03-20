@@ -1,0 +1,18 @@
+{
+	"html_background" : "DarkOliveGreen",
+	"html_foreground" : "Gold",
+	"list_background" : "Khaki",
+	"list_foreground" : "Black",
+	"card_background" : "LightYellow",
+	"card_foreground" : "Black",
+	"progressbar_border" : "DarkOliveGreen",
+	"progressbar_progress" : "Black",
+	"label1" : "Red",
+	"label2" : "Orange",
+	"label3" : "Yellow",
+	"label4" : "Green",
+	"label5" : "Blue",
+	"label6" : "Magenta",
+	"button_background" : "DarkKhaki",
+	"button_foreground" : "Black"
+}

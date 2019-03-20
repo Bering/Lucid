@@ -226,7 +226,7 @@ function zoomOnCard(card, isNew) {
 			div.nextElementSibling.checked = true;
 		}
 		else {
-			div.style.backgroundColor = "lightyellow";
+			div.style.backgroundColor = "{{card_background}}";
 			div.nextElementSibling.checked = false;
 		}
 	}
@@ -248,7 +248,7 @@ function zoomOnCard(card, isNew) {
 
 function toggleLabel(div, color) {
 	if (div.style.backgroundColor == color) {
-		div.style.backgroundColor = "lightyellow";
+		div.style.backgroundColor = "{{card_background}}";
 		div.nextElementSibling.checked = false;
 	}
 	else {
@@ -628,6 +628,10 @@ function ajax(method, url, data, callback) {
 	else {
 		req.send();
 	}
+}
+
+function switchTheme(theme) {
+	window.location = "/theme/"+theme;
 }
 
 function shutdown(ev) {

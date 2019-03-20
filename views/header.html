@@ -5,12 +5,18 @@
 	<meta charset="utf-8" />
 	<title>Lucid - {{project_name}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="/site.css">
+	<style>{{!CSS}}</style>
 </head>
 
 <body>
 	<div id="header">
 		<a id="shutdown_link" href="" onclick="shutdown()">Shutdown</a>
+		<label id="theme_selector">
+			<span>Theme:</span>
+			<select name="theme_name" onchange="switchTheme(this.value)">
+				{{!theme_options}}
+			</select>
+		</label>
 		<h1><img src="/logo.png" />LUCID 1.0</h1>
 	</div>
 	
