@@ -5,6 +5,14 @@ BottlePy web server hosting a web interface to manage your Kanban-style lists an
 
 Inspired by Trello and a dead WiFi card
 
+Click ![Add icon](public/add.png) to add a new card
+![Default view](screenshots/default_theme.png)
+
+Click on a card to zoom on it and see more details
+![Zoom on a card](screenshots/zoom.png)
+
+You can also drag and drop cards between lists, create more lists and rename them.
+
 
 Instructions
 ------------
