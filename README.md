@@ -17,13 +17,13 @@ You can also drag and drop cards between lists, create more lists and rename the
 Instructions
 ------------
 
-###Binaries
+### Option 1: Binaries
 1. Install somewhere. ex: %appdata%\LUCID
 1. Copy the shortcut inside to your project's source folder
 1. Double-click the shortcut
 
-###Sources
-1. Install somewhere.
+### Option 2: Sources
+1. Download and unzip somewhere.
 1. cd into your project's folder
 1. python \path\to\lucid
 
