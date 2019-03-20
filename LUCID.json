@@ -8,14 +8,6 @@
     },
     "cards": [
         {
-            "id": "2086729684_2491451695_1341062695_3336531077",
-            "list_id": "1901749129_962513719_918349320_1149498453",
-            "position": 0,
-            "title": "Shutdown button",
-            "description": "Ideally it would stop the server and close the console window if launched from a link",
-            "labels": []
-        },
-        {
             "id": "30",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 0,
@@ -25,7 +17,7 @@
         },
         {
             "id": "39",
-            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 0,
             "title": "Theme support?",
             "description": "- [x] Change header\n- [x] Theme class\n- [x] Insert theme colors in main page controller\n- [ ] How about a Sublime theme importer?\n- [x] Default theme\n- [x] Blue theme\n- [x] Dark theme\n- [x] Theme switcher",
@@ -34,11 +26,11 @@
             ]
         },
         {
-            "id": "70",
+            "id": "2086729684_2491451695_1341062695_3336531077",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 1,
-            "title": "README.md",
-            "description": "Update with instructions about running in project's folder, etc.",
+            "title": "Shutdown button",
+            "description": "Ideally it would stop the server and close the console window if launched from a link",
             "labels": []
         },
         {
@@ -52,11 +44,11 @@
             ]
         },
         {
-            "id": "23",
+            "id": "70",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 2,
-            "title": "Start Browser",
-            "description": "Start the user's browser after starting the web server, just like Jupyter Notebook\n\nimport webbrowser\n\nwebbrowser.open(url[, new=0[, autoraise=True]])",
+            "title": "README.md",
+            "description": "Update with instructions about running in project's folder, etc.",
             "labels": []
         },
         {
@@ -68,6 +60,14 @@
             "labels": [
                 1
             ]
+        },
+        {
+            "id": "23",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 3,
+            "title": "Start Browser",
+            "description": "Start the user's browser after starting the web server, just like Jupyter Notebook\n\nimport webbrowser\n\nwebbrowser.open(url[, new=0[, autoraise=True]])",
+            "labels": []
         },
         {
             "id": "309300538_348640289_2086712927_809850682",

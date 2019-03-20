@@ -9,16 +9,21 @@ Inspired by Trello and a dead WiFi card
 Instructions
 ------------
 
+###Binaries
 1. Install somewhere. ex: %appdata%\LUCID
 1. Copy the shortcut inside to your project's source folder
 1. Double-click the shortcut
-1. Browse to localhost:8080
+
+###Sources
+1. Install somewhere.
+1. cd into your project's folder
+1. python \path\to\lucid
 
 
 Would you like to know more?
 ----------------------------
 
-LUCID uses a JSON file for data storage. No database required. It creates the file LUCID.json in the folder where you put the shortcut. I suggest that you add it to your source control software.
+LUCID uses a JSON file for data storage. No database required. It creates the file LUCID.json in your project's folder. I suggest that you add it to your source control software.
 
 If you ever want to work on 2 projects at the same time you'll have to use the -p option to specify a different port for the second project. eg: Shortcut properties, target field: \path\to\LUCID.exe -p 8081
 
