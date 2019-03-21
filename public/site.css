@@ -225,6 +225,7 @@ a.card {
 	background-color: {{card_background}};
 	border: solid 1px {{card_border}};
 	border-radius: 9px;
+	box-shadow: 5px 5px rgba(0,0,0,0.33);
 }
 
 	#modal_dialog input[type="text"],
