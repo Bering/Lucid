@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import os
 import config
 from bottle import get, post, delete, static_file
