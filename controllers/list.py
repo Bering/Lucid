@@ -1,9 +1,8 @@
 from __future__ import absolute_import
 from bottle import abort, request, HTTPResponse
 from dao.project import ProjectDAO
-from controllers.base import Controller
 
-class ListController(Controller):
+class ListController():
 	def __init__(self):
 		self.dao = ProjectDAO()
 

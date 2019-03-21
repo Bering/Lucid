@@ -2,9 +2,8 @@ from __future__ import absolute_import
 import json
 from bottle import abort, request, HTTPResponse
 from dao.project import ProjectDAO
-from controllers.base import Controller
 
-class CardController(Controller):
+class CardController():
 	def __init__(self):
 		self.dao = ProjectDAO()
 

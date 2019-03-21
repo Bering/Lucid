@@ -3,10 +3,9 @@ import sys
 import json
 from bottle import abort, request, template, HTTPResponse, redirect
 from theme import ThemeManager
-from controllers.base import Controller
 from dao.project import ProjectDAO
 
-class ProjectController(Controller):
+class ProjectController():
 	def __init__(self):
 		self.dao = ProjectDAO()
 
