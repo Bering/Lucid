@@ -2,33 +2,38 @@
 
 <div id="browseDiv">
 	%if isRunningOnWindows:
-		<h2>Windows Drives: 
-		%for drive in drives:
-			<a href="/browse/{{drive}}:/">{{drive}}:\</a> 
-		%end
-		</h2>
+		<div id="drivesDiv">
+			<h2>Windows Drives: 
+			%for drive in drives:
+				<div class="drive">
+					<a href="/browse/{{drive}}:/">{{drive}}:\</a>
+				</div>
+			%end
+			</h2>
+		</div>
 	%end
 
 	<h2>You are here: {{path}}</h2>
-
-	%if isAProject:
-		<p>This is a LUCID project</p>
-		<p>
-			<a href="/select/{{path}}">SELECT this project</a>
-			<a href="/delete/{{path}}" onclick="return confirm('Are you sure!?');">DELETE this project</a>
-		</p>
-	%else:
-		<p>This is not a LUCID project.</p>
-		<p><a href="/create/{{path}}">Create a project here</a></p>
-	%end
+	<div id="actionsDiv">
+		%if isAProject:
+			<p>This is a LUCID project</p>
+			<p>
+				<a href="/select/{{path}}">SELECT this project</a>
+				<a href="/delete/{{path}}" onclick="return confirm('Are you sure!?');">DELETE this project</a>
+			</p>
+		%else:
+			<p>This is not a LUCID project.</p>
+			<p><a href="/create/{{path}}">Create a project here</a></p>
+		%end
+	</div>
 
 	<h2>Browse</h2>
-	<ul>
-		<li><a href="/browse/{{parent}}">..</a></li>
+	<div id="foldersDiv">
+		<a href="/browse/{{parent}}" class="folder">..</a><br />
 		%for folder in folders:
-			<li><a href="/browse/{{path}}/{{folder}}">{{path}}/{{folder}}</a></li>
+			<a href="/browse/{{path}}/{{folder}}" class="folder">{{path}}/{{folder}}</a><br />
 		%end
-	</ul>
+	</div>
 </div>
 
 <script type="text/javascript">

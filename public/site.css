@@ -265,6 +265,43 @@ a.card {
 		float: right;
 	}
 
-#browseDiv a {
-	color: {{html_foreground}};
+#drivesDiv,
+#actionsDiv,
+#foldersDiv {
+	background-color: {{list_background}};
+	color: {{list_foreground}};
+	border: solid 1px {{list_border}};
+	padding: 5px 20px 5px 20px;
+}
+
+#drivesDiv a,
+#actionsDiv a,
+#foldersDiv a {
+	color: {{list_foreground}};
+	text-decoration: none;
+}
+
+#drivesDiv .drive {
+	display: inline-block;
+	background-color: {{card_background}};
+	color: {{card_foreground}};
+	border: solid 1px {{card_border}};
+	padding: 10px;
+}
+
+#actionsDiv a,
+#foldersDiv a {
+	background-color: {{card_background}};
+	color: {{card_foreground}};
+	border: solid 1px {{card_border}};
+	padding: 5px;
+}
+
+#foldersDiv {
+	padding-top: 20px;
+}
+
+#foldersDiv a {
+	display: block;
+	width: auto;
 }
