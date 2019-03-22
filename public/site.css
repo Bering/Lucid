@@ -8,6 +8,12 @@ html {
 	padding: 5px;
 }
 
+#browse_link {
+	float: right;
+	margin-right: 15px;
+	color: {{html_foreground}};
+}
+
 #theme_selector {
 	float: right;
 	margin-right: 15px;
@@ -257,3 +263,7 @@ a.card {
 	#modal_dialog div.buttons input[value="Delete"] {
 		float: right;
 	}
+
+#browseDiv a {
+	color: {{html_foreground}};
+}

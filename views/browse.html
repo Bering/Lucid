@@ -1,0 +1,40 @@
+%include("header.html")
+
+<div id="browseDiv">
+	%if isRunningOnWindows:
+		<h2>Windows Drives: 
+		%for drive in drives:
+			<a href="/browse/{{drive}}:/">{{drive}}:\</a> 
+		%end
+		</h2>
+	%end
+
+	<h2>You are here: {{path}}</h2>
+
+	%if isAProject:
+		<p>This is a LUCID project</p>
+		<p>
+			<a href="/select/{{path}}">SELECT this project</a>
+			<a href="/delete/{{path}}" onclick="return confirm('Are you sure!?');">DELETE this project</a>
+		</p>
+	%else:
+		<p>This is not a LUCID project.</p>
+		<p><a href="/create/{{path}}">Create a project here</a></p>
+	%end
+
+	<h2>Browse</h2>
+	<ul>
+		<li><a href="/browse/{{parent}}">..</a></li>
+		%for folder in folders:
+			<li><a href="/browse/{{path}}/{{folder}}">{{path}}/{{folder}}</a></li>
+		%end
+	</ul>
+</div>
+
+<script type="text/javascript">
+window.onload = function() {
+	document.getElementById("shutdown_link").setAttribute("href", "/shutdown");
+}
+</script>
+
+%include("footer.html")

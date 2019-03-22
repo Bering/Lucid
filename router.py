@@ -2,9 +2,36 @@ from __future__ import absolute_import
 import os
 import config
 from bottle import get, post, delete, static_file
+from controllers.projects import ProjectsController
 from controllers.project import ProjectController
 from controllers.list import ListController
 from controllers.card import CardController
+
+@get("/browse")
+def browse_curdir():
+	c = ProjectsController()
+	return c.browse_curdir()
+
+@get("/browse/<path:path>")
+def browse(path):
+	c = ProjectsController()
+	return c.browse(path)
+
+@get("/select/<path:path>")
+def select_project(path):
+	c = ProjectsController()
+	return c.select(path)
+
+@get("/create/<path:path>")
+def create_project(path):
+	c = ProjectsController()
+	return c.create(path)
+
+@get("/delete/<path:path>")
+def delete_project(path):
+	c = ProjectsController()
+	return c.delete(path)
+
 
 @get("/")
 def main_page():
