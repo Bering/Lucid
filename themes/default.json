@@ -5,7 +5,7 @@
 	"list_border" : "Gold",
 	"list_foreground" : "Black",
 	"card_background" : "LightYellow",
-	"card_border" : "LightYellow",
+	"card_border" : "Black",
 	"card_foreground" : "Black",
 	"progressbar_background" : "LightYellow",
 	"progressbar_border" : "DarkOliveGreen",

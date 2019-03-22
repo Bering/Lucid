@@ -5,7 +5,7 @@
 	"list_border" : "Aqua",
 	"list_foreground" : "Black",
 	"card_background" : "LightCyan",
-	"card_border" : "LightCyan",
+	"card_border" : "Black",
 	"card_foreground" : "Black",
 	"progressbar_background" : "LightCyan",
 	"progressbar_border" : "Teal",
