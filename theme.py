@@ -58,6 +58,3 @@ class ThemeManager:
 				options.append("<option>"+name+"</option>")
 
 		return options
-
-	def importSublimeTheme(self, theme_file):
-		pass
