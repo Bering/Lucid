@@ -1,5 +1,5 @@
 %include("header.html")
-<h1><input id="project_name" type="text" value="{{project_name}}" /></h1>
+<h1><div id="star" onclick="toggleFavorite()"></div><input id="project_name" type="text" value="{{project_name}}" /></h1>
 <hr />
 <div id="listsDiv"></div>
 <div id="modal">
@@ -59,6 +59,12 @@ window.onload = function() {
 	document.addEventListener("keyup", function(event) {
 		if (event.key === "Escape") onCancel();
 	});
+
+	%if is_favorite:
+	document.getElementById("star").classList.add("full");
+	%else:
+	document.getElementById("star").classList.add("empty");
+	%end
 
 	document.getElementById("project_name").addEventListener("keyup", projectRename);
 
@@ -628,6 +634,17 @@ function ajax(method, url, data, callback) {
 	else {
 		req.send();
 	}
+}
+
+function toggleFavorite() {
+	window.location = "/toggle_favorite";
+}
+
+function switchProject(project_path) {
+	if (project_path == "browse")
+		window.location = "/browse";
+	else
+		window.location = "/select/"+project_path;
 }
 
 function switchTheme(theme) {

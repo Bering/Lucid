@@ -1,7 +1,7 @@
 %include("header.html")
 
 <div id="browseDiv">
-	%if isRunningOnWindows:
+	%if len(drives):
 		<div id="drivesDiv">
 			<h2>Windows Drives: 
 			%for drive in drives:

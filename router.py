@@ -48,6 +48,11 @@ def drag_drop():
 	c = ProjectController()
 	return c.drag_drop()
 
+@get("/toggle_favorite")
+def toggle_favorite():
+	c = ProjectController()
+	return c.toggle_favorite()
+
 @get("/theme/<theme_name>")
 def switch_theme(theme_name):
 	c = ProjectController()

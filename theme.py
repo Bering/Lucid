@@ -46,7 +46,7 @@ class ThemeManager:
 		fh.close()
 		return css
 
-	def make_theme_options(self):
+	def make_options(self):
 		files = os.listdir(os.path.join(config.path, "themes"))
 
 		options = []

@@ -3,6 +3,7 @@ import os
 import json
 import urllib
 import platform
+from favorites import Favorites
 from theme import ThemeManager
 from bottle import abort, request, template, HTTPResponse, redirect
 import ctypes
@@ -22,13 +23,14 @@ class ProjectsController():
 		return drives
 
 	def browse(self, path):
+		favorites = Favorites()
 		theme_manager = ThemeManager()
 		for root, folders, files in os.walk(path):
 			return template(
 				"browse",
 				CSS = theme_manager.apply("default"),
-				theme_options = theme_manager.make_theme_options(),
-				isRunningOnWindows=(platform.system() == "Windows"),
+				favorites_options = favorites.make_options(),
+				theme_options = theme_manager.make_options(),
 				drives=self.get_drives(),
 				parent=os.path.abspath(os.path.join(path, os.pardir)),
 				folders=folders,
@@ -40,8 +42,11 @@ class ProjectsController():
 		return self.browse(os.path.abspath("./"))
 
 	def select(self, path):
-		os.chdir(path)
-		redirect("/")
+		if path == "browse":
+			redirect("/browse")
+		else:
+			os.chdir(path)
+			redirect("/")
 
 	def create(self, path):
 		self.select(path)

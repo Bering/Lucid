@@ -38,7 +38,7 @@
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 1,
             "title": "HD Browse UI to switch projects",
-            "description": "- [x] Browse\n- [x] Select project\n- [x] Create project\n- [x] Delete project\n- [ ] Favorites\n- [ ] Checkbox: Only LUCID projects?",
+            "description": "- [x] Browse\n- [x] Select project\n- [x] Create project\n- [x] Delete project\n- [x] Favorites\n- [ ] Checkbox: Only LUCID projects?",
             "labels": []
         },
         {
@@ -503,6 +503,16 @@
             "title": "Web Server",
             "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
             "labels": []
+        },
+        {
+            "id": "2281823485_2903081991_2123885438_733547392",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 1,
+            "title": "Browse items are not sorted",
+            "description": "",
+            "labels": [
+                1
+            ]
         }
     ],
     "theme": "default"

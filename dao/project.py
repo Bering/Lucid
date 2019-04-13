@@ -18,7 +18,7 @@ class ProjectDAO():
 				},
 				"cards" : []
 			}
-			fh.write(json.dumps(default_config, indent=4))
+			json.dump(default_config, fh, indent=4)
 			fh.close()
 
 		fh = open(self.file, "r")

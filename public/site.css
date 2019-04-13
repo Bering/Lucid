@@ -8,10 +8,11 @@ html {
 	padding: 5px;
 }
 
-#browse_link {
+#project_selector {
 	float: right;
 	margin-right: 15px;
 	color: {{html_foreground}};
+	background-color: {{html_background}};
 }
 
 #theme_selector {
@@ -32,19 +33,30 @@ html {
 	margin-bottom: 0;
 }
 
+#star {
+	background-repeat: no-repeat;
+	display: inline-block;
+	vertical-align: -4px;
+	margin-left: 5px;
+	width: 32px;
+	height: 32px;
+}
+
+	#star.full {
+		background-image: url("/star-full.png");
+	}
+
+	#star.empty {
+		background-image: url("/star-empty.png");
+	}
+
 #project_name {
 	color: {{html_foreground}};
 	background-color: {{html_background}};
 	border: none;
 	font-size: xx-large;
-	width: 100%;
+	width: 90%;
 }
-
-	#project_name + img {
-		display: none;
-		vertical-align: -8px;
-		margin-left: 10px;
-	}
 
 #content hr {
 	color: {{html_foreground}};

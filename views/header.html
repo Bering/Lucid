@@ -17,7 +17,11 @@
 				{{!theme_options}}
 			</select>
 		</label>
-		<a id="browse_link" href="/browse">Switch Project</a>
+		<select id="project_selector" name="project_selector" onchange="switchProject(this.value)">
+			<option value="">(Switch project)</option>
+			{{!favorites_options}}
+			<option value="browse">(Browse...)</option>
+		</select>
 		<h1><img src="/logo.png" />LUCID 1.1</h1>
 	</div>
 	
