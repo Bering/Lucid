@@ -1,5 +1,6 @@
 import os
 import json
+from collections import OrderedDict
 
 class ProjectDAO():
 	def __init__(self):
@@ -23,7 +24,7 @@ class ProjectDAO():
 		fh = open(self.file, "r")
 		project_json = fh.read()
 		fh.close()
-		self.project = json.loads(project_json)
+		self.project = json.loads(project_json, object_pairs_hook=OrderedDict)
 
 		# upgrade v1.0 projects
 		if "theme" not in self.project:
