@@ -14,7 +14,7 @@ class ConfigManager:
 
 	def load(self):
 		fh = open(self.config_file, "r")
-		config = json.loads(fh.read())
+		config = json.load(fh)
 		fh.close()
 		return config["hostname"], config["port"]
 
@@ -23,7 +23,7 @@ class ConfigManager:
 		config["hostname"] = h
 		config["port"] = int(p)
 		fh = open(self.config_file, "w+")
-		fh.write(json.dumps(config, indent=4))
+		json.dump(config, fh, indent=4)
 		fh.close()
 
 # path is not part of config that is dumped to json file

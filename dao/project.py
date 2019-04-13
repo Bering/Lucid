@@ -22,9 +22,8 @@ class ProjectDAO():
 			fh.close()
 
 		fh = open(self.file, "r")
-		project_json = fh.read()
+		self.project = json.load(fh, object_pairs_hook=OrderedDict)
 		fh.close()
-		self.project = json.loads(project_json, object_pairs_hook=OrderedDict)
 
 		# upgrade v1.0 projects
 		if "theme" not in self.project:
@@ -33,7 +32,7 @@ class ProjectDAO():
 
 	def save(self):
 		fh = open(self.file, "w")
-		fh.write(json.dumps(self.project, indent=4))
+		json.dump(self.project, fh, indent=4)
 		fh.close()
 
 	def project_rename(self, new_name):

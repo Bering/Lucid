@@ -35,9 +35,8 @@ class ThemeManager:
 		self.theme_name = theme_name
 		theme_file = os.path.join(config.path, "themes", theme_name+".json")
 		fh = open(theme_file, "r")
-		theme = fh.read()
+		self.theme = json.load(fh)
 		fh.close()
-		self.theme = json.loads(theme)
 		return self.theme
 
 	def load_css(self):
