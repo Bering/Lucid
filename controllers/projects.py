@@ -5,19 +5,21 @@ import urllib
 import platform
 from theme import ThemeManager
 from bottle import abort, request, template, HTTPResponse, redirect
-from ctypes import windll
+import ctypes
 
 class ProjectsController():
 
 	def get_drives(self):
-	    drives = []
-	    bitmask = windll.kernel32.GetLogicalDrives()
-	    for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-	        if bitmask & 1:
-	            drives.append(letter)
-	        bitmask >>= 1
+		drives = []
 
-	    return drives
+		if platform.system() == "Windows":
+			bitmask = ctypes.windll.kernel32.GetLogicalDrives()
+			for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+				if bitmask & 1:
+					drives.append(letter)
+				bitmask >>= 1
+
+		return drives
 
 	def browse(self, path):
 		theme_manager = ThemeManager()
