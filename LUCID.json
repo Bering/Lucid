@@ -1,509 +1,509 @@
 {
-    "name": "LUCID", 
-    "description": "", 
+    "name": "LUCID",
+    "description": "",
     "lists": {
-        "1463394567_1005693800_3793023534_2523788226": "TODO", 
-        "1994759157_3198025395_360080308_1005768122": "Doing", 
+        "1463394567_1005693800_3793023534_2523788226": "TODO",
+        "1994759157_3198025395_360080308_1005768122": "Doing",
         "1901749129_962513719_918349320_1149498453": "Done"
-    }, 
+    },
     "cards": [
         {
-            "id": "1460404719_3594150427_54294710_2944836546", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 0, 
-            "title": "Support Python 2", 
-            "description": "- [x] from __future__ import absolute_import\n- [x] __init__.py\n- [x] Lists are not in the correct order\n", 
+            "id": "178133552_558474434_3757392779_3230103784",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 0,
+            "title": "JSON load/dump instead of loads/dumps",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "1460404719_3594150427_54294710_2944836546",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 1,
+            "title": "Support Python 2",
+            "description": "- [x] from __future__ import absolute_import\n- [x] __init__.py\n- [x] Lists are not in the correct order\n",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "13", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 1, 
-            "title": "304 Not Modified", 
-            "description": "**UPDATE**\nWell look at that! Switching my main computer to Linux did the trick! LOL\n\n\n**UPDATE**\nStill not working, even after the switch to BottlePy, who claims it takes care of it... Oh well, it's out of my hands now... It's all localhost so it's no biggie but still...\n\n\n\nLast-Modified is not enough:\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\n\nAlthough, it seems to work with EDGE. Let's do it anyway.\n\nfrom email.utils import parsedate_tz, mktime_tz\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\n\nThe code I have right now has time difference:\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT", 
+            "id": "429588890_2711836535_1948838857_1746393374",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 1,
+            "title": "Basic instructions in default project",
+            "description": "- [ ] Plus icon to add cards\n- [ ] Click card to zoom\n- [ ] Description holds more info\n- [ ] Labels\n- [ ] Checklists\n- [ ] Drag and Drop cards\n- [ ] Double Click background to create lists\n- [ ] Click on project and list name then ENTER to rename\n",
             "labels": []
-        }, 
+        },
         {
-            "id": "429588890_2711836535_1948838857_1746393374", 
-            "list_id": "1463394567_1005693800_3793023534_2523788226", 
-            "position": 1, 
-            "title": "Basic instructions in default project", 
-            "description": "- [ ] Plus icon to add cards\n- [ ] Click card to zoom\n- [ ] Description holds more info\n- [ ] Labels\n- [ ] Checklists\n- [ ] Drag and Drop cards\n- [ ] Double Click background to create lists\n- [ ] Click on project and list name then ENTER to rename\n", 
+            "id": "3818006027_459814566_1340165558_825364318",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 1,
+            "title": "HD Browse UI to switch projects",
+            "description": "- [x] Browse\n- [x] Select project\n- [x] Create project\n- [x] Delete project\n- [ ] Favorites\n- [ ] Checkbox: Only LUCID projects?",
             "labels": []
-        }, 
+        },
         {
-            "id": "3818006027_459814566_1340165558_825364318", 
-            "list_id": "1994759157_3198025395_360080308_1005768122", 
-            "position": 1, 
-            "title": "HD Browse UI to switch projects", 
-            "description": "- [x] Browse\n- [x] Select project\n- [x] Create project\n- [x] Delete project\n- [ ] Favorites\n- [ ] Checkbox: Only LUCID projects?", 
+            "id": "13",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 2,
+            "title": "304 Not Modified",
+            "description": "**UPDATE**\nWell look at that! Switching my main computer to Linux did the trick! LOL\n\n\n**UPDATE**\nStill not working, even after the switch to BottlePy, who claims it takes care of it... Oh well, it's out of my hands now... It's all localhost so it's no biggie but still...\n\n\n\nLast-Modified is not enough:\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Caching\n\nAlthough, it seems to work with EDGE. Let's do it anyway.\n\nfrom email.utils import parsedate_tz, mktime_tz\ntimestamp = mktime_tz(parsedate_tz(\"Thu, 16 Oct 2014 01:16:17 EDT\"))\n\nThe code I have right now has time difference:\nIf-Modified-Since: Thu, 14 Mar 2019 17:33:06 GMT",
             "labels": []
-        }, 
+        },
         {
-            "id": "2634152594_2353905744_3759376248_479085160", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 2, 
-            "title": "Switch to Linux", 
-            "description": "Switch my main computer to Linux. Fix the import ctypes stuff and windll.kernel32.GetLogicalDrives() stuff", 
+            "id": "30",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 2,
+            "title": "EDGE and Chrome",
+            "description": "- [x] Make sure that it works in Chrome\n- [ ] Make sure that it works in EDGE\n- [x] Make sure that it looks good in Chrome\n- [x] Make sure that it looks good in EDGE",
+            "labels": []
+        },
+        {
+            "id": "2634152594_2353905744_3759376248_479085160",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 3,
+            "title": "Switch to Linux",
+            "description": "Switch my main computer to Linux. Fix the import ctypes stuff and windll.kernel32.GetLogicalDrives() stuff",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "30", 
-            "list_id": "1463394567_1005693800_3793023534_2523788226", 
-            "position": 2, 
-            "title": "EDGE and Chrome", 
-            "description": "- [x] Make sure that it works in Chrome\n- [ ] Make sure that it works in EDGE\n- [x] Make sure that it looks good in Chrome\n- [x] Make sure that it looks good in EDGE", 
-            "labels": []
-        }, 
+            "id": "1244876708_2466753516_77541808_57339673",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 3,
+            "title": "Edge always drags the whole list",
+            "description": "The ondrag event is called on the list even if you try to drag the card. Nothing I can do...\n\nI would have to allow dragging lists by dragging only the header. Changes to the structure of the lists... Not today sorry...",
+            "labels": [
+                1
+            ]
+        },
         {
-            "id": "178133552_558474434_3757392779_3230103784", 
-            "list_id": "1994759157_3198025395_360080308_1005768122", 
-            "position": 2, 
-            "title": "JSON load/dump instead of loads/dumps", 
-            "description": "", 
-            "labels": []
-        }, 
-        {
-            "id": "613242151_848095660_3860920645_2113647270", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 3, 
-            "title": "Screenshots", 
-            "description": "This here is the description. You can enter more details than just the title above. Click on a card to see this view.\n\nThe ugly rectangles above are labels. Simply click on them to toggle them on or off. Use them to categorize your cards. Red means bugs, orange means change requests, yellow means testing, etc.\n\n- [ ] You can also make checklists like so\n- [x] You will see a progress bar on the card", 
+            "id": "613242151_848095660_3860920645_2113647270",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 4,
+            "title": "Screenshots",
+            "description": "This here is the description. You can enter more details than just the title above. Click on a card to see this view.\n\nThe ugly rectangles above are labels. Simply click on them to toggle them on or off. Use them to categorize your cards. Red means bugs, orange means change requests, yellow means testing, etc.\n\n- [ ] You can also make checklists like so\n- [x] You will see a progress bar on the card",
             "labels": [
                 6
             ]
-        }, 
+        },
         {
-            "id": "1244876708_2466753516_77541808_57339673", 
-            "list_id": "1463394567_1005693800_3793023534_2523788226", 
-            "position": 3, 
-            "title": "Edge always drags the whole list", 
-            "description": "The ondrag event is called on the list even if you try to drag the card. Nothing I can do...\n\nI would have to allow dragging lists by dragging only the header. Changes to the structure of the lists... Not today sorry...", 
+            "id": "3977200099_3900013638_163169334_2002842467",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 4,
+            "title": "Freezing and socket errors on the server in Edge and Chrome",
+            "description": "They say it's the WSGI reference server that leaves the port open for KeepAlive connections...\n\nOut of my control :-/",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "39", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 4, 
-            "title": "Theme support?", 
-            "description": "- [x] Change header\n- [x] Theme class\n- [x] Insert theme colors in main page controller\n- [ ] How about a Sublime theme importer?\n- [x] Default theme\n- [x] Blue theme\n- [x] Dark theme\n- [x] Theme switcher", 
+            "id": "39",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 5,
+            "title": "Theme support?",
+            "description": "- [x] Change header\n- [x] Theme class\n- [x] Insert theme colors in main page controller\n- [ ] How about a Sublime theme importer?\n- [x] Default theme\n- [x] Blue theme\n- [x] Dark theme\n- [x] Theme switcher",
             "labels": [
                 6
             ]
-        }, 
+        },
         {
-            "id": "3977200099_3900013638_163169334_2002842467", 
-            "list_id": "1463394567_1005693800_3793023534_2523788226", 
-            "position": 4, 
-            "title": "Freezing and socket errors on the server in Edge and Chrome", 
-            "description": "They say it's the WSGI reference server that leaves the port open for KeepAlive connections...\n\nOut of my control :-/", 
-            "labels": [
-                1
-            ]
-        }, 
-        {
-            "id": "2086729684_2491451695_1341062695_3336531077", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 5, 
-            "title": "Shutdown button", 
-            "description": "Ideally it would stop the server and close the console window if launched from a link", 
+            "id": "2086729684_2491451695_1341062695_3336531077",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 6,
+            "title": "Shutdown button",
+            "description": "Ideally it would stop the server and close the console window if launched from a link",
             "labels": []
-        }, 
+        },
         {
-            "id": "70", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 6, 
-            "title": "README.md", 
-            "description": "Update with instructions about running in project's folder, etc.", 
+            "id": "70",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 7,
+            "title": "README.md",
+            "description": "Update with instructions about running in project's folder, etc.",
             "labels": []
-        }, 
+        },
         {
-            "id": "23", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 7, 
-            "title": "Start Browser", 
-            "description": "Start the user's browser after starting the web server, just like Jupyter Notebook\n\nimport webbrowser\n\nwebbrowser.open(url[, new=0[, autoraise=True]])", 
+            "id": "23",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 8,
+            "title": "Start Browser",
+            "description": "Start the user's browser after starting the web server, just like Jupyter Notebook\n\nimport webbrowser\n\nwebbrowser.open(url[, new=0[, autoraise=True]])",
             "labels": []
-        }, 
+        },
         {
-            "id": "309300538_348640289_2086712927_809850682", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 8, 
-            "title": "Edge Tests", 
-            "description": "- [x] Add card\n- [x] Save card\n- [x] Drag Drop card\n- [x] Delete card\n- [x] Add list\n- [x] Rename list\n- [x] Drag Drop list\n- [x] Delete list\n- [x] Rename project\n", 
+            "id": "309300538_348640289_2086712927_809850682",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 9,
+            "title": "Edge Tests",
+            "description": "- [x] Add card\n- [x] Save card\n- [x] Drag Drop card\n- [x] Delete card\n- [x] Add list\n- [x] Rename list\n- [x] Drag Drop list\n- [x] Delete list\n- [x] Rename project\n",
             "labels": [
                 3
             ]
-        }, 
+        },
         {
-            "id": "1466946762_1813769083_836833175_939114413", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 9, 
-            "title": "Special symbols that break the card's description", 
-            "description": "- [x] And what about \" and ' ?\n- [x] OK, what about < and > ?\n- [x] And finally, that famous & ?\n- [x] And accents like \u00e9\u00e0\u00e7 now that we're here?", 
+            "id": "1466946762_1813769083_836833175_939114413",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 10,
+            "title": "Special symbols that break the card's description",
+            "description": "- [x] And what about \" and ' ?\n- [x] OK, what about < and > ?\n- [x] And finally, that famous & ?\n- [x] And accents like \u00e9\u00e0\u00e7 now that we're here?",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "2037027285_4088488914_1700291577_1584084663", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 10, 
-            "title": "Chrome: Can only drop on list input", 
-            "description": "", 
+            "id": "2037027285_4088488914_1700291577_1584084663",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 11,
+            "title": "Chrome: Can only drop on list input",
+            "description": "",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "170573099_580621972_1569965045_3281674073", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 11, 
-            "title": "Chrome Tests", 
-            "description": "- [x] Add card\n- [x] Save card\n- [x] Drag Drop card\n- [x] Delete card\n- [x] Add list\n- [x] Rename list\n- [x] Drag Drop list\n- [x] Delete list\n- [x] Rename project", 
+            "id": "170573099_580621972_1569965045_3281674073",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 12,
+            "title": "Chrome Tests",
+            "description": "- [x] Add card\n- [x] Save card\n- [x] Drag Drop card\n- [x] Delete card\n- [x] Add list\n- [x] Rename list\n- [x] Drag Drop list\n- [x] Delete list\n- [x] Rename project",
             "labels": [
-                1, 
+                1,
                 3
             ]
-        }, 
+        },
         {
-            "id": "3165614628_4271220274_621564534_651658824", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 12, 
-            "title": "Prepend broke when I switched to GUID", 
-            "description": "", 
+            "id": "3165614628_4271220274_621564534_651658824",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 13,
+            "title": "Prepend broke when I switched to GUID",
+            "description": "",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "74", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 13, 
-            "title": "GUID-like ids", 
-            "description": "I was using numeric ids inside strings and JS sorts them!\n\n>>> x = { \"0\": \"a\", \"1\": \"b\", \"2\": \"c\" };\nObject(3) [ \"a\", \"b\", \"c\" ]\n\nSo I switched to GUID-like ids", 
+            "id": "74",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 14,
+            "title": "GUID-like ids",
+            "description": "I was using numeric ids inside strings and JS sorts them!\n\n>>> x = { \"0\": \"a\", \"1\": \"b\", \"2\": \"c\" };\nObject(3) [ \"a\", \"b\", \"c\" ]\n\nSo I switched to GUID-like ids",
             "labels": []
-        }, 
+        },
         {
-            "id": "22", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 14, 
-            "title": "Lists", 
-            "description": "- [x] Rename list\n- [x] Add list\n- [x] Delete list\n- [x] Drag and Drop list (re-order)\n- [x] Drag and Drop cards between lists\n- [x] Drag and Drop cards in a list\n- [x] Show list's card count", 
+            "id": "22",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 15,
+            "title": "Lists",
+            "description": "- [x] Rename list\n- [x] Add list\n- [x] Delete list\n- [x] Drag and Drop list (re-order)\n- [x] Drag and Drop cards between lists\n- [x] Drag and Drop cards in a list\n- [x] Show list's card count",
             "labels": [
                 4
             ]
-        }, 
+        },
         {
-            "id": "68", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 15, 
-            "title": "Display:Flex", 
-            "description": "", 
+            "id": "68",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 16,
+            "title": "Display:Flex",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "id": "25", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 16, 
-            "title": "Drag & Drop Cards", 
-            "description": "- [x] Between lists\r\n- [x] Inside a list\r\n- [ ] Drop shadow\r\n- [ ] Drop target", 
+            "id": "25",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 17,
+            "title": "Drag & Drop Cards",
+            "description": "- [x] Between lists\r\n- [x] Inside a list\r\n- [ ] Drop shadow\r\n- [ ] Drop target",
             "labels": []
-        }, 
+        },
         {
-            "id": "54", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 17, 
-            "title": "303 See Other", 
-            "description": "", 
+            "id": "54",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 18,
+            "title": "303 See Other",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "position": 18, 
-            "id": "31", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "title": "New cards sometimes pop at top of list", 
-            "description": "Looks ok but some time later poof they're up top", 
+            "position": 19,
+            "id": "31",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "title": "New cards sometimes pop at top of list",
+            "description": "Looks ok but some time later poof they're up top",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "67", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 19, 
-            "title": "Icons are draggable", 
-            "description": "", 
+            "id": "67",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 20,
+            "title": "Icons are draggable",
+            "description": "",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "21", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 20, 
-            "title": "Show an indicator if description is set", 
-            "description": "Like this one", 
+            "id": "21",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 21,
+            "title": "Show an indicator if description is set",
+            "description": "Like this one",
             "labels": [
-                4, 
+                4,
                 6
             ]
-        }, 
+        },
         {
-            "id": "69", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 21, 
-            "title": "Saving a card overwrites the icon and progressbar", 
-            "description": "card.textContent overwrites the whole content of the div.\n\nUse makeCard instead", 
+            "id": "69",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 22,
+            "title": "Saving a card overwrites the icon and progressbar",
+            "description": "card.textContent overwrites the whole content of the div.\n\nUse makeCard instead",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "42", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 22, 
-            "title": "Accents are not supported...", 
-            "description": "File \"C:\\Program Files\\Python\\lib\\urllib\\parse.py\", line 103, in _encode_result\n    return obj.encode(encoding, errors)\nUnicodeEncodeError: 'ascii' codec can't encode character '\\xe9' in position 269: ordinal not in range(128)", 
+            "id": "42",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 23,
+            "title": "Accents are not supported...",
+            "description": "File \"C:\\Program Files\\Python\\lib\\urllib\\parse.py\", line 103, in _encode_result\n    return obj.encode(encoding, errors)\nUnicodeEncodeError: 'ascii' codec can't encode character '\\xe9' in position 269: ordinal not in range(128)",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "44", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 23, 
-            "title": "Switch to BottlePy", 
-            "description": "", 
+            "id": "44",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 24,
+            "title": "Switch to BottlePy",
+            "description": "",
             "labels": [
                 4
             ]
-        }, 
+        },
         {
-            "id": "17", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 24, 
-            "title": "Prepend Card", 
-            "description": "\"Add to Top\" and \"Add to Bottom\" buttons in the modal popup", 
+            "id": "17",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 25,
+            "title": "Prepend Card",
+            "description": "\"Add to Top\" and \"Add to Bottom\" buttons in the modal popup",
             "labels": [
-                3, 
+                3,
                 4
             ]
-        }, 
+        },
         {
-            "id": "53", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 25, 
-            "title": "New card in AJAX", 
-            "description": "", 
+            "id": "53",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 26,
+            "title": "New card in AJAX",
+            "description": "",
             "labels": [
-                3, 
+                3,
                 4
             ]
-        }, 
+        },
         {
-            "id": "55", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 26, 
-            "title": "Save card in AJAX", 
-            "description": "", 
+            "id": "55",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 27,
+            "title": "Save card in AJAX",
+            "description": "",
             "labels": [
-                3, 
+                3,
                 4
             ]
-        }, 
+        },
         {
-            "id": "47", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 27, 
-            "title": "Max Length on lists name", 
-            "description": "", 
+            "id": "47",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 28,
+            "title": "Max Length on lists name",
+            "description": "",
             "labels": [
                 4
             ]
-        }, 
+        },
         {
-            "id": "38", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 28, 
-            "title": "JS CleanUp", 
-            "description": "- [x] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many", 
+            "id": "38",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 29,
+            "title": "JS CleanUp",
+            "description": "- [x] Re-order the functions in a way that makes sense\r\n- [ ] Maybe even split the file into many",
             "labels": []
-        }, 
+        },
         {
-            "id": "48", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 29, 
-            "title": "Refactoring: Switch the lists from a list to a dict", 
-            "description": "Use the same \"next_id\" trick with the same variable", 
+            "id": "48",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 30,
+            "title": "Refactoring: Switch the lists from a list to a dict",
+            "description": "Use the same \"next_id\" trick with the same variable",
             "labels": [
-                3, 
+                3,
                 4
             ]
-        }, 
+        },
         {
-            "id": "45", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 30, 
-            "title": "Refactoring url to /card", 
-            "description": "", 
+            "id": "45",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 31,
+            "title": "Refactoring url to /card",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "id": "19", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 31, 
-            "title": "Card labels", 
-            "description": "Small 190/6 px wide labels always at the same position", 
+            "id": "19",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 32,
+            "title": "Card labels",
+            "description": "Small 190/6 px wide labels always at the same position",
             "labels": [
-                1, 
-                2, 
-                3, 
-                4, 
-                5, 
+                1,
+                2,
+                3,
+                4,
+                5,
                 6
             ]
-        }, 
+        },
         {
-            "id": "41", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 32, 
-            "title": "Brighten up the progress bar", 
-            "description": "It's not visible enough through the labels", 
+            "id": "41",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 33,
+            "title": "Brighten up the progress bar",
+            "description": "It's not visible enough through the labels",
             "labels": [
                 6
             ]
-        }, 
+        },
         {
-            "id": "40", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 33, 
-            "title": "Request class", 
-            "description": "", 
+            "id": "40",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 34,
+            "title": "Request class",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "id": "16", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 34, 
-            "title": "Delete cards", 
-            "description": "", 
+            "id": "16",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 35,
+            "title": "Delete cards",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "id": "29", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 35, 
-            "title": "config.path", 
-            "description": "- [x] Not sure how this will behave when I use PyInstaller\r\n- [x] Test again to make sure it works when invoked in another project's folder", 
+            "id": "29",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 36,
+            "title": "config.path",
+            "description": "- [x] Not sure how this will behave when I use PyInstaller\r\n- [x] Test again to make sure it works when invoked in another project's folder",
             "labels": []
-        }, 
+        },
         {
-            "id": "28", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 36, 
-            "title": "PyInstaller", 
-            "description": "", 
+            "id": "28",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 37,
+            "title": "PyInstaller",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "id": "34", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 37, 
-            "title": "Catch viewfile not found and display in response", 
-            "description": "", 
+            "id": "34",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 38,
+            "title": "Catch viewfile not found and display in response",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "id": "33", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 38, 
-            "title": "Card counts are not updated after drag & drop between lists", 
-            "description": "", 
+            "id": "33",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 39,
+            "title": "Card counts are not updated after drag & drop between lists",
+            "description": "",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "32", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 39, 
-            "title": "Drag & Drop inside a list between cards is off by one", 
-            "description": "", 
+            "id": "32",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 40,
+            "title": "Drag & Drop inside a list between cards is off by one",
+            "description": "",
             "labels": [
                 1
             ]
-        }, 
+        },
         {
-            "id": "27", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 40, 
-            "title": "Renaming project", 
-            "description": "", 
+            "id": "27",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 41,
+            "title": "Renaming project",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "id": "20", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 41, 
-            "title": "Card checklists", 
-            "description": "", 
+            "id": "20",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 42,
+            "title": "Card checklists",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "id": "24", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 42, 
-            "title": "Command-line parameters", 
-            "description": "To setup the hostname and port without editing config.json", 
+            "id": "24",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 43,
+            "title": "Command-line parameters",
+            "description": "To setup the hostname and port without editing config.json",
             "labels": []
-        }, 
+        },
         {
-            "id": "26", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 43, 
-            "title": "Escape to close zoomed card", 
-            "description": "", 
+            "id": "26",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 44,
+            "title": "Escape to close zoomed card",
+            "description": "",
             "labels": []
-        }, 
+        },
         {
-            "id": "12", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 44, 
-            "title": "Updating cards", 
-            "description": "Testing...\r\nWORKS!", 
+            "id": "12",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 45,
+            "title": "Updating cards",
+            "description": "Testing...\r\nWORKS!",
             "labels": []
-        }, 
+        },
         {
-            "id": "10", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 45, 
-            "title": "Adding cards", 
-            "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id", 
+            "id": "10",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 46,
+            "title": "Adding cards",
+            "description": "- [x] Show the new card\r\n- [x] Show in the proper list\r\n- [x] Set the proper id and update next_id",
             "labels": []
-        }, 
+        },
         {
-            "id": "14", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 46, 
-            "title": "Data Storage", 
-            "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?", 
+            "id": "14",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 47,
+            "title": "Data Storage",
+            "description": "- ( ) SQLite?\r\n- ( ) XML?\r\n- (x) JSON?",
             "labels": []
-        }, 
+        },
         {
-            "id": "6", 
-            "list_id": "1901749129_962513719_918349320_1149498453", 
-            "position": 47, 
-            "title": "Web Server", 
-            "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST", 
+            "id": "6",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 48,
+            "title": "Web Server",
+            "description": "- [x] Hello world\r\n- [x] Response classes\r\n- [x] Router class\r\n- [x] Controller classes\r\n- [x] View basics\r\n- [ ] Request class parsing POST",
             "labels": []
         }
-    ], 
+    ],
     "theme": "default"
 }
