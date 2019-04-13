@@ -26,6 +26,7 @@ class ProjectsController():
 		favorites = Favorites()
 		theme_manager = ThemeManager()
 		for root, folders, files in os.walk(path):
+			folders.sort()
 			return template(
 				"browse",
 				CSS = theme_manager.apply("default"),
