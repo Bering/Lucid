@@ -59,6 +59,7 @@ def switch_theme(theme_name):
 	return c.switch_theme(theme_name)
 
 @get("/shutdown")
+@post("/shutdown")
 def shutdown():
 	c = ProjectController()
 	return c.shutdown()
