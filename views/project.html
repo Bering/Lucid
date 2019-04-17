@@ -657,10 +657,6 @@ function shutdown(ev) {
 	alert("The server has shut down, you may now close this window");
 }
 
-window.onunload = function() {
-	navigator.sendBeacon("/shutdown", null);
-}
-
 </script>
 
 %include('footer.html')
