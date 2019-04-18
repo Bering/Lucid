@@ -26,11 +26,11 @@ class Favorites:
 		fh.close()
 
 	def is_favorite(self):
-		current_folder = os.path.dirname(os.path.realpath(__file__))
+		current_folder = os.getcwd()
 		return (current_folder in self._favorites)
 
 	def make_options(self):
-		current_folder = os.path.dirname(os.path.realpath(__file__))
+		current_folder = os.getcwd()
 
 		options = []
 		for path, name in self._favorites.items():
@@ -41,7 +41,7 @@ class Favorites:
 		return options
 
 	def toggle(self, project_name):
-		current_folder = os.path.dirname(os.path.realpath(__file__))
+		current_folder = os.getcwd()
 
 		if current_folder in self._favorites:
 			del self._favorites[current_folder]
